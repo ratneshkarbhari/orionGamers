@@ -25,13 +25,13 @@
                     </div></li>
                     <li><a href="<?php echo site_url('dashboard'); ?>">Dashboard</a></li>
                     <li><a href="<?php echo site_url('all-games'); ?>">Games</a></li>
-                    <li><a href="<?php echo site_url('all-products'); ?>">Game Products</a></li>
+                    <li><a href="<?php echo site_url('all-game-products'); ?>">Game Products</a></li>
                     <li><a href="<?php echo site_url('all-sales'); ?>">Sales</a></li>
                 </ul>
                 
                 <a href="#" data-target="slide-out" class="sidenav-trigger" style="margin: none !important;"><i class="material-icons text-white">menu</i></a>        
                 <a href="<?php echo site_url('admin-dashboard'); ?>" class="brand-logo center">
-                <h4 style="margin: 5% 0; padding: 0;">Orion Gamers</h4>
+                <h4 style="margin: 5% 0; padding: 0; font-size: 25px;">Orion Gamers</h4>
                 <!-- Logo Position -->
                 </a>
                 <ul id="nav-mobile" class="right">
@@ -47,3 +47,4 @@
         </nav>
     
     </header>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

@@ -5,6 +5,8 @@
     
     class GameProductsModel extends CI_Model {
     
+        private $table = 'game_products';
+
         
         public function __construct()
         {
@@ -15,7 +17,7 @@
         
         public function fetch_all(){
          
-            $this->db->ordaer_by('id', 'desc');
+            $this->db->order_by('id', 'desc');
             return $this->db->get($this->table)->result_array();
             
         }

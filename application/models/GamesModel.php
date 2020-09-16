@@ -14,9 +14,20 @@
         
         public function fetch_all(){
          
-            $this->db->ordaer_by('id', 'desc');
+            $this->db->order_by('id', 'desc');
             return $this->db->get('games')->result_array();
             
+        }
+
+        public function update_game_slider_images($gameId,$slider_images_json){
+            $this->db->set('banner_images', $slider_images_json);
+            $this->db->where('id', $gameId);
+            return $this->db->update('games'); // gives UPDATE `mytable` SET `field` = 'field+1' WHERE `id` = 2
+        }
+
+        public function fetch_game_by_slug($gameSlug)
+        {
+            return $this->db->get_where('games',array('slug'=>$gameSlug))->row_array();
         }
 
         public function fetch_game_by_id($gameId){

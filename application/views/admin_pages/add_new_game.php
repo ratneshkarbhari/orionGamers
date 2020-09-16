@@ -1,3 +1,4 @@
+
 <main class="page-content" id="admin-dashboard">
 
     <div class="container">
@@ -27,20 +28,23 @@
             </div>
 
             <div class="row" >
-                <div class="col l6 m12 s12">
+                <div class="col l12 m12 s12 center-align">
                     <div class="ip-field" style="margin: 3% 0;" >
                     <span>FEATURED IMAGE</span>
                         <input type="file" name="featured_image" accept="image/*">    
                     </div>
                 </div>
-                <div class="col l6 m12 s12">
+                <div class="col l12 m12 s12 center-align" id="slider_image_container">
+                    <span>SLIDER IMAGES:</span>
 
                     <div class="ip-field" style="margin: 3% 0;">
-                    <span>SLIDER IMAGES</span>
-                            <input type="file" name="slider_images[]" accept="image/*" multiple>
-                       
+                        <input type="file" name="slider_images[]" id="slider_img_0" accept="image/*" multiple>
+                        <button type="button" target="slider_img_0" class="btn red delete-slider-img-field"><i class="material-icons">delete</i></button>
                     </div>
 
+                </div>
+                <div class="center-align">
+                    <button type="button" class="btn" id="addSliderImage"><i class="material-icons">add</i></button>
                 </div>
             </div>
 
@@ -61,3 +65,20 @@
     </div>
 
 </main>
+
+
+<script>
+let i = 1;
+$("button#addSliderImage").click(function () {
+    $("div#slider_image_container").append('<div class="ip-field" style="margin: 3% 0;"> <input type="file" name="slider_images[]" id="slider_img_'+i+'" accept="image/*" multiple> <button type="button" target="slider_img_'+i+'" class="btn red delete-slider-img-field"><i class="material-icons">delete</i></button> </div>');
+    i++;
+});
+$(document).on("click", ".delete-slider-img-field" , function() {
+    let target = $(this).attr('target');
+   $("input#"+target).css('display','none'); 
+   $(this).css('display','none'); 
+});
+// $(".delete-slider-img-field").click(function () {
+
+// });
+</script>

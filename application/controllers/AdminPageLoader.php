@@ -37,11 +37,22 @@
             $this->load->view('templates/admin_footer', $data);
         }
 
+        public function edit_game($slug){
+            $this->load->model('GamesModel');
+            $data['title'] = 'Edit Game';
+            $data['game'] = $this->GamesModel->fetch_game_by_slug($slug);
+            $data['success'] = $data['error'] = '';
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/edit_game', $data);
+            $this->load->view('templates/admin_footer', $data);
+        }
+
         public function all_game_products()
         {
-            $this->load->model('GamesModel');
+            $this->load->model('GameProductsModel');
             $data['title'] = 'All Game Products';
-            $data['game_products'] = $this->GamesModel->fetch_all();
+            $data['game_products'] = $this->GameProductsModel->fetch_all();
             $data['success'] = $data['error'] = '';
 
             $this->load->view('templates/admin_header', $data);

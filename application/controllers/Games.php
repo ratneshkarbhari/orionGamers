@@ -15,13 +15,13 @@
                 redirect(site_url('admin-login'));
                 
             }
+            $this->load->model('GamesModel');
         }
         
     
         public function add_new()
         {
 
-            $this->load->model('GamesModel');
             
             
             $config['upload_path'] = './assets/images/game_featured_images';
@@ -112,7 +112,6 @@
 
         public function delete()
         {
-            $this->load->model('GamesModel');
             $gameId = $this->input->post('game-id');
             $gameData = $this->GamesModel->fetch_game_by_id($gameId);
             $gameDeleted = $this->GamesModel->delete($gameId);
@@ -146,6 +145,24 @@
                 $this->load->view('templates/admin_footer', $data);
             }
         }
+
+        public function update(){
+            $gameId = $this->input->post('game-id');
+            $gameData = $this->GamesModel->fetch_game_by_id($gameId);
+
+        }
+
+        public function delete_slider_image(){
+            $slider_img_key = $this->input->post('slider_image_key');            
+            $gameId = $this->input->post('game-id');
+            $gameData = $this->GamesModel->fetch_game_by_id($gameId);
+            $slider_images = json_decode($gameData['slider_images'],TRUE);
+            unset($slider_images[$slider_img_key]);
+            $slider_images_json = json_encode($slider_images);
+            $gameUpdated = $this->GamesModel->update_game_slider_images($gameId,$slider_images_json);
+            redirect(site_url('edit-game/'.$gameData['slug']));   
+        }
+        
     
     }
     

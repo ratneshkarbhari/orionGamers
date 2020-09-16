@@ -13,7 +13,7 @@
                 </div></a>
             </div>
             <div class="col l4 m12 s12">
-                <a href="<?php echo site_url('game-products'); ?>"><div class="card custom-card-one-third center-align">
+                <a href="<?php echo site_url('all-game-products'); ?>"><div class="card custom-card-one-third center-align">
                 <h6>Game Products</h6>
                 </div></a>
             </div>

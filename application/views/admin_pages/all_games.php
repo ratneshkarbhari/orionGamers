@@ -9,7 +9,7 @@
 
         <div class="row">
         
-            <?php foreach($games as $game): ?>
+            <?php if($games): foreach($games as $game): ?>
             <div class="col l4 m6 s12">
             
                 <div class="card">
@@ -32,7 +32,7 @@
                 </div>
             
             </div>
-            <?php endforeach; ?>
+            <?php endforeach; endif; ?>
 
         </div>
         
