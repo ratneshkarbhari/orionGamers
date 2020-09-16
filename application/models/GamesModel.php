@@ -14,7 +14,7 @@
         
         public function fetch_all(){
          
-            $this->db->order_by('id', 'desc');
+            $this->db->ordaer_by('id', 'desc');
             return $this->db->get('games')->result_array();
             
         }

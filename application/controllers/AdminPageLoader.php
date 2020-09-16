@@ -36,6 +36,18 @@
             $this->load->view('admin_pages/all_games', $data);
             $this->load->view('templates/admin_footer', $data);
         }
+
+        public function all_game_products()
+        {
+            $this->load->model('GamesModel');
+            $data['title'] = 'All Game Products';
+            $data['game_products'] = $this->GamesModel->fetch_all();
+            $data['success'] = $data['error'] = '';
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/all_game_products', $data);
+            $this->load->view('templates/admin_footer', $data);
+        }
         
         public function add_new_game(){
             $data['title'] = 'Add New Game';
