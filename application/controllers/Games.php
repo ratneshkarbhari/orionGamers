@@ -149,12 +149,12 @@
         public function update(){
             $gameId = $this->input->post('game-id');
             $oldGameData = $this->GamesModel->fetch_game_by_id($gameId);
-
+            print_r($oldGameData);
         }
 
         public function delete_slider_image(){
             $slider_img_key = $this->input->post('slider_image_key');            
-            $gameId = $this->input->post('game-id');
+            $gameId = $this->input->post('game_id');
             $gameData = $this->GamesModel->fetch_game_by_id($gameId);
             $slider_images = json_decode($gameData['banner_images'],TRUE);
             $newSliderImgs = array();
@@ -168,7 +168,7 @@
                 $slider_images_json = json_encode($slider_images);
             }
             $gameUpdated = $this->GamesModel->update_game_slider_images($gameId,$slider_images_json);
-            redirect(site_url('edit-game/'.$gameData['slug']));   
+            exit('done');
         }
         
     
