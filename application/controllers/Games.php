@@ -148,7 +148,7 @@
 
         public function update(){
             $gameId = $this->input->post('game-id');
-            $gameData = $this->GamesModel->fetch_game_by_id($gameId);
+            $oldGameData = $this->GamesModel->fetch_game_by_id($gameId);
 
         }
 
@@ -156,9 +156,17 @@
             $slider_img_key = $this->input->post('slider_image_key');            
             $gameId = $this->input->post('game-id');
             $gameData = $this->GamesModel->fetch_game_by_id($gameId);
-            $slider_images = json_decode($gameData['slider_images'],TRUE);
-            unset($slider_images[$slider_img_key]);
-            $slider_images_json = json_encode($slider_images);
+            $slider_images = json_decode($gameData['banner_images'],TRUE);
+            $newSliderImgs = array();
+            if (count($slider_images)>1) {
+                unset($slider_images[$slider_img_key]);
+                foreach ($slider_images as $slider_img) {
+                    $newSliderImgs[] = $slider_img;
+                }
+                $slider_images_json = json_encode($newSliderImgs);
+            } else {
+                $slider_images_json = json_encode($slider_images);
+            }
             $gameUpdated = $this->GamesModel->update_game_slider_images($gameId,$slider_images_json);
             redirect(site_url('edit-game/'.$gameData['slug']));   
         }

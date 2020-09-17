@@ -32,9 +32,8 @@
             <div class="row" >
                 <div class="col l12 m12 s12 center-align">
                     <img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>" style="width: 100%;"><br>
-                                <a class="btn darken-2 red" href="<?php echo site_url() ?>"><i class="material-icons">delete</i></a>
                     <div class="ip-field" style="margin: 3% 0;" >
-                    <span>FEATURED IMAGE</span>
+                    <span>CHANGE FEATURED IMAGE</span>
                         <input type="file" name="featured_image" accept="image/*">    
                     </div>
                 </div>
@@ -43,21 +42,31 @@
                 
                     <div class="owl-carousel">
                     
-                    <?php $slider_images = $game['banner_images']; $banner_images_array = json_decode($slider_images,TRUE); $i=0; if(is_array($banner_images_array)): foreach ($banner_images_array as $banner_image): ?>
+                    <?php $slider_images = $game['banner_images']; $banner_images_array = json_decode($slider_images,TRUE); $i=0; if(count($banner_images_array)>0): foreach ($banner_images_array as $banner_image): ?>
                         <div class="slider-image-item">
                             <img src="<?php echo site_url('assets/images/game_slider_images/'.$banner_image); ?>" style="width: 100%;"><br>
                             <?php echo form_open('delete-slider-image'); ?>
                                 <input type="hidden" name="slider_image_key" value="<?php echo $i; ?>">
                                 <input type="hidden" name="game-id" value="<?php echo $game['id']; ?>">
+                                <?php $sliderImgCount = count($banner_images_array); if ($sliderImgCount>1): ?>
                                 <button type="submit" class="btn darken-2 red"><i class="material-icons">delete</i></button>
+                                <?php endif; ?>
                             <?php echo form_close(); ?>
                         </div>
                     <?php $i++; endforeach; endif; ?>
                     </div>
-                    <div class="ip-field" style="margin: 3% 0;">
-                    <span>SLIDER IMAGES</span>
-                            <input type="file" name="slider_images[]" accept="image/*" multiple>
-                       
+                    <br>
+                    <div class="col l12 m12 s12 center-align" id="slider_image_container">
+                        <span>ADD SLIDER IMAGES:</span>
+
+                        <div class="ip-field" style="margin: 3% 0;">
+                            <input type="file" name="slider_images[]" id="slider_img_0" accept="image/*" >
+                            <button type="button" target="slider_img_0" class="btn red delete-slider-img-field"><i class="material-icons">delete</i></button>
+                        </div>
+
+                    </div>
+                    <div class="center-align">
+                        <button type="button" class="btn" id="addSliderImage"><i class="material-icons">add</i></button>
                     </div>
 
                 </div>
@@ -80,3 +89,16 @@
     </div>
 
 </main>
+
+<script>
+let i = 1;
+$("button#addSliderImage").click(function () {
+    $("div#slider_image_container").append('<div class="ip-field" style="margin: 3% 0;"> <input type="file" name="slider_images[]" id="slider_img_'+i+'" accept="image/*"> <button type="button" target="slider_img_'+i+'" class="btn red delete-slider-img-field"><i class="material-icons">delete</i></button> </div>');
+    i++;
+});
+$(document).on("click", ".delete-slider-img-field" , function() {
+    let target = $(this).attr('target');
+   $("input#"+target).css('display','none'); 
+   $(this).css('display','none'); 
+});
+</script>
