@@ -55,8 +55,6 @@
                 $_FILES['slider_image']['size'] = $sliderImages['size'][$i];
                 $_FILES['slider_image']['type'] = $sliderImages['type'][$i];
 
-
-
                 $this->upload->initialize($configMultiple);
 
                 if ( ! $this->upload->do_upload('slider_image')){
@@ -149,7 +147,104 @@
         public function update(){
             $gameId = $this->input->post('game-id');
             $oldGameData = $this->GamesModel->fetch_game_by_id($gameId);
-            print_r($oldGameData);
+            if (isset($_FILES['featured_image'])) {
+                $config['upload_path'] = './assets/images/game_featured_images';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['encrypt_name'] = TRUE;
+
+                $this->load->library('upload', $config);
+                
+                if ( ! $this->upload->do_upload('featured_image')){
+                    $error = array('error' => $this->upload->display_errors());
+                    $featured_image_name = $oldGameData['featured_image'];
+                }else{
+                    $data = array('upload_data' => $this->upload->data());
+                    $featured_image_name = $data['upload_data']['file_name'];
+                    unlink('./assets/images/game_featured_images/'.$oldGameData['featured_image']);
+                }
+            }else{
+                $featured_image_name = $oldGameData['featured_image'];
+            }
+
+                
+            $sliderImages = $_FILES['slider_images'];
+
+            $configNew['upload_path'] = './assets/images/game_slider_images';
+            $configNew['allowed_types'] = 'gif|jpg|png|jpeg';
+            $configNew['encrypt_name'] = TRUE;
+
+            $this->upload->initialize($configNew);
+            
+            $sliderImageNames = json_decode($oldGameData['banner_images'],TRUE);
+        
+            $sliderImagesCount = count($sliderImages['name']);
+
+            if (isset($sliderImages['name'][0])) {
+                for ($i=0; $i < $sliderImagesCount; $i++) { 
+
+                    $_FILES['slider_image']['name'] = $sliderImages['name'][$i];
+                    $_FILES['slider_image']['tmp_name'] = $sliderImages['tmp_name'][$i];
+                    $_FILES['slider_image']['error'] = $sliderImages['error'][$i];
+                    $_FILES['slider_image']['size'] = $sliderImages['size'][$i];
+                    $_FILES['slider_image']['type'] = $sliderImages['type'][$i];
+
+
+                    $this->upload->initialize($configNew);
+
+                    if ( ! $this->upload->do_upload('slider_image')){
+                        $error = array('error' => $this->upload->display_errors());
+                    }else{
+                        $data = array('upload_data' => $this->upload->data());
+                        $sliderImageName = $data['upload_data']['file_name'];
+                    }    
+
+                    if (isset($sliderImageName)) {
+                        $sliderImageNames[] = $sliderImageName;
+                        $sliderImageNamesJson = json_encode($sliderImageNames);
+                    }else {
+                        $sliderImageNamesJson = $oldGameData['banner_images'];
+                    }
+
+
+                }
+            } else {
+                $sliderImageNamesJson = $oldGameData['banner_images'];
+            }
+            
+                
+
+            $newGameData = array(
+                'title' => $this->input->post('title'),
+                'slug' => url_title($this->input->post('slug')),
+                'description' => $this->input->post('description'),
+                'featured_image' => $featured_image_name,
+                'banner_images' => $sliderImageNamesJson
+            );
+            $gameUpdated = $this->GamesModel->update($oldGameData['id'],$newGameData);
+        
+            if ($gameUpdated) {
+                
+                $data['title'] = 'Edit Game';
+                $data['game'] = $this->GamesModel->fetch_game_by_id($oldGameData['id']);
+                $data['success'] = 'Game updated successfully'; $data['error'] = '';
+
+                $this->load->view('templates/admin_header', $data);
+                $this->load->view('admin_pages/edit_game', $data);
+                $this->load->view('templates/admin_footer', $data);
+
+            } else {
+                
+                $data['title'] = 'Edit Game';
+                $data['game'] = $this->GamesModel->fetch_game_by_id($oldGameData['id']);
+                $data['success'] = ''; $data['error'] = 'Game not updated';
+
+                $this->load->view('templates/admin_header', $data);
+                $this->load->view('admin_pages/edit_game', $data);
+                $this->load->view('templates/admin_footer', $data);
+
+            }
+            
+
         }
 
         public function delete_slider_image(){
@@ -163,7 +258,7 @@
                 foreach ($slider_images as $slider_img) {
                     $newSliderImgs[] = $slider_img;
                 }
-                $slider_images_json = json_encode($newSliderImgs);
+                $sliderImageNamesJson = json_encode($newSliderImgs);
             } else {
                 $slider_images_json = json_encode($slider_images);
             }

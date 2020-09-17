@@ -80,7 +80,7 @@
             <div class="ip-field-container">
 
                 <label for="product-description">Game description</label>
-                <textarea class="materialize-textarea" id="product-description" class="ip-field" type="text" name="description"><?php echo $game['description']; ?>"</textarea>
+                <textarea class="materialize-textarea" id="product-description" class="ip-field" type="text" name="description"><?php echo $game['description']; ?></textarea>
 
             </div>
 

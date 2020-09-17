@@ -19,6 +19,11 @@
             
         }
 
+        public function update($gameId,$newGameData){
+            $this->db->where('id', $gameId);
+            return $this->db->update('games', $newGameData);
+        }
+
         public function update_game_slider_images($gameId,$slider_images_json){
             $this->db->set('banner_images', $slider_images_json);
             $this->db->where('id', $gameId);
