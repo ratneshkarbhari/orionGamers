@@ -12,9 +12,15 @@
         {
             parent::__construct();
             $this->load->database();
-            $this->table = $this->table;
         }
         
+        public function update($gameProdId,$newData){
+            $this->db->where('id', $gameProdId);
+            return $this->db->update($this->table, $newData);
+        }
+
+
+
         public function fetch_all(){
          
             $this->db->order_by('id', 'desc');
@@ -22,9 +28,14 @@
             
         }
 
-        public function fetch_game_by_id($gameId){
+        public function fetch_by_id($gameId){
 
             return $this->db->get_where($this->table,array('id'=>$gameId))->row_array();
+
+        }
+        public function fetch_game_by_slug($gameslug){
+
+            return $this->db->get_where($this->table,array('slug'=>$gameslug))->row_array();
 
         }
 

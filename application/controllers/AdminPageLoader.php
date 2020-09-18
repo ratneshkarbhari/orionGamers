@@ -15,6 +15,19 @@
                 
             }
         }
+
+        public function edit_game_product($slug){
+            $data['title'] = 'Edit game Product';
+            $this->load->model('GamesModel');
+            $this->load->model('GameProductsModel');
+            $data['all_games'] = $this->GamesModel->fetch_all();
+            $data['gameProduct'] = $this->GameProductsModel->fetch_game_by_slug($slug);
+            $data['success'] = $data['error'] = '';
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/edit_game_product', $data);
+            $this->load->view('templates/admin_footer', $data);
+        }
         
         public function add_new_game_product(){
             $data['title'] = 'Add New game Product';
