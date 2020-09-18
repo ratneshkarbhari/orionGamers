@@ -26,10 +26,14 @@
             <input id="product-slug" class="ip-field" type="text" name="slug">
 
         </div>
-        
+        <br>
         <div class="ip-field-container">
 
-            <select name="game-id" class="browser-default" id="game-select">
+            <label for="game-select">Select a Game</label>
+
+
+            <select name="game-id" class="browser-default" id="game-select" style="border: 1px solid darkgray;">
+
 
                 <?php foreach($all_games as $game): ?>
                 <option value="<?php echo $game['id']; ?>"><?php echo $game['title']; ?></option>
@@ -37,7 +41,7 @@
 
             </select>
 
-        </div>
+        </div><br>
 
         <div class="row">
         

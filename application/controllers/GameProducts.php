@@ -42,6 +42,7 @@
             $objectToCreate = array(
                 'title' => $this->input->post('title'),
                 'slug' => url_title($this->input->post('slug')),
+                'parent_game' => $this->input->post('game-id'),
                 'description' => $this->input->post('description'),
                 'price' => $this->input->post('product-price'),
                 'sale_price' => $this->input->post('product-sale-price'),

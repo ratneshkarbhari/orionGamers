@@ -12,7 +12,7 @@
             <?php foreach($game_products as $game_product): ?>
             <div class="col l4 m6 s12">
             
-                <div class="card">
+                <div class="card center-align">
                     <div class="card-image">
                         <img src="<?php echo site_url('assets/images/game_product_featured_images/'.$game_product['featured_image']); ?>">
                     </div>
