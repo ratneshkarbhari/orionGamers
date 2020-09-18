@@ -55,7 +55,7 @@
 
             </div>
 
-            <button type="submit" class="btn red" style="width: 100%; margin: 3% 0;">Add New Game</button>
+            <button type="submit" class="btn btn-lg red" style="width: 100%; margin: 3% 0;">Add New Game Product</button>
 
         <?php echo 
         form_close();

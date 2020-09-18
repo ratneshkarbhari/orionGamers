@@ -14,7 +14,7 @@
             
                 <div class="card">
                     <div class="card-image">
-                        <img src="<?php echo site_url('assets/images/game_featured_images/'.$game_product['featured_image']); ?>">
+                        <img src="<?php echo site_url('assets/images/game_product_featured_images/'.$game_product['featured_image']); ?>">
                     </div>
                     <span class="card-title" style="margin-left: 3%;"><?php echo $game_product['title']; ?></span>
 
@@ -40,7 +40,7 @@
     </div>
 
     <div class="fixed-action-btn">
-    <a class="btn-floating btn-large red " href="<?php echo site_url('add-new-game'); ?>">
+    <a class="btn-floating btn-large red " href="<?php echo site_url('add-new-game-product'); ?>">
         <i class="large material-icons">add</i>
         </a>
     </div>

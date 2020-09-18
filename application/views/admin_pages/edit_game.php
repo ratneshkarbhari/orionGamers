@@ -53,7 +53,7 @@
                         
                             <img src="<?php echo site_url('assets/images/game_slider_images/'.$sliderImg); ?>" style="width: 100%;">
                             <br>
-                            <button type="button" class="btn red delete-slider-image-button" target_slider_img="<?php echo $y; ?>" target_game="<?php echo $game['id']; ?>"><i class="material-icons">delete</i></button>
+                            <!-- <button type="button" class="btn red delete-slider-image-button" target_slider_img="<?php echo $y; ?>" target_game="<?php echo $game['id']; ?>"><i class="material-icons">delete</i></button> -->
                             
 
                         </div>
@@ -62,7 +62,8 @@
                     </div>
                     <br>
                     <div class="col l12 m12 s12 center-align" id="slider_image_container">
-                        <span>ADD SLIDER IMAGES:</span>
+                        <span>REPLACE SLIDER IMAGES:</span>
+                        
 
                         <div class="ip-field" style="margin: 3% 0;">
                             <input type="file" name="slider_images[]" id="slider_img_0" accept="image/*" >
@@ -84,7 +85,7 @@
 
             </div>
 
-            <button type="submit" class="btn red" style="width: 100%; margin: 3% 0;">Add New Game</button>
+            <button type="submit" class="btn red" style="width: 100%; margin: 3% 0;">Update Game</button>
 
         </form>
         

@@ -22,6 +22,8 @@ $route['admin-login-exe'] = 'Authentication/admin_login_exe';
 $route['admin-logout'] = 'Authentication/admin_logout';
 $route['add-new-game'] = 'AdminPageLoader/add_new_game';
 $route['edit-game/(:any)'] = 'AdminPageLoader/edit_game/$1';
+$route['all-game-products'] = 'AdminPageLoader/all_game_products';
+$route['add-new-game-product'] = 'AdminPageLoader/add_new_game_product';
 
 
 // Games Exe routes
@@ -32,4 +34,6 @@ $route['update-game-exe'] = 'Games/update';
 
 
 
-$route['all-game-products'] = 'AdminPageLoader/all_game_products';
+// Game Products Routs
+$route['add-new-game-product-exe'] = 'GameProducts/add_new';
+$route['delete-game-product-exe'] = 'GameProducts/delete';

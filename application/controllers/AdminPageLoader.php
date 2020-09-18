@@ -16,6 +16,15 @@
             }
         }
         
+        public function add_new_game_product(){
+            $data['title'] = 'Add New game Product';
+            $this->load->model('GamesModel');
+            $data['all_games'] = $this->GamesModel->fetch_all();
+            $data['success'] = $data['error'] = '';
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/add_new_game_product', $data);
+            $this->load->view('templates/admin_footer', $data);
+        }
 
         public function dashboard()
         {

@@ -24,7 +24,7 @@
             $this->load->model('GameProductsModel');
             
             
-            $config['upload_path'] = './assets/images/game_featured_images';
+            $config['upload_path'] = './assets/images/game_product_featured_images';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['encrypt_name'] = TRUE;
 
@@ -32,77 +32,40 @@
             
             if ( ! $this->upload->do_upload('featured_image')){
                 $error = array('error' => $this->upload->display_errors());
+                print_r($error);
             }else{
                 $data = array('upload_data' => $this->upload->data());
                 $featured_image_name = $data['upload_data']['file_name'];
             }    
 
-            $sliderImages = $_FILES['slider_images'];
-
-            $configMultiple['upload_path'] = './assets/images/game_slider_images';
-            $configMultiple['allowed_types'] = 'gif|jpg|png|jpeg';
-            $configMultiple['encrypt_name'] = TRUE;
-
-            $sliderImageNames = array();
             
-            $sliderImagesCount = count($sliderImages['name']);
-
-            for ($i=0; $i < $sliderImagesCount; $i++) { 
-
-                $_FILES['slider_image']['name'] = $sliderImages['name'][$i];
-                $_FILES['slider_image']['tmp_name'] = $sliderImages['tmp_name'][$i];
-                $_FILES['slider_image']['error'] = $sliderImages['error'][$i];
-                $_FILES['slider_image']['size'] = $sliderImages['size'][$i];
-                $_FILES['slider_image']['type'] = $sliderImages['type'][$i];
-
-
-
-                $this->upload->initialize($configMultiple);
-
-                if ( ! $this->upload->do_upload('slider_image')){
-                    $error = array('error' => $this->upload->display_errors());
-                    print_r($error);
-                }else{
-                    $data = array('upload_data' => $this->upload->data());
-                    $sliderImageName = $data['upload_data']['file_name'];
-                }    
-
-
-
-                $sliderImageNames[] = $sliderImageName;               
-
-            }
-
-            $sliderImageNamesJson = json_encode($sliderImageNames);
-
             $objectToCreate = array(
                 'title' => $this->input->post('title'),
                 'slug' => url_title($this->input->post('slug')),
                 'description' => $this->input->post('description'),
+                'price' => $this->input->post('product-price'),
+                'sale_price' => $this->input->post('product-sale-price'),
                 'featured_image' => $featured_image_name,
-                'banner_images' => $sliderImageNamesJson
             );
 
-            $gameCreated = $this->GameProductsModel->create($objectToCreate);
+            $gameProductCreated = $this->GameProductsModel->create($objectToCreate);
 
-            if ($gameCreated) {
+            if ($gameProductCreated) {
             
-                $data['title'] = 'Add New Game';
-                $data['success'] = 'Game Added Successfully'; 
-                $data['error'] = '';
-
+                $data['title'] = 'Add New game Product';
+                $data['success'] = 'Game Product added successfully'; $data['error'] = '';
                 $this->load->view('templates/admin_header', $data);
-                $this->load->view('admin_pages/add_new_game', $data);
+                $this->load->view('admin_pages/add_new_game_product', $data);
                 $this->load->view('templates/admin_footer', $data);
             
             } else {
 
-                $data['title'] = 'Add New Game';
+                $data['title'] = 'Add New Game product';
                 $data['success'] = ''; 
-                $data['error'] = 'Game addition failed';
+                $data['error'] = 'Game product addition failed';
 
                 $this->load->view('templates/admin_header', $data);
-                $this->load->view('admin_pages/add_new_game', $data);
+                $this->load->view('admin_pages/add_new_game_product', $data);
                 $this->load->view('templates/admin_footer', $data);
                 
             }
@@ -117,7 +80,7 @@
             $gameData = $this->GameProductsModel->fetch_game_by_id($gameId);
             $gameDeleted = $this->GameProductsModel->delete($gameId);
             if ($gameDeleted) {
-                $featuredImgLink = './assets/images/game_featured_images/'.$gameData['featured_image'];
+                $featuredImgLink = './assets/images/game_product_featured_images/'.$gameData['featured_image'];
                 if(is_file($featuredImgLink)){
                     unlink($featuredImgLink);
                 }
