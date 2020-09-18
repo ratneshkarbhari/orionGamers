@@ -9,7 +9,7 @@
 
         <div class="row">
         
-            <?php foreach($game_products as $game_product): ?>
+            <?php if(!empty($game_products)): foreach($game_products as $game_product): ?>
             <div class="col l4 m6 s12">
             
                 <div class="card center-align">
@@ -19,10 +19,10 @@
                     <span class="card-title" style="margin-left: 3%;"><?php echo $game_product['title']; ?></span>
 
                     <div class="card-action center-align">
-                        <a class="btn darken-2 green" href="<?php echo site_url('edit-game_product/'.$game_product['slug']); ?>"><i class="material-icons">edit</i></a>
-                        <a class="btn darken-2 red modal-trigger" href="#delete-game_product-modal-<?php echo $game_product['id']; ?>"><i class="material-icons">delete</i></a>
+                        <a class="btn darken-2 green" href="<?php echo site_url('edit-game-product/'.$game_product['slug']); ?>"><i class="material-icons">edit</i></a>
+                        <a class="btn darken-2 red modal-trigger" href="#delete-game-product-modal-<?php echo $game_product['id']; ?>"><i class="material-icons">delete</i></a>
                     </div>
-                    <div id="delete-game_product-modal-<?php echo $game_product['id']; ?>" class="modal" style="padding: 5%;">
+                    <div id="delete-game-product-modal-<?php echo $game_product['id']; ?>" class="modal" style="padding: 5%;">
                         <h4>Are you sure?</h4>
                         <form action="<?php echo site_url('delete-game-product-exe'); ?>" method="post">
                             <input type="hidden" name="game-product-id" value="<?php echo $game_product['id']; ?>">
@@ -32,7 +32,7 @@
                 </div>
             
             </div>
-            <?php endforeach; ?>
+            <?php endforeach; endif; ?>
 
         </div>
         

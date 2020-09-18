@@ -77,7 +77,7 @@
         public function delete()
         {
             $this->load->model('GameProductsModel');
-            $gameId = $this->input->post('game-id');
+            $gameId = $this->input->post('game-product-id');
             $gameData = $this->GameProductsModel->fetch_game_by_id($gameId);
             $gameDeleted = $this->GameProductsModel->delete($gameId);
             if ($gameDeleted) {
@@ -85,20 +85,13 @@
                 if(is_file($featuredImgLink)){
                     unlink($featuredImgLink);
                 }
-                $sliderImagesJson = $gameData['banner_images'];
-                $sliderImageNames = json_decode($sliderImagesJson,TRUE);
-                foreach($sliderImageNames as $sliderImageName){
-                    $sliderImageLink = './assets/images/game_slider_images/'.$sliderImageName;
-                    if(is_file($sliderImageLink)){
-                        unlink($sliderImageLink);
-                    }
-                }
+                
                 $data['title'] = 'All GameProducts';
                 $data['GameProducts'] = $this->GameProductsModel->fetch_all();
                 $data['success'] = 'Game Deleted successfully'; $data['error'] = '';
 
                 $this->load->view('templates/admin_header', $data);
-                $this->load->view('admin_pages/all_GameProducts', $data);
+                $this->load->view('admin_pages/all_game_products', $data);
                 $this->load->view('templates/admin_footer', $data);
             } else {
                 $data['title'] = 'All GameProducts';
@@ -106,7 +99,7 @@
                 $data['success'] = ''; $data['error'] = 'Game couldnt be deleted';
 
                 $this->load->view('templates/admin_header', $data);
-                $this->load->view('admin_pages/all_GameProducts', $data);
+                $this->load->view('admin_pages/all_game_products', $data);
                 $this->load->view('templates/admin_footer', $data);
             }
         }
