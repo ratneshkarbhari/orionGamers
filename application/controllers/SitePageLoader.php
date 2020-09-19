@@ -73,19 +73,18 @@
 
 		public function customer_login(){
 
-			$fb = new Facebook\Facebook([
-			'app_id' => '2668062993460781',
-			'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
-			'default_graph_version' => 'v2.10',
-			]);
+			// $fb = new Facebook\Facebook([
+			// 'app_id' => '2668062993460781',
+			// 'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
+			// 'default_graph_version' => 'v2.10',
+			// ]);
 
-			$helper = $fb->getRedirectLoginHelper();
+			// $helper = $fb->getRedirectLoginHelper();
 
-			$permissions = ['email']; // Optional permissions
-			$loginUrl = $helper->getLoginUrl(site_url('fb-login-exe'), $permissions);
+			// $permissions = ['email']; // Optional permissions
+			// $loginUrl = $helper->getLoginUrl(site_url('fb-login-exe'), $permissions);
 
-			$data['title'] = 'Customer Login';
-			$data['loginUrl'] = $loginUrl;
+			// $data['loginUrl'] = $loginUrl;
 
 			//google login
 			$clientID = '627783576646-m10djg85fun4k3q653ti16dc88191j69.apps.googleusercontent.com';
@@ -101,7 +100,10 @@
 			$client->addScope("profile"); 
 			
 			$googleLoginUrl = $client->createAuthUrl();
+
+			$data['title'] = 'Customer Login';
 			$data['googleLoginUrl'] = $googleLoginUrl;
+			$data['error'] = '';
 
 
 			$this->load->view('templates/site_header', $data);			

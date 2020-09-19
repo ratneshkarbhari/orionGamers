@@ -7,6 +7,15 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     
     class Authentication extends CI_Controller {
+
+        
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->model('AuthModel');
+            
+        }
+        
     
         public function admin_login_exe()
         {
@@ -22,7 +31,6 @@
 
                 if ($entered_username!=''&&$entered_password!='') {
 
-                    $this->load->model('AuthModel');
 
                     $adminData = $this->AuthModel->fetch_admin_data_by_username($entered_username);
 
@@ -135,9 +143,86 @@
             // echo $full_name = $me->getName(); 
 
         }
-        public function googleLoginRedirect(){
+       
+        public function email_login_exe(){
 
+            $customerEmail = $this->input->post('customer-email');
+            $customerPassword = $this->input->post('customer-password');
+
+            $clientID = '627783576646-m10djg85fun4k3q653ti16dc88191j69.apps.googleusercontent.com';
+            $clientSecret = 'iiF2s97KwPIwYNEAv1G7H4KP';
+            $redirectUri = site_url('google-login-exe');
+            
+            // create Client Request to access Google API
+            $client = new Google_Client();
+            $client->setClientId($clientID);
+            $client->setClientSecret($clientSecret);
+            $client->setRedirectUri($redirectUri);
+            $client->addScope("email");
+            $client->addScope("profile"); 
+            
+            $googleLoginUrl = $client->createAuthUrl();
+
+            if ($customerEmail==''||$customerPassword=='') {
+                
+                $data['title'] = 'Customer Login';
+                $data['googleLoginUrl'] = $googleLoginUrl;
+                $data['error'] = 'Please enter both email and password';
+
+                $this->load->view('templates/site_header', $data);			
+                $this->load->view('site_pages/customer_login', $data);
+                $this->load->view('templates/site_footer', $data);	
+
+            } else {
+                
+                $customerData = $this->AuthModel->fetch_customer_data_by_email($customerEmail);
+
+                if ($customerData) {
+                    
+                    $passwordCorrect = password_verify($customerPassword,$customerData['password']);
+
+                    if ($passwordCorrect) {
+                        
+                        
+                        $array = array(
+                            'first_name' => $customerData['first_name'],
+                            'last_name' => $customerData['last_name'],
+                            'email' => $customerData['email'],
+                            'logged_in_as' => 'customer'
+                        );
+                        
+                        $this->session->set_userdata( $array );
+                        
+                        
+                        redirect(site_url('my-account'));
+                        
+
+                    } else {
+                        $data['title'] = 'Customer Login';
+                        $data['googleLoginUrl'] = $googleLoginUrl;
+                        $data['error'] = 'Password is incorrect';
+
+                        $this->load->view('templates/site_header', $data);			
+                        $this->load->view('site_pages/customer_login', $data);
+                        $this->load->view('templates/site_footer', $data);	
+                    }
+                    
+
+                } else {
+                    
+                    $data['title'] = 'Customer Login';
+                    $data['googleLoginUrl'] = $googleLoginUrl;
+                    $data['error'] = 'Email is incorrect';
+    
+                    $this->load->view('templates/site_header', $data);			
+                    $this->load->view('site_pages/customer_login', $data);
+                    $this->load->view('templates/site_footer', $data);	    
+
+                }
+
+            }
         }
+
         public function googleLoginExe(){
 
             $clientID = '627783576646-m10djg85fun4k3q653ti16dc88191j69.apps.googleusercontent.com';

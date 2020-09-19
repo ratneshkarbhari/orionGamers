@@ -20,6 +20,8 @@ $route['google-login-exe'] = 'Authentication/googleLoginExe';
 $route['google-login-redirect'] = 'Authentication/google_login_redirect';
 $route['privacy-policy'] = 'SitePageLoader/privacy_policy';
 
+$route['email-login-exe'] = 'Authentication/email_login_exe';
+
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';
 $route['all-games'] = 'AdminPageLoader/all_games';

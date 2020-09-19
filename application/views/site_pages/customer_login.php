@@ -1,53 +1,105 @@
-<div class="login-section section pt-95 pt-lg-75 pt-md-65 pt-sm-55 pt-xs-45">
+<div class="login-section section pt-95 pt-lg-75 pt-md-65 pt-sm-55 pt-xs-45" style="margin-bottom: 3%;">
         <div class="container">
             <div class="row">
 
-                <!-- Login -->
-                <div class="col-md-6 col-12 d-flex">
-                    <div class="gilbard-login">
+                <div class="col-lg-3 col-md-12 col-sm-12"></div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
 
-                        <h3><span style="color: red;">Login to</span> your account</h3>
+                    <div id="loginBox">
+                    
 
-                        <!-- Login Form -->
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-12 mb-30"><input type="text" placeholder="Type your username or email address"></div>
-                                <div class="col-12 mb-20"><input type="password" placeholder="Enter your password"></div>
-                                
-                                <div class="col-12"><input type="submit" value="LOGIN"></div>
+                        <h1 class="text-center"><span style="color: red;">Login to</span> your account</h1>
+
+
+                        <div class="text-center" style="margin-bottom: 5%;">
+                            <a href="<?php  echo $googleLoginUrl; ?>">
+                                <img src="<?php echo site_url('assets/images/google-login.png'); ?>" >
+                            </a>
+                        </div>
+
+                        <form action="<?php echo site_url('email-login-exe'); ?>" method="post">
+
+                            <div class="form-group">
+                                <label for="customer-email">Email Address</label>
+                                <input class="form-control" type="email" name="customer-email" id="customer-email" required>
                             </div>
-                        </form>
-
-                    </div>
-                </div>
-
-
-
-                <!-- Login With Social -->
-                <div class="col-md-6 col-12 d-flex gilbard-login">
-
-                    <div class="gilbard-login">
-
-                        <h3><span style="color: red;">Register to </span> Create an Account</h3>
-
-
-
-                        <!-- Login Form -->
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-12 mb-30"><input type="text" placeholder="First Name"></div>
-                                <div class="col-12 mb-30"><input type="text" placeholder="Last Name"></div>
-                                <div class="col-12 mb-30"><input type="text" placeholder="Your Email Address"></div>
-                                <div class="col-12 mb-20"><input type="password" placeholder="Enter your passward"></div>
-                                
-                                <div class="col-12"><input type="submit" value="REGISTER"></div>
+                            <div class="form-group">
+                                <label for="customer-password">Password</label>
+                                <a style="position: absolute; right:3%;" href="<?php echo site_url('forgot-password'); ?>"><small class="text-light">Show Password</small></a>
+                                <input class="form-control" type="password" name="customer-password" id="customer-password" required>
                             </div>
-                        </form>
+                            <div class="form-group text-right" style="margin: 0;">
+                                <a style="text-align: right;" href="<?php echo site_url('forgot-password'); ?>"><small class="text-danger">Forgot Password?</small></a>
+                            </div>
 
+                            <div class="form-group">
+                            <button type="submit" class="btn btn-danger">Login</button>
+
+                            </div>
+
+                        </form>
+                        
+                    
+                    
                     </div>
 
+                    <div id="registerBox" class="d-none">
+                    
+
+                        <h1 class="text-center"><span style="color: red;">Create New</span>  account</h1>
+
+
+                        <div class="text-center" style="margin-bottom: 5%;">
+                            <a href="<?php  echo $googleLoginUrl; ?>">
+                            <img src="<?php echo site_url('assets/images/google-login.png'); ?>" >
+                            </a>
+
+
+                        </div>
+
+                        <form action="" method="post">
+
+                            <div class="container-fluid" style="margin:0; padding:0;">
+                                <div class="row">
+                                    <div class="col-lg-6 form-group">
+                                        <label for="first-name">First Name</label>
+                                        <input class="form-control" type="text" name="first-name" id="first-name">
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <label for="last-name">Last Name</label>
+                                        <input class="form-control" type="text" name="last-name" id="last-name">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customer-email">Email Address</label>
+                                <input class="form-control" type="email" name="customer-email" id="customer-email">
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-password">Password</label>
+                                <a style="position: absolute; right:3%;" href="<?php echo site_url('forgot-password'); ?>"><small class="text-light">Show Password</small></a>
+                                <input class="form-control" type="password" name="customer-password" id="customer-password">
+                            </div>
+                            <div class="form-group text-right" style="margin: 0;">
+                                <a style="text-align: right;" href="<?php echo site_url('forgot-password'); ?>"><small class="text-danger">Forgot Password?</small></a>
+                            </div>
+
+                            <div class="form-group">
+                            <button type="submit" class="btn btn-danger">Login</button>
+
+                            </div>
+
+                        </form>
+                        
+                    
+                    
+                    </div>
+                
                 </div>
+                <div class="col-lg-3 col-md-12 col-sm-12"></div>
+                
 
             </div>
         </div>
-    </div>
+    </div><br><br>
