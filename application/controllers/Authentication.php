@@ -1,5 +1,8 @@
 <?php
 
+    require_once './vendor/autoload.php'; // change path as needed
+
+
     
     defined('BASEPATH') OR exit('No direct script access allowed');
     
@@ -101,6 +104,72 @@
                 
                 
             }
+        }
+
+        public function facebookLoginExe(){
+
+            $fb = new Facebook\Facebook([
+                'app_id' => '2668062993460781',
+                'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
+                'default_graph_version' => 'v2.10',
+                ]);
+    
+            $helper = $fb->getRedirectLoginHelper();
+
+            $accessToken = $helper->getAccessToken();
+
+
+           
+
+            if (! isset($accessToken)) {
+                echo '<script>alert("Please allow facebook access for login"); </script>';
+            }
+
+            $response = $fb->get('/me', $accessToken);
+
+            print_r($response);
+
+            // $me = $response->getGraphUser();
+
+
+            // echo $full_name = $me->getName(); 
+
+        }
+        public function googleLoginRedirect(){
+
+        }
+        public function googleLoginExe(){
+
+            $clientID = '627783576646-m10djg85fun4k3q653ti16dc88191j69.apps.googleusercontent.com';
+            $clientSecret = 'iiF2s97KwPIwYNEAv1G7H4KP';
+            $redirectUri = site_url('google-login-exe');
+            
+            // create Client Request to access Google API
+            $client = new Google_Client();
+            $client->setClientId($clientID);
+            $client->setClientSecret($clientSecret);
+            $client->setRedirectUri($redirectUri);
+            $client->addScope("email");
+            $client->addScope("profile");
+            
+            // authenticate code from Google OAuth Flow
+            if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            $client->setAccessToken($token['access_token']);
+            
+            // get profile info
+            $google_oauth = new Google_Service_Oauth2($client);
+            $google_account_info = $google_oauth->userinfo->get();
+            echo $email =  $google_account_info->email;
+            echo $name =  $google_account_info->name;
+            
+            // now you can use this profile info to create account in your website and make user logged in.
+            }else {
+                
+                redirect(site_url('customer-login'));
+                
+            }
+
         }
     
     }

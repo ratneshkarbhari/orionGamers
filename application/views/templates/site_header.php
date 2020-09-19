@@ -36,7 +36,7 @@
                     <!--Logo start-->
                     <div class="col-12 col-md -3 col-lg-3  ">
                         <div class="logo">
-                            <a class="navbar-brand" href="index.html"> <img src="<?php echo site_url('assets/images/website_logo.png'); ?>"></a>
+                            <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/website_logo.png'); ?>"></a>
                         </div>
                     </div>
                     <!--Logo end-->

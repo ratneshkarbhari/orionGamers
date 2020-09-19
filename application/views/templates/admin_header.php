@@ -23,7 +23,7 @@
                     <li><div class="user-view" style="border-bottom: 1px solid darkgray; padding-bottom: 3%;">
                     <a href="#name"><span class="black-text name"><?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?></span></a>
                     </div></li>
-                    <li><a href="<?php echo site_url('dashboard'); ?>">Dashboard</a></li>
+                    <li><a href="<?php echo site_url('admin-dashboard'); ?>">Dashboard</a></li>
                     <li><a href="<?php echo site_url('all-games'); ?>">Games</a></li>
                     <li><a href="<?php echo site_url('all-game-products'); ?>">Game Products</a></li>
                     <li><a href="<?php echo site_url('all-sales'); ?>">Sales</a></li>

@@ -1,5 +1,7 @@
 <?php
 
+	require_once './vendor/autoload.php'; // change path as needed
+
 	
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
@@ -59,6 +61,46 @@
 			}
 			
 
+
+		}
+
+		public function customer_login(){
+
+			$fb = new Facebook\Facebook([
+			'app_id' => '2668062993460781',
+			'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
+			'default_graph_version' => 'v2.10',
+			]);
+
+			$helper = $fb->getRedirectLoginHelper();
+
+			$permissions = ['email']; // Optional permissions
+			$loginUrl = $helper->getLoginUrl(site_url('fb-login-exe'), $permissions);
+
+			$data['title'] = 'Customer Login';
+			$data['loginUrl'] = $loginUrl;
+
+			//google login
+			$clientID = '627783576646-m10djg85fun4k3q653ti16dc88191j69.apps.googleusercontent.com';
+            $clientSecret = 'iiF2s97KwPIwYNEAv1G7H4KP';
+            $redirectUri = site_url('google-login-exe');
+            
+            // create Client Request to access Google API
+            $client = new Google_Client();
+            $client->setClientId($clientID);
+            $client->setClientSecret($clientSecret);
+            $client->setRedirectUri($redirectUri);
+            $client->addScope("email");
+			$client->addScope("profile"); 
+			
+			$googleLoginUrl = $client->createAuthUrl();
+			$data['googleLoginUrl'] = $googleLoginUrl;
+
+
+			$this->load->view('templates/site_header', $data);			
+			$this->load->view('site_pages/customer_login', $data);
+			$this->load->view('templates/site_footer', $data);			
+			
 
 		}
 	

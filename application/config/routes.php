@@ -12,8 +12,12 @@ $route['login'] = 'SitePageLoader/login';
 $route['account'] = 'SitePageLoader/account';
 
 
+// Customer site routes
 $route['admin-login'] = 'SitePageLoader/admin_login';
-
+$route['customer-login'] = 'SitePageLoader/customer_login';
+$route['fb-login-exe'] = 'Authentication/facebookLoginExe';
+$route['google-login-exe'] = 'Authentication/googleLoginExe';
+$route['google-login-redirect'] = 'Authentication/google_login_redirect';
 
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';
