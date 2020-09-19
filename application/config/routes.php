@@ -15,12 +15,14 @@ $route['account'] = 'SitePageLoader/account';
 // Customer site routes
 $route['admin-login'] = 'SitePageLoader/admin_login';
 $route['customer-login'] = 'SitePageLoader/customer_login';
-$route['fb-login-exe'] = 'Authentication/facebookLoginExe';
-$route['google-login-exe'] = 'Authentication/googleLoginExe';
 $route['google-login-redirect'] = 'Authentication/google_login_redirect';
 $route['privacy-policy'] = 'SitePageLoader/privacy_policy';
+$route['my-account'] = 'SitePageLoader/my_account';
 
+// Authentication endpoints
 $route['email-login-exe'] = 'Authentication/email_login_exe';
+$route['fb-login-exe'] = 'Authentication/facebookLoginExe';
+$route['google-login-exe'] = 'Authentication/googleLoginExe';
 
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';

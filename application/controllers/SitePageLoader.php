@@ -112,6 +112,20 @@
 			
 
 		}
+
+		public function my_account(){
+
+			if ($this->session->userdata('logged_in_as')!='customer') {
+				redirect(site_url('customer-login'));
+			}
+
+			$data['title'] = 'My Account';
+			$data['error'] = '';
+
+			$this->load->view('templates/site_header', $data);			
+			$this->load->view('site_pages/my_account', $data);
+			$this->load->view('templates/site_footer', $data);	
+		}
 	
 	}
 	
