@@ -28,7 +28,7 @@
 <div id="main-wrapper">
    
     <!--Header section start-->
-    <header class="header header-static bg-black header-sticky">
+    <header class="header header-static bg-black header-sticky" style="box-shadow: 0px 0px 50px red;">
         <div class="default-header menu-right">
             <div class="container container-1520">
                 <div class="row">

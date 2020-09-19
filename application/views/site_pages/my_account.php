@@ -21,25 +21,27 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="first_name">First Name</label>
-                                            <input class="form-control" type="text" name="first_name" id="first_name">
+                                            <input class="form-control" type="text" name="first_name" id="first_name" value='<?php echo $_SESSION['first_name']; ?>'>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="last_name">Last Name</label>
-                                            <input class="form-control" type="text"  name="last_name" id="last_name">
+                                            <input class="form-control" type="text"  name="last_name" value='<?php echo $_SESSION['last_name']; ?>' id="last_name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input class="form-control" type="email" name="email" id="email">
+                                            <input class="form-control" type="email" name="email" value='<?php echo $_SESSION['email']; ?>' id="email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="mobile_number">Mobile Number</label>
-                                            <input class="form-control" type="text" name="mobile_number" id="mobile_number">
+                                            <input class="form-control" type="text" name="mobile_number" <?php if(isset($_SESSION['email'])){
+                                                echo $_SESSION['email'];
+                                            } ?> id="mobile_number">
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-12 col-sm-12 col-md-12">
@@ -52,6 +54,8 @@
                     </div>
                     <div class="tab-pane fade" id="v-pills-referred-people" role="tabpanel" aria-labelledby="v-pills-v-pills-referred-people-tab">
                         <h4>Refferals</h4>
+                        <label>Refferal Code:</label>
+                        <pre style="color: white; font-size: 18px;">1u310d1</pre>
                         <p>People who sign up with your refferal code and purchase will appeare here:</p>                   
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
