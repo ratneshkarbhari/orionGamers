@@ -16,6 +16,13 @@
 			$this->load->view('templates/site_footer', $data);
 		}
 
+		public function privacy_policy(){
+			$data['title'] = 'Privacy Policy';
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/privacy_policy', $data);
+			$this->load->view('templates/site_footer', $data);
+		}
+
 		public function login_register()
 		{
 			
