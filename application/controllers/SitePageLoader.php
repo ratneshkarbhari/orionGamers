@@ -23,19 +23,25 @@
 			$this->load->view('templates/site_footer', $data);
 		}
 
-		public function login_register()
-		{
-			
-		}
+
 
 		public function all_games()
 		{
 			
 		}
 
-		public function game_details()
+		public function game_details($slug)
 		{
+			$this->load->model('GamesModel');
 			
+			$data['game'] = $this->GamesModel->fetch_game_by_slug($slug);
+			$data['title'] = $data['game']['title'];
+
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/game_details', $data);
+			$this->load->view('templates/site_header', $data);
+			
+
 		}
 
 		public function checkout()
@@ -112,6 +118,7 @@
 			
 
 		}
+
 
 		public function my_account(){
 
