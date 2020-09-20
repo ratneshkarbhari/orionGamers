@@ -246,8 +246,27 @@
                 // get profile info
                 $google_oauth = new Google_Service_Oauth2($client);
                 $google_account_info = $google_oauth->userinfo->get();
-                echo $email =  $google_account_info->email;
-                echo $name =  $google_account_info->name;
+                
+                $email =  $google_account_info->email;
+                $name =  $google_account_info->name;
+                
+                
+                $nameArray = exaplode(' ',$name);
+
+                $fname = $nameArray[0]; $lname = $nameArray[1]; 
+                
+                
+                $array = array(
+                    'first_name' => $fname,
+                    'last_name' => $lname,
+                    'email' => $email,
+                    'logged_in_as' => 'customer'
+                );
+                
+                $this->session->set_userdata( $array );
+
+                
+                redirect(site_url('my-account'));
                 
                 
             

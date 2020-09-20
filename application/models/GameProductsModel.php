@@ -46,6 +46,10 @@
             return $this->db->delete($this->table);
 
         }
+
+        public function fetch_all_for_game($id){
+            return $this->db->get_where('game_products',array('parent_game'=>$id))->result_array();
+        }
         
         public function create($obj){
             

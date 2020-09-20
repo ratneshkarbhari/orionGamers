@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <!--Featured Title Start-->
                     <div class="  text-center" style="margin: 5% 0;">
-                        <h2><span class="color-blue" style="color: red;">FEATURED</span> GAMES</h2>
+                        <h2><span class="color-blue" style="color: red;">ALL</span> GAMES</h2>
                     </div>
                     <!--Featured Title End-->
                 </div>
@@ -26,24 +26,13 @@
             <div class="row no-gutters">
                 <div class="col-12">
                     <div class="featured-slide">
+                        
+                        <?php foreach($all_games as $game): ?>
                         <div class="single-featured img-full">
-                            <a href="#"><img src="<?php echo site_url('assets/images/feature/feature-slide-1.jpg'); ?>" alt=""></a>
+                            <a href="<?php echo site_url('game-details/'.$game['slug']); ?>"><img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>"></a>
                         </div>
-                        <div class="single-featured img-full">
-                            <a href="#"><img src="<?php echo site_url('assets/images/feature/feature-slide-1.jpg'); ?>" alt=""></a>
-                        </div>
-                        <div class="single-featured img-full">
-                            <a href="#"><img src="<?php echo site_url('assets/images/feature/feature-slide-1.jpg'); ?>" alt=""></a>
-                        </div>
-                        <div class="single-featured img-full">
-                            <a href="#"><img src="<?php echo site_url('assets/images/feature/feature-slide-1.jpg'); ?>" alt=""></a>
-                        </div>
-                        <div class="single-featured img-full">
-                            <a href="#"><img src="<?php echo site_url('assets/images/feature/feature-slide-1.jpg'); ?>" alt=""></a>
-                        </div>
-                        <div class="single-featured img-full">
-                            <a href="#"><img src="<?php echo site_url('assets/images/feature/feature-slide-1.jpg'); ?>" alt=""></a>
-                        </div>
+                        <?php endforeach; ?>
+                        
                     </div>
                 </div>
             </div>
