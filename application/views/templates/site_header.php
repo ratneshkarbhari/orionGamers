@@ -56,11 +56,11 @@
                     <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
                         <div class="header-right-wrap">
                             <ul>
-                                <li><a href="login.html">LOGIN</a></li>
+                                <li><a href="<?php echo site_url('customer-login'); ?>">LOGIN</a></li>
                                 <li class="header-search"><a class="header-search-toggle" href="#"><i class="icofont-search-2"></i></a>
                                     <div class="header-search-form">
-                                        <form action="#">
-                                            <input type="text" placeholder="Type and hit enter">
+                                        <form method="POST" action="<?php echo site_url('search-game'); ?>">
+                                            <input type="text" name="search-query" placeholder="Type and hit enter">
                                             <button><i class="icofont-search"></i></button>
                                         </form>
                                     </div>

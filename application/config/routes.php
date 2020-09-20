@@ -12,12 +12,15 @@ $route['login'] = 'SitePageLoader/login';
 $route['account'] = 'SitePageLoader/account';
 
 
+
 // Customer site routes
 $route['admin-login'] = 'SitePageLoader/admin_login';
 $route['customer-login'] = 'SitePageLoader/customer_login';
 $route['google-login-redirect'] = 'Authentication/google_login_redirect';
 $route['privacy-policy'] = 'SitePageLoader/privacy_policy';
 $route['my-account'] = 'SitePageLoader/my_account';
+$route['game-details/(:any)'] = 'SitePageLoader/game_details/$1';
+$route['buy-now'] = 'SitePageLoader/buy_now';
 
 // Authentication endpoints
 $route['email-login-exe'] = 'Authentication/email_login_exe';
