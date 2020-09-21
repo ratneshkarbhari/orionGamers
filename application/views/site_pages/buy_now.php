@@ -1,3 +1,5 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <main class="page-content" id="buy-now">
 
     <div class="container d-none d-lg-block d-sm-none d-md-none">
@@ -24,25 +26,27 @@
 
                 <div class="col-lg-6 col-md-12 col-sm-12">
 
-                    <form class="container-fluid" action="" method="post">
+                    <!-- <form class="container-fluid" action="<?php echo site_url('checkout-exe'); ?>" method="post"> -->
+
+                        <div class="container-fluid">
 
                         <div class="row">
 
                             <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                 <label for="first_name">First Name</label>
-                                <input class="form-control" type="text" name="first_name" id="first_name">
+                                <input class="form-control" value="<?php echo $_SESSION['first_name']; ?>" type="text" name="first_name" id="first_name">
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                 <label for="last_name">Last Name</label>
-                                <input class="form-control" type="text" name="last_name" id="last_name">
+                                <input value="<?php echo $_SESSION['last_name']; ?>" class="form-control" type="text" name="last_name" id="last_name">
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                 <label for="email">Email</label>
-                                <input class="form-control" type="email" name="email" id="email">
+                                <input class="form-control" value="<?php echo $_SESSION['email']; ?>" type="email" name="email" id="email">
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                 <label for="country">Country</label>
-                                <input class="form-control" type="text" name="country" id="country">
+                                <input  class="form-control" type="text" name="country" id="country">
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                 <label for="state">State</label>
@@ -59,9 +63,14 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-large btn-block" style="background-color: red; color: white;">BUY NOW</button>
+                        </div>
 
-                    </form>
+
+                        <button type="button" id="checkoutExeButton" class="btn btn-large btn-block" style="background-color: red; color: white;">BUY NOW</button>
+
+                        
+
+                    <!-- </form> -->
 
                 </div>
             </div>
@@ -69,3 +78,49 @@
     </section>
 
 </main>
+<script>
+    var options = {
+    "key": "rzp_live_zxrps8h6nsCw9a", // Enter the Key ID generated from the Dashboard
+    "amount": '<?php echo $orderData['amount']; ?>', // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Ori Gamers",
+    "description": "Payment for <?php echo $game_details['title']; ?>",
+    "image": "<?php echo site_url('assets/images/website_logo.png'); ?>",
+    "order_id": "<?php echo $orderData['id']; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('save-transaction-add-purchase'); ?>",
+            data: {
+                'razorpay_payment_id' : response.razorpay_payment_id,
+                'razorpay_order_id' : response.razorpay_order_id,
+                'razorpay_signature' : response.razorpay_signature,
+                'payee_customer_email' : '<?php echo $_SESSION['email']; ?>',
+                'payee_customer_name' : '<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>',
+                'amount' : <?php echo $game_details['sale_price']; ?>
+            },
+            success: function (response) {
+                if (response=='success') {
+                    location.href="<?php echo site_url('thank-you'); ?>"
+                }  
+            }
+        });
+
+       
+    },
+    "prefill": {
+        "name": "<?php echo $_SESSION['first_name']; ?>",
+        "email": "<?php echo $_SESSION['email']; ?>"
+    },
+    "theme": {
+        "color": "#000000"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('checkoutExeButton').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+</script>

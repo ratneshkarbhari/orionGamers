@@ -20,6 +20,11 @@ class ComposerStaticInitbc01373f874bd780f7451f88e71451f3
         array (
             'phpseclib\\' => 10,
         ),
+        'R' => 
+        array (
+            'Razorpay\\Tests\\' => 15,
+            'Razorpay\\Api\\' => 13,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -50,6 +55,14 @@ class ComposerStaticInitbc01373f874bd780f7451f88e71451f3
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'Razorpay\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/razorpay/razorpay/tests',
+        ),
+        'Razorpay\\Api\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/razorpay/razorpay/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -102,6 +115,13 @@ class ComposerStaticInitbc01373f874bd780f7451f88e71451f3
     );
 
     public static $prefixesPsr0 = array (
+        'R' => 
+        array (
+            'Requests' => 
+            array (
+                0 => __DIR__ . '/..' . '/rmccue/requests/library',
+            ),
+        ),
         'G' => 
         array (
             'Google_Service_' => 

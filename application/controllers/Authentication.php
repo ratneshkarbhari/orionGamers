@@ -276,6 +276,7 @@
                 if ($accountExists) {
                     
                     $array = array(
+                        'id' => $accountExists['id'],
                         'first_name' => $accountExists['first_name'],
                         'last_name' => $accountExists['last_name'],
                         'email' => $accountExists['email'],
@@ -308,12 +309,13 @@
                         'reff_code' => uniqid()
                     );
 
-                    $this->AuthModel->create_customer($newCustomerObj);
+                    $newId = $this->AuthModel->create_customer($newCustomerObj);
 
                     
                     
                     
                     $array = array(
+                        'id' => $newId,
                         'first_name' => $fname,
                         'last_name' => $lname,
                         'email' => $email,

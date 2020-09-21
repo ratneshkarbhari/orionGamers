@@ -13,7 +13,9 @@
         }
 
         public function create_customer($newCustomerObj){
-            return $this->db->insert('customers',$newCustomerObj);
+            $this->db->insert('customers',$newCustomerObj);
+            return $this->db->insert_id();
+            
         }
     
         public function fetch_admin_data_by_username($username){

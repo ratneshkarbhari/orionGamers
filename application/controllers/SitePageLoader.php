@@ -2,6 +2,8 @@
 
 	require_once './vendor/autoload.php'; // change path as needed
 
+
+	use Razorpay\Api\Api;
 	
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
@@ -69,8 +71,19 @@
 			$gameProductId = $this->input->post('game-product');
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {
+				
 				$data['title'] = 'Buy '.$gameProductData['title'];
 				$data['game_details'] = $gameProductData;
+
+				$api = new Api('rzp_live_zxrps8h6nsCw9a', 'zOUBfQo0ZR9GkiSVrHVyuXIu');
+
+				$order = $api->order->create(array(  'receipt' => rand(1000,9999),  'amount' => $gameProductData['sale_price']*100,  'currency' => 'INR' ,         'payment_capture' => 1 // auto capture
+				));
+
+	
+				$data['orderData'] = $order;
+
+
 				$this->load->view('templates/site_header', $data);
 				$this->load->view('site_pages/buy_now', $data);
 				$this->load->view('templates/site_footer', $data);

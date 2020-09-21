@@ -66,7 +66,9 @@
                             <?php foreach($reffered_customers as $reffCust): ?>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-left:0;padding-right:0;">
-                                    <div class="card" style="background-color: red;">
+                                    <div class="card" style="<?php if($reffCust['purchased']=='no'){echo 'background-color: red;';}else{
+                                        echo 'background-color: red;';
+                                    } ?>">
                                         <div class="card-body">
                                             <h4 style="background-color: transparent !important;"><?php echo $reffCust['first_name'].' '.$reffCust['last_name']; ?></h4>
                                             <h5 style="background-color: transparent !important;">Email: <?php echo $reffCust['email']; ?></h5>
