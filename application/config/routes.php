@@ -40,6 +40,7 @@ $route['add-new-game-product'] = 'AdminPageLoader/add_new_game_product';
 $route['edit-game-product/(:any)'] = 'AdminPageLoader/edit_game_product/$1';
 
 $route['save-transaction-add-purchase'] = 'Checkout/save_transaction';
+$route['thank-you'] = 'SitePageLoader/thank_you';
 
 // Games Exe routes
 $route['add-new-game-exe'] = 'Games/add_new';

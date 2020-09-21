@@ -62,6 +62,23 @@
 
 		}
 
+		public function thank_you(){
+
+
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
+			$this->load->model('AuthModel');
+			
+			$data['title'] = 'Thank you for the purchase';
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($_SESSION['email']);
+			$data['reff_code'] = $customerData['reff_code'];
+
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/thank_you', $data);
+			$this->load->view('templates/site_footer', $data);
+		}
+
 
 		public function buy_now()
 		{
