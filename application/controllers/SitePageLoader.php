@@ -25,11 +25,7 @@
 			$this->load->view('templates/site_footer', $data);
 		}
 
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 9a5730220c9cfdb08c086674e5f2491e90b3db92
 
 		public function game_details($slug)
 		{
@@ -48,20 +44,7 @@
 
 		}
 
-<<<<<<< HEAD
-		public function game_details($slug)
-		{
-			$this->load->model('GamesModel');
-			
-			$data['game'] = $this->GamesModel->fetch_game_by_slug($slug);
-			$data['title'] = $data['game']['title'];
 
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/game_details', $data);
-			$this->load->view('templates/site_header', $data);
-			
-
-=======
 		public function buy_now()
 		{
 			$this->load->model('GameProductsModel');			
@@ -75,7 +58,6 @@
 			} else {
 				redirect(site_url());
 			}
->>>>>>> 9a5730220c9cfdb08c086674e5f2491e90b3db92
 		}
 
 		public function checkout()
