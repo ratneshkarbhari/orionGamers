@@ -11,6 +11,10 @@
             parent::__construct();
             $this->load->database();
         }
+
+        public function create_customer($newCustomerObj){
+            return $this->db->insert('customers',$newCustomerObj);
+        }
     
         public function fetch_admin_data_by_username($username){
             return $this->db->get_where('admins',array('username'=>$username))->row_array();

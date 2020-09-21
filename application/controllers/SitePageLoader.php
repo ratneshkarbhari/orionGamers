@@ -7,12 +7,25 @@
 	
 	class SitePageLoader extends CI_Controller {
 	
+
+		
+		public function __construct()
+		{
+
+
+			parent::__construct();
+			if(isset($_GET['reff_code'])){
+				setcookie('reff-code', $_GET['reff_code'], time() + (86400 * 30), "/"); 
+			}
+		}
+		
+
 		public function home()
 		{
 			$data['title'] = 'Tagline';
 			$this->load->model('GamesModel');			
 			$data['all_games'] = $this->GamesModel->fetch_all();
-			
+
 			$this->load->view('templates/site_header', $data);
 			$this->load->view('site_pages/home', $data);
 			$this->load->view('templates/site_footer', $data);
@@ -20,6 +33,8 @@
 
 		public function privacy_policy(){
 			$data['title'] = 'Privacy Policy';
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->view('templates/site_header', $data);
 			$this->load->view('site_pages/privacy_policy', $data);
 			$this->load->view('templates/site_footer', $data);
@@ -29,9 +44,10 @@
 
 		public function game_details($slug)
 		{
-			
-			$this->load->model('GamesModel');			
 			$this->load->model('GameProductsModel');			
+
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
 
 			$data['game'] = $this->GamesModel->fetch_game_by_slug($slug);
 			$data['game_products'] = $this->GameProductsModel->fetch_all_for_game($data['game']['id']);
@@ -47,13 +63,16 @@
 
 		public function buy_now()
 		{
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {
 				$data['title'] = 'Buy '.$gameProductData['title'];
+				$data['game_details'] = $gameProductData;
 				$this->load->view('templates/site_header', $data);
-				$this->load->view('site_pages/game_details', $data);
+				$this->load->view('site_pages/buy_now', $data);
 				$this->load->view('templates/site_footer', $data);
 			} else {
 				redirect(site_url());
@@ -95,6 +114,12 @@
 
 		public function customer_login(){
 
+			if ($this->session->userdata('logged_in_as')=='customer') {
+				
+				redirect(site_url('my-account'));
+				
+			}
+
 			// $fb = new Facebook\Facebook([
 			// 'app_id' => '2668062993460781',
 			// 'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
@@ -123,6 +148,10 @@
 			
 			$googleLoginUrl = $client->createAuthUrl();
 
+
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
 			$data['title'] = 'Customer Login';
 			$data['googleLoginUrl'] = $googleLoginUrl;
 			$data['error'] = '';
@@ -142,8 +171,15 @@
 				redirect(site_url('customer-login'));
 			}
 
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
 			$data['title'] = 'My Account';
 			$data['error'] = '';
+
+			$this->load->model('RefferalModel');
+			
+			$data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
 
 			$this->load->view('templates/site_header', $data);			
 			$this->load->view('site_pages/my_account', $data);

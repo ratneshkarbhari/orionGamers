@@ -114,6 +114,23 @@
             }
         }
 
+        public function customer_logout(){
+            if ($this->session->userdata('logged_in_as')!='customer') {
+                
+                redirect(site_url());
+                
+            } else {
+
+                
+                $this->session->sess_destroy();
+                
+                
+                redirect(site_url());
+                
+                
+            }
+        }
+
         public function facebookLoginExe(){
 
             $fb = new Facebook\Facebook([
@@ -250,20 +267,65 @@
                 $email =  $google_account_info->email;
                 $name =  $google_account_info->name;
                 
-                
-                $nameArray = exaplode(' ',$name);
+                $nameArray = explode(' ',$name);
 
                 $fname = $nameArray[0]; $lname = $nameArray[1]; 
+
+                $accountExists = $this->AuthModel->fetch_customer_data_by_email($email);
+
+                if ($accountExists) {
+                    
+                    $array = array(
+                        'first_name' => $accountExists['first_name'],
+                        'last_name' => $accountExists['last_name'],
+                        'email' => $accountExists['email'],
+                        'logged_in_as' => 'customer',
+                        'reff_code' => $accountExists['reff_code'],
+                    );
+                    
+                    $this->session->set_userdata( $array );
+
+                    
+                    redirect(site_url('my-account'));
+                    
+                    
+                } else {
+
+                    if ($_COOKIE['reff-code']) {
+                        $parent = $_COOKIE['reff-code'];
+                    } else {
+                        $parent = 'independent';
+                    }
+                    
+
+                    $newCustomerObj = array(
+                        'first_name' => $fname,
+                        'last_name' => $lname,
+                        'email' => $email,
+                        'account_auth_by' => 'google_login',
+                        'purchased' => 'no',
+                        'parent_code' => $parent,
+                        'reff_code' => uniqid()
+                    );
+
+                    $this->AuthModel->create_customer($newCustomerObj);
+
+                    
+                    
+                    
+                    $array = array(
+                        'first_name' => $fname,
+                        'last_name' => $lname,
+                        'email' => $email,
+                        'reff_code' => $newCustomerObj['reff_code'],
+                        'logged_in_as' => 'customer'
+                    );
+                    
+                    $this->session->set_userdata( $array );
+                }
                 
                 
-                $array = array(
-                    'first_name' => $fname,
-                    'last_name' => $lname,
-                    'email' => $email,
-                    'logged_in_as' => 'customer'
-                );
                 
-                $this->session->set_userdata( $array );
 
                 
                 redirect(site_url('my-account'));

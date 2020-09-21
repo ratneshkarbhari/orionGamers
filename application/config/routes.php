@@ -26,6 +26,7 @@ $route['buy-now'] = 'SitePageLoader/buy_now';
 $route['email-login-exe'] = 'Authentication/email_login_exe';
 $route['fb-login-exe'] = 'Authentication/facebookLoginExe';
 $route['google-login-exe'] = 'Authentication/googleLoginExe';
+$route['customer-logout'] = 'Authentication/customer_logout';
 
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';

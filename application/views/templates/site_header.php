@@ -45,7 +45,9 @@
                     <div class="col-lg-6 col-12 order-md-3 order-lg-2 d-flex justify-content-center">
                         <nav class="main-menu menu-style-2">
                             <ul>
-                                <li><a href="video.html">COD MOBILE</a></li>
+                                <?php foreach($all_games as $single_game): ?>
+                                <li><a href="<?php echo site_url('game-details/'.$single_game['slug']); ?>"><?php echo $single_game['title']; ?></a></li>
+                                <?php endforeach; ?>
                                 <li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
                             </ul>
                         </nav>
@@ -56,7 +58,19 @@
                     <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
                         <div class="header-right-wrap">
                             <ul>
+                                <?php if($this->session->userdata('logged_in_as')=='customer'): ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <?php echo $_SESSION['first_name']; ?>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="<?php echo site_url('my-account'); ?>">MY ACCOUNT</a>
+                                    <a class="dropdown-item" href="<?php echo site_url('customer-logout'); ?>">LOGOUT</a>
+                                    </div>
+                                </li>
+                                <?php else: ?>
                                 <li><a href="<?php echo site_url('customer-login'); ?>">LOGIN</a></li>
+                                <?php endif; ?>
                                 <li class="header-search"><a class="header-search-toggle" href="#"><i class="icofont-search-2"></i></a>
                                     <div class="header-search-form">
                                         <form method="POST" action="<?php echo site_url('search-game'); ?>">

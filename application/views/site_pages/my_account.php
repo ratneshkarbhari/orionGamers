@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12">
-                <div class="tab-content" style="padding: 5% 0;" id="v-pills-tabContent">
+                <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h4 class='text-light'>Edit Profile</h4>
                         <form action="<?php echo site_url('update-customer-profile'); ?>" method="post">
@@ -57,6 +57,29 @@
                         <label>Refferal Code:</label>
                         <pre style="color: white; font-size: 18px;">1u310d1</pre>
                         <p>People who sign up with your refferal code and purchase will appeare here:</p>                   
+                        <span style='padding: 2%; background-color: red !important;'>Not Purchased</span>
+                        <span style='padding: 2%; background-color: darkgreen !important;'> Purchased</span>
+                        <br><br>
+
+                        <div class="container-fluid">
+                            <div class="row">
+                            <?php foreach($reffered_customers as $reffCust): ?>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-left:0;padding-right:0;">
+                                    <div class="card" style="background-color: red;">
+                                        <div class="card-body">
+                                            <h4 style="background-color: transparent !important;"><?php echo $reffCust['first_name'].' '.$reffCust['last_name']; ?></h4>
+                                            <h5 style="background-color: transparent !important;">Email: <?php echo $reffCust['email']; ?></h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <?php endforeach; ?>
+        
+                            </div>
+                        </div>
+
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                         <h4>Discount Settings</h4>
