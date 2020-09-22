@@ -67,7 +67,7 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-left:0;padding-right:0;">
                                     <div class="card" style="<?php if($reffCust['purchased']=='no'){echo 'background-color: red;';}else{
-                                        echo 'background-color: red;';
+                                        echo 'background-color: darkgreen;';
                                     } ?>">
                                         <div class="card-body">
                                             <h4 style="background-color: transparent !important;"><?php echo $reffCust['first_name'].' '.$reffCust['last_name']; ?></h4>
