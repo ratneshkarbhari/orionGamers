@@ -10,8 +10,8 @@
 
                         <h1 class="text-center"><span style="color: red;">Login to</span> your account</h1>
 
-
-                        <div class="text-center" style="margin-bottom: 5%;">
+                        <div class="text-center">
+                            
                             <a href="<?php  echo $googleLoginUrl; ?>">
                                 <img src="<?php echo site_url('assets/images/google-login.png'); ?>" >
                             </a>
@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="form-group">
-                            <button type="submit" class="btn btn-danger">Login</button>
+                            <button type="submit" class="btn btn-danger" style="background-color: red !important;">Login</button>
 
                             </div>
 
@@ -50,6 +50,10 @@
 
 
                         <div class="text-center" style="margin-bottom: 5%;">
+                             <a href="<?php  echo $googleLoginUrl; ?>">
+                            <img src="<?php echo site_url('assets/images/'); ?>" >
+                            </a>
+
                             <a href="<?php  echo $googleLoginUrl; ?>">
                             <img src="<?php echo site_url('assets/images/google-login.png'); ?>" >
                             </a>

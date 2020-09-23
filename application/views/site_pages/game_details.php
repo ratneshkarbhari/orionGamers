@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-lg-8 col-md-12 col-sm-12">
                             <h3 class="game-product-title"><?php echo $game_product['title']; ?></h3>
-                            <p style="color: red;">₹ <?php echo $game_product['sale_price']; ?></p>
+                            <del><span style="color: red;">₹ <?php echo $game_product['price']; ?></span></del> | <span style="color: red; font-size: 200%;">₹ <?php echo $game_product['sale_price']; ?></span>
                             <form action="<?php echo site_url('buy-now'); ?>" method="post">
                                 <input type="hidden" name="game-product" value="<?php echo $game_product['id']; ?>">
                                 <button type="submit" class="btn btn-primary btn-block" style="background-color: red; margin: 2% 0;">Buy Now</button>

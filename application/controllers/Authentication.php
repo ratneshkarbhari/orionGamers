@@ -134,8 +134,8 @@
         public function facebookLoginExe(){
 
             $fb = new Facebook\Facebook([
-                'app_id' => '2668062993460781',
-                'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
+                'app_id' => '374382520391569',
+                'app_secret' => '0cab316d510044d0ccf0eed63a9608b9',
                 'default_graph_version' => 'v2.10',
                 ]);
     
@@ -152,12 +152,12 @@
 
             $response = $fb->get('/me', $accessToken);
 
-            print_r($response);
+            // print_r($response);
 
-            // $me = $response->getGraphUser();
+            $me = $response->getGraphUser();
 
 
-            // echo $full_name = $me->getName(); 
+            echo $full_name = $me->getName(); 
 
         }
        

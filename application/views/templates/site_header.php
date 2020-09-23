@@ -36,7 +36,7 @@
                     <!--Logo start-->
                     <div class="col-12 col-md -3 col-lg-3  ">
                         <div class="logo">
-                            <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/website_logo.png'); ?>"></a>
+                            <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/origamers_logo.jpeg'); ?>"></a>
                         </div>
                     </div>
                     <!--Logo end-->
@@ -45,9 +45,19 @@
                     <div class="col-lg-6 col-12 order-md-3 order-lg-2 d-flex justify-content-center">
                         <nav class="main-menu menu-style-2">
                             <ul>
-                                <?php foreach($all_games as $single_game): ?>
-                                <li><a href="<?php echo site_url('game-details/'.$single_game['slug']); ?>"><?php echo $single_game['title']; ?></a></li>
-                                <?php endforeach; ?>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    GAMES
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php foreach($all_games as $single_game): ?>
+                                    <a class="dropdown-item" href="<?php echo site_url('game-details/'.$single_game['slug']); ?>"><?php echo $single_game['title']; ?></a>
+                                    <?php endforeach; ?>
+                                    </div>
+                                </li>
+                                
+                                <li><a href="<?php echo site_url('contact'); ?>">How It Works?</a></li>
                                 <li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
                             </ul>
                         </nav>

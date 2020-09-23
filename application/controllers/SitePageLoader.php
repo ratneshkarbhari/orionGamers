@@ -81,7 +81,15 @@
 
 
 		public function buy_now()
+		
 		{
+
+			if ($this->session->userdata('logged_in_as')!='customer') {
+				
+				redirect(site_url('customer-login'));
+				
+			}
+
 			$this->load->model('GamesModel');			
 			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
@@ -151,8 +159,8 @@
 			}
 
 			// $fb = new Facebook\Facebook([
-			// 'app_id' => '2668062993460781',
-			// 'app_secret' => 'e7eec93c9e6947d971c2d3d151d3c1bf',
+			// 'app_id' => '374382520391569',
+			// 'app_secret' => '0cab316d510044d0ccf0eed63a9608b9',
 			// 'default_graph_version' => 'v2.10',
 			// ]);
 
@@ -161,7 +169,7 @@
 			// $permissions = ['email']; // Optional permissions
 			// $loginUrl = $helper->getLoginUrl(site_url('fb-login-exe'), $permissions);
 
-			// $data['loginUrl'] = $loginUrl;
+			// $data['fbLoginUrl'] = $loginUrl;
 
 			//google login
 			$clientID = '627783576646-m10djg85fun4k3q653ti16dc88191j69.apps.googleusercontent.com';
