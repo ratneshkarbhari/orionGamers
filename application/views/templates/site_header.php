@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="<?php echo site_url('assets/css/helper.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/style.css'); ?>">   
     <!-- Modernizr JS -->
-    <script src="<?php echo site_url('assets/js/vendor/modernizr-2.8.3.min.js'); ?>"></script>
+    <script
+  src="<?php echo site_url('assets/js/vendor/jquery-1.12.4.min.js'); ?>"></script>
 </head>
 
 <body>

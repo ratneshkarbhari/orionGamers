@@ -503,3 +503,17 @@ function mailChimpResponse(resp) {
 }
     
 })(jQuery);	
+
+
+$("a#hideLoginShowRegister").click(function (e) { 
+    e.preventDefault();
+    $("div#loginBox").fadeOut();
+    $("div#registerBox").removeClass('d-none');
+    $("div#registerBox").fadeIn();
+});
+$("a#hideRegisterShowLogin").click(function (e) { 
+    e.preventDefault();
+    $("div#registerBox").fadeOut();
+    $("div#loginBox").removeClass('d-none');
+    $("div#loginBox").fadeIn();
+});
