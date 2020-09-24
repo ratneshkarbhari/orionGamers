@@ -28,6 +28,8 @@ $route['fb-login-exe'] = 'Authentication/facebookLoginExe';
 $route['google-login-exe'] = 'Authentication/googleLoginExe';
 $route['customer-logout'] = 'Authentication/customer_logout';
 $route['send-verification-email-exe'] = 'Authentication/emailVerif';
+$route['verify-code-exe'] = 'Authentication/codeVerifExe';
+$route['create-customer-account-exe'] = 'Authentication/create_customer_account';
  
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';

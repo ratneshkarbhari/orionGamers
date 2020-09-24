@@ -4,10 +4,12 @@
 
 
     use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
 
 
     require './vendor/phpmailer/phpmailer/src/Exception.php';
+    require './vendor/phpmailer/phpmailer/src/PHPMailer.php';
     require './vendor/phpmailer/phpmailer/src/SMTP.php';
 
 
@@ -25,6 +27,53 @@
         }
         
 
+        public function create_customer_account(){
+
+            $fname = $this->input->post('enteredFirstName');
+            $lname = $this->input->post('enteredLastName');
+
+            $verifiedEmail = $this->input->cookie()('verifiedEmail');
+
+            if(!isset($parent)){
+                $parent = 'independent';
+            }
+
+            $newCustomerObj = array(
+                'first_name' => $fname,
+                'last_name' => $lname,
+                'email' => $verifiedEmail,
+                'account_auth_by' => 'email',
+                'purchased' => 'no',
+                'parent_code' => $parent,
+                'reff_code' => uniqid()
+            );
+
+            $newId = $this->AuthModel->create_customer($newCustomerObj);            
+
+            if ($newId) {
+                
+                redirect(site_url('my-account'));
+                
+            }
+
+        }
+
+        public function codeVerifExe(){
+
+            $enteredCode = $this->input->post('entered_code');
+            
+            $md5Hash = md5($enteredCode);
+
+            if($this->cookie('verification_code')==$md5Hash){
+                $this->input->set_cookie('verifiedEmail', $_COOKIE['email_under_verification'], time()+30*24*60*60);
+                
+                exit('success');
+            }else {
+                exit('fail');
+            }
+
+        }
+
         public function emailVerif(){
 
             $email = $this->input->post('email_address_entered');
@@ -35,6 +84,8 @@
             $emailSent = $this->sendVerificationEmail($email,$random);
 
             if ($emailSent) {
+                $this->input->set_cookie('email_under_verification', $email, time()+3600*24*30);
+                $this->input->set_cookie('verification_code', md5($random), time()+3600*24*30);
                 exit('success');
             } else {
                 exit('fail');
@@ -45,69 +96,35 @@
 
         private function sendVerificationEmail($recieverEmail,$code){
 
-            $mail = new PHPMailer;
+            // Instantiation and passing `true` enables exceptions
+            $mail = new PHPMailer(true);
 
-            //Tell PHPMailer to use SMTP
-            $mail->isSMTP();
-            
-            //Enable SMTP debugging
-            // SMTP::DEBUG_OFF = off (for production use)
-            // SMTP::DEBUG_CLIENT = client messages
-            // SMTP::DEBUG_SERVER = client and server messages
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            
-            //Set the hostname of the mail server
-            $mail->Host = 'smtp.gmail.com';
-            // use
-            // $mail->Host = gethostbyname('smtp.gmail.com');
-            // if your network does not support SMTP over IPv6
-            
-            //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-            $mail->Port = 587;
-            
-            //Set the encryption mechanism to use - STARTTLS or SMTPS
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            
-            //Whether to use SMTP authentication
-            $mail->SMTPAuth = true;
-            
-            //Username to use for SMTP authentication - use full email address for gmail
-            $mail->Username = 'rkarbhari23@gmail.com';
-            
-            //Password to use for SMTP authentication
-            $mail->Password = 'ratnesh@47';
-            
-            //Set who the message is to be sent from
-            $mail->setFrom('from@example.com', 'First Last');
-            
-            //Set an alternative reply-to address
-            $mail->addReplyTo('replyto@example.com', 'First Last');
-            
-            //Set who the message is to be sent to
-            $mail->addAddress('codesevaco@gmail.com', 'Code Seva Co.');
-            
-            //Set the subject line
-            $mail->Subject = 'PHPMailer GMail SMTP test';
-            
-            //Read an HTML message body from an external file, convert referenced images to embedded,
-            //convert HTML into a basic plain-text alternative body
-            $mail->msgHTML('Test Email as phpmailer is working');
-            
-            //Replace the plain text body with one created manually
-            $mail->AltBody = 'This is a plain-text message body';
-            
-            //Attach an image file
-            
-            //send the message, check for errors
-            if (!$mail->send()) {
-                echo 'Mailer Error: '. $mail->ErrorInfo;
-            } else {
-                echo 'Message sent!';
-                //Section 2: IMAP
-                //Uncomment these to save your message in the 'Sent Mail' folder.
-                #if (save_mail($mail)) {
-                #    echo "Message saved!";
-                #}
+            try {
+                //Server settings
+                $mail->SMTPDebug = SMTP::DEBUG_OFF;                      // Enable verbose debug output
+                $mail->isSMTP();                                            // Send using SMTP
+                $mail->Host       = 'smtp.hostinger.in';                    // Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                $mail->Username   = 'verification@origamers.com';                     // SMTP username
+                $mail->Password   = 'Ratnesh@47';                               // SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('verification@origamers.com', 'Verification');
+                $mail->addAddress($recieverEmail, 'Unverified User');     // Add a recipient
+                $mail->addReplyTo('verification@origamers.com', 'Verification');
+
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = 'Origamers Email address verification';
+                $mail->Body    = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> <title>Verify your email address</title> <style type="text/css" rel="stylesheet" media="all"> /* Base ------------------------------ */ *:not(br):not(tr):not(html){font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; -webkit-box-sizing: border-box; box-sizing: border-box;}body{width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-color: #F5F7F9; color: #0a0a0a; -webkit-text-size-adjust: none;}a{color: #414EF9;}/* Layout ------------------------------ */ .email-wrapper{width: 100%; margin: 0; padding: 0; background-color: #F5F7F9;}.email-content{width: 100%; margin: 0; padding: 0;}/* Masthead ----------------------- */ .email-masthead{padding: 25px 0; text-align: center;}.email-masthead_logo{max-width: 400px; border: 0;}.email-masthead_name{font-size: 16px; font-weight: bold; color: #839197; text-decoration: none; text-shadow: 0 1px 0 white;}/* Body ------------------------------ */ .email-body{width: 100%; margin: 0; padding: 0; border-top: 1px solid #E7EAEC; border-bottom: 1px solid #E7EAEC; background-color: #FFFFFF;}.email-body_inner{width: 570px; margin: 0 auto; padding: 0;}.email-footer{width: 570px; margin: 0 auto; padding: 0; text-align: center;}.email-footer p{color: #839197;}.body-action{width: 100%; margin: 30px auto; padding: 0; text-align: center;}.body-sub{margin-top: 25px; padding-top: 25px; border-top: 1px solid #E7EAEC;}.content-cell{padding: 35px;}.align-right{text-align: right;}/* Type ------------------------------ */ h1{margin-top: 0; color: #292E31; font-size: 19px; font-weight: bold; text-align: left;}h2{margin-top: 0; color: #292E31; font-size: 16px; font-weight: bold; text-align: left;}h3{margin-top: 0; color: #292E31; font-size: 14px; font-weight: bold; text-align: left;}p{margin-top: 0; color: #839197; font-size: 16px; line-height: 1.5em; text-align: left;}p.sub{font-size: 12px;}p.center{text-align: center;}/* Buttons ------------------------------ */ .button{display: inline-block; width: 200px; background-color: #414EF9; border-radius: 3px; color: #ffffff; font-size: 15px; line-height: 45px; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;}.button--green{background-color: #28DB67;}.button--red{background-color: #FF3665;}.button--blue{background-color: #414EF9;}/*Media Queries ------------------------------ */ @media only screen and (max-width: 600px){.email-body_inner, .email-footer{width: 100% !important;}}@media only screen and (max-width: 500px){.button{width: 100% !important;}}</style></head><body> <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0"> <tr> <td align="center"> <table class="email-content" width="100%" cellpadding="0" cellspacing="0"> <tr> <td class="email-masthead"> <a class="email-masthead_name">Origamers</a> </td></tr><tr> <td class="email-body" width="100%"> <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0"> <tr> <td class="content-cell"> <h1>Verify your email address</h1> <p>Thanks for signing up for Origamers! We"re excited to have you on our website.</p><table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0"> <tr> <td align="center"> <div> <p>Please enter the Code : '.$code.' on our website to verify your Email Address</p></div></td></tr></table> <p>Thanks,<br>The Origamers Team</p><table class="body-sub"> <tr> <td> <p class="sub"></p></td></tr></table> </td></tr></table> </td></tr><tr> <td> <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0"> <tr> <td class="content-cell"> <p class="sub center"> Origamers. <br>Nagpur, India </p></td></tr></table> </td></tr></table> </td></tr></table></body></html>';
+                $mail->AltBody = '<p>Please enter the Code : '.$code.' on our website to verify your Email Address</p>';
+
+                $mail->send();
+                return(TRUE);
+            } catch (Exception $e) {
+                return(FALSE);
             }
             
 

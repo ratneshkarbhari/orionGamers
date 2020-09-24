@@ -83,8 +83,11 @@
                                                 'email_address_entered' : enteredVerifEmail 
                                             },
                                             success: function (response) {
-                                                if(response=='sent'){
+                                                if(response=='success'){
                                                     $("div#registerEmailBox").fadeOut();
+                                                    $("div#verifyCodeBox").css('display','block');
+                                                    $("small#emptyError").html('');
+                                                    $("div#verifyCodeBox").fadeIn();
                                                 }else{
                                                     $("small#emptyError").html('Email couldnt be sent');
                                                 }
@@ -99,29 +102,92 @@
                         <div class="form-group" style="display: none;" id="verifyCodeBox">
 
                             <label for="register-customer-code">Enter the Verification Code</label>                        
-                            <input type="email" name="register-customer-code" id="register-customer-code">
+                            <input class="form-control" type="text" name="register-customer-code" id="register-customer-code">
+                            <br>
+                            <button class="btn" style="background-color: red;" type="button" id="verifyCode">Verify Code</button>
 
-                            <button class="btn">Verify Code</button>
+                            <script>
+                            
+                                $("button#verifyCode").click(function (e) { 
+                                    e.preventDefault();
+                                    let enteredCode = $("input#register-customer-code");
+                                    if(enteredCode==''){
+
+                                    }else{
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo site_url('verify-code-exe') ?>",
+                                            data: {
+                                                'entered_code' : enteredCode
+                                            },
+                                            success: function (response) {
+                                                if (response=='success') {
+                                                    $("div#verifyCodeBox").fadeOut();
+                                                    $("div#nameAndPasswordBox").css('display','block');
+                                                    $("small#emptyError").html('');
+                                                    $("div#nameAndPasswordBox").fadeIn();
+                                                }else{
+                                                    $("small#emptyError").html('Verification Code is incorrect');
+                                                }
+                                            }
+                                        });
+                                    }
+                                });
+                            
+                            </script>
 
                         
                         </div>
 
                         <div class="form-group" style="display: none;" id="nameAndPasswordBox">
 
-                            <label for="register-customer-code">Enter the Verification Code</label>                        
-                            <input type="email" name="register-customer-code" id="register-customer-code">
+                            <small class="text-success">Congrats! your Email is verified! </small><br>
 
-                            <button class="btn">Verify Code</button>
+                            <label for="register-customer-first-name"></label>                        
+                            <input class="form-control" type="text" name="register-customer-first-name" id="register-customer-first-name">
+                            <br><br>
+                            <label for="register-customer-last-name"></label>                        
+                            <input class="form-control" type="text" name="register-customer-last-name" id="register-customer-last-name">
+
+                            <button id="createAccountWithVerifiedEmail" class="btn" style="background-color: red;">Create Account with verified Email</button>
+
+                            <script>
+                            
+                            $("button#verifyCode").click(function (e) { 
+                                let enteredFirstName = $("input#register-customer-first-name").val();
+                                let enteredLastName = $("input#register-customer-last-name").val();
+                                if (enteredFirstName==''||enteredLastName=='') {
+                                    $("small#emptyError").html('Please enter both first and Last name');
+                                }else{
+                                    $("small#emptyError").html('');
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "<?php echo site_url('create-customer-account-exe'); ?>",
+                                        data: {
+                                            'enteredFirstName' : enteredFirstName, 
+                                            'enteredLastName' : enteredLastName,
+                                        },
+                                        success: function (response) {
+                                            if (response=='success') {
+                                                redirect(site_url('my-account'));
+                                            } else {
+                                                $("small#emptyError").html('We are experiencing some errors please try later');
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+
+                            </script>
+
+                        
 
                         
                         </div>
+                       
 
 
-                        <script>
-                        
 
-                        
-                        </script>
 
                         <p style="color: white !important; text-align: center;">Have an account with us?, <a id="hideRegisterShowLogin" href="#" style="color: red !important;">Login Now</a></p>
 
