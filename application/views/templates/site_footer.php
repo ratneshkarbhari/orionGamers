@@ -9,7 +9,7 @@
                    <div class="col-xl-3 col-lg-2 col-md-3">
                        <div class="footer-widget">
                            <div class="footer-logo">
-                               <a class="navbar-brand" href="index.html"> <img src="assets/images/website_logo.png"></a>
+                               <a class="navbar-brand" href="index.html"> <img src="<?php echo site_url('assets/images/text_logo.png'); ?>"></a>
                            </div>
                        </div>
                    </div>
@@ -58,7 +58,7 @@
                <div class="row">
                    <div class="col-12">
                        <div class="copyright text-center">
-                           <p>Copyright &copy;2020 <a  href="#"> <img src="assets/images/website_logo.png">.</a>. All rights reserved.</p>
+                           <p>Copyright &copy;2020 <a  href="#"> <img src="<?php echo site_url('assets/images/text_logo_white.png'); ?>">.</a>. All rights reserved.</p>
                        </div>
                    </div>
                </div>

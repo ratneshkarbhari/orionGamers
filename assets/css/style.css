@@ -5363,12 +5363,18 @@ header.header.header-static {
     color: white !important;
   }
   .slider-image{
-    min-height: 30vw; max-height: 30vw;
+    min-height: 35vw; max-height: 30vw;
   }
   
   @media only screen and (max-width: 767px) {
     .slider-image{
-      min-height: 70vw; max-height: 70vw;
+      min-height: 0vw; max-height: 70vw;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+   
+    .slider-image{
+      min-height: 0vw; max-height: 70vw;
     }
   }
   .footer-top {
@@ -5398,3 +5404,19 @@ header.header.header-static {
   .page-content{
     padding: 3% 0;
   }
+  a.nav-link{
+    font-size: large;
+    text-transform: uppercase;
+  }
+  div#darkoverLay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 8999;
+    background-color: black;
+    opacity: 0.5;
+  }
+  

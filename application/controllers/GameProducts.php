@@ -78,7 +78,7 @@
         public function delete()
         {
             $gameId = $this->input->post('game-product-id');
-            $gameData = $this->GameProductsModel->fetch_game_by_id($gameId);
+            $gameData = $this->GameProductsModel->fetch_by_id($gameId);
             $gameDeleted = $this->GameProductsModel->delete($gameId);
             if ($gameDeleted) {
                 $featuredImgLink = './assets/images/game_product_featured_images/'.$gameData['featured_image'];

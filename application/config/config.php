@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://ec2-13-234-35-90.ap-south-1.compute.amazonaws.com/orionGamers/';
+$config['base_url'] = 'http://localhost/oriGamers/';
 
 
 /*

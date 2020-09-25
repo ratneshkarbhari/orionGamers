@@ -42,9 +42,28 @@
         </div>
     </div>
     <!--Featured section end-->
+
+    <section class="featured-section section pb-95 pb-lg-75 pb-md-65 pb-sm-55 pb-xs-45">
+    
+        <div class="container">
+            <div class="row">
+                                
+                <?php foreach($all_games as $game): ?>
+                    <div class="single-featured img-full col-lg-4 col-md-12 col-sm-12">
+                        <a href="<?php echo site_url('game-details/'.$game['slug']); ?>"><img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>">
+                        <h2 class="game-title" style="margin: 10px 0;"><?php echo $game['title']; ?></h2>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            
+            </div>
+        </div>
+    
+    </section>
+    
     
     <!--New Game Area Start-->
-    <div class="new-game-area section pb-50 pb-lg-30 pb-md-20 pb-sm-10 pb-xs-0">
+    <div class="new-game-area section pb-50 pb-lg-30 pb-md-20 pb-sm-10 pb-xs-0 d-none">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -182,7 +201,7 @@
     <!--New Game Area End-->
     
     <!--Video section start-->
-    <div class="video-section section pb-135 pb-lg-115 pb-md-105 pb-sm-95 pb-xs-85">
+    <div class="video-section section pb-135 pb-lg-115 pb-md-105 pb-sm-95 pb-xs-85 d-none">
         <div class="container-fluid p-0">
             <div class="container">
                 <div class="section-title">

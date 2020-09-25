@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo $title; ?> || Gaming Website ka apna jo title fix hoga</title>
+    <title><?php echo $title; ?> | OriGamers</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
@@ -29,7 +29,7 @@
 <div id="main-wrapper">
    
     <!--Header section start-->
-    <header class="header header-static bg-black header-sticky" style="box-shadow: 0px 0px 50px red;">
+    <header class="header header-static bg-black header-sticky">
         <div class="default-header menu-right">
             <div class="container container-1520">
                 <div class="row">
@@ -37,7 +37,7 @@
                     <!--Logo start-->
                     <div class="col-12 col-md -3 col-lg-3  ">
                         <div class="logo">
-                            <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/origamers_logo.jpeg'); ?>"></a>
+                            <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/text_logo_navbar.png'); ?>"></a>
                         </div>
                     </div>
                     <!--Logo end-->
@@ -108,4 +108,5 @@
             </div>
         </div>
     </header>
+    
     <!--Header section end-->
