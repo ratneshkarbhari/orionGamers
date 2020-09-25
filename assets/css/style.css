@@ -5367,12 +5367,14 @@ header.header.header-static {
   }
   
   @media only screen and (max-width: 767px) {
+    a.navbar-brand{width: 50%;}
+
     .slider-image{
       min-height: 0vw; max-height: 70vw;
     }
   }
   @media only screen and (min-width: 768px) {
-   
+    a.navbar-brand{width: 20%;}
     .slider-image{
       min-height: 0vw; max-height: 70vw;
     }

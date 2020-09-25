@@ -30,7 +30,7 @@
    
     <!--Header section start-->
     <header class="header header-static bg-black" style="box-shadow: 0px 0px 50px red;">
-        <div class="container">
+        <div class="container-fluid">
 
             <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black; color: white;">
                 <a class="navbar-brand" href="<?php echo site_url(); ?>">

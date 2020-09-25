@@ -3,7 +3,7 @@
     <div class="hero-slider">
 
         <?php $slider_images = json_decode($game['banner_images'],TRUE); foreach($slider_images as $slider_image): ?>
-            <img src="<?php echo site_url('assets/images/game_slider_images/'.$slider_image); ?>" class="slider-image" style="width: 100%;">
+            <div class="game-details-slide" style="background-image: url('<?php echo site_url('assets/images/game_slider_images/'.$slider_image); ?>'); min-height: 35vw; max-height: 35vw; background-repeat: none; background-size: cover; background-position: center;"></div>
         <?php endforeach; ?>
     </div>
 </div>

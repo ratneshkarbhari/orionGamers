@@ -2,10 +2,14 @@
 <div class="hero-section section position-relative">
         <div class="hero-slider">
             <!--Hero Item start-->
-            <img src="<?php echo site_url('assets/images/banner/fff.jpg'); ?>" class="slider-image">
+            <?php foreach($all_games as $game): ?>
+            <a href="<?php echo site_url('game-details/'.$game['slug']); ?>">
+                <div class="game-slide" style="background-image: url('<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>'); min-height: 35vw; max-height: 35vw; background-repeat: none; background-size: cover; background-position: center;">
+            </div>
+            </a>
+            <?php endforeach; ?>
             <!--Hero Item end-->
             <!--Hero Item start-->
-            <img src="<?php echo site_url('assets/images/banner/fff2.jpg'); ?>" class="slider-image">
             <!--Hero Item end-->
         </div>
     </div>
@@ -206,12 +210,14 @@
     <!--New Game Area End-->
     
     <!--Video section start-->
-    <div class="video-section section pb-135 pb-lg-115 pb-md-105 pb-sm-95 pb-xs-85 d-none">
+    <div class="video-section section pb-135 pb-lg-115 pb-md-105 pb-sm-95 pb-xs-85">
         <div class="container-fluid p-0">
             <div class="container">
-                <div class="section-title">
-                    <h2><span class="color-blue">Games</span> review</h2>
-                </div>
+                <!--Featured Title Start-->
+                <div class="  text-center" style="margin: 5% 0;">
+                        <h2><span class="color-blue" style="color: red;">LIVE</span> STREAMS</h2>
+                    </div>
+                    <!--Featured Title End-->
             </div>
             
             <div class="row no-gutters align-items-end">
