@@ -23,6 +23,8 @@ $route['game-details/(:any)'] = 'SitePageLoader/game_details/$1';
 $route['buy-now'] = 'SitePageLoader/buy_now';
 $route['how-it-works'] = 'SitePageLoader/how_it_works';
 $route['contact'] = 'SitePageLoader/contact';
+$route['forgot-password'] = 'SitePageLoader/forgot_pwd';
+
 
 // Authentication endpoints
 $route['email-login-exe'] = 'Authentication/email_login_exe';

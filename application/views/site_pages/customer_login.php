@@ -25,7 +25,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="customer-password">Password</label>
-                                <a style="position: absolute; right:3%;" href="<?php echo site_url('forgot-password'); ?>"><small class="text-light">Show Password</small></a>
+                                <a style="position: absolute; right:3%;" href="<?php echo site_url('forgot-password'); ?>"><small class="text-light" id="showPwd">Show Password</small></a>
+                                <script>
+                                    $("small#showPwd").click(function (e) { 
+                                        e.preventDefault();
+                                        if($("input#customer-password").attr('type')=='password'){
+                                            $("input#customer-password").attr('type','text');
+                                        }else{ 
+                                            $("input#customer-password").attr('type','password');
+                                        }
+                                    });
+                                </script>
                                 <input class="form-control" type="password" name="customer-password" id="customer-password" required>
                             </div>
                             <div class="form-group text-right" style="margin: 0;">
@@ -112,7 +122,7 @@
                                     e.preventDefault();
                                     let enteredCode = $("input#register-customer-code");
                                     if(enteredCode==''){
-
+                                        $("small#emptyError").html('Please Enter code to verify');
                                     }else{
                                         $.ajax({
                                             type: "POST",
@@ -121,14 +131,7 @@
                                                 'entered_code' : enteredCode
                                             },
                                             success: function (response) {
-                                                if (response=='success') {
-                                                    $("div#verifyCodeBox").fadeOut();
-                                                    $("div#nameAndPasswordBox").css('display','block');
-                                                    $("small#emptyError").html('');
-                                                    $("div#nameAndPasswordBox").fadeIn();
-                                                }else{
-                                                    $("small#emptyError").html('Verification Code is incorrect');
-                                                }
+                                                console.log(response);
                                             }
                                         });
                                     }

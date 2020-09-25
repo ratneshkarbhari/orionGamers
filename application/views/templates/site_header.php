@@ -29,84 +29,65 @@
 <div id="main-wrapper">
    
     <!--Header section start-->
-    <header class="header header-static bg-black header-sticky">
-        <div class="default-header menu-right">
-            <div class="container container-1520">
-                <div class="row">
-                    
-                    <!--Logo start-->
-                    <div class="col-12 col-md -3 col-lg-3  ">
-                        <div class="">
-                            <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/text_logo_navbar.png'); ?>"></a>
-                        </div>
-                    </div>
-                    <!--Logo end-->
-                    
-                    <!--Menu start-->
-                    <div class="col-lg-6 col-12 order-md-3 order-lg-2 d-flex justify-content-center">
-                        <nav class="main-menu menu-style-2">
-                            <ul>
+    <header class="header header-static bg-black" style="box-shadow: 0px 0px 50px red;">
+        <div class="container">
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    GAMES
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <?php foreach($all_games as $single_game): ?>
-                                    <a class="dropdown-item" href="<?php echo site_url('game-details/'.$single_game['slug']); ?>"><?php echo $single_game['title']; ?></a>
-                                    <?php endforeach; ?>
-                                    </div>
-                                </li>
-                                
-                                <li><a href="<?php echo site_url('how-it-works'); ?>">How It Works?</a></li>
-                                <li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!--Menu end-->
+            <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black; color: white;">
+                <a class="navbar-brand" href="<?php echo site_url(); ?>">
+                    <img src="<?php echo site_url('assets/images/text_logo_navbar.png'); ?>" id="siteRedLogo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color: white;"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-auto">
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            GAMES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <?php foreach($all_games as $game): ?>
+                            <a class="dropdown-item" href="<?php echo site_url('game-details/'.$game['slug']); ?>"><?php echo $game['title']; ?></a>
+                            <?php endforeach; ?>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url('how-it-works'); ?>" tabindex="-1">HOW IT WORKS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url('contact'); ?>">CONTACT</a>
+                        </li>
+                    </ul>
                     
-                    <!--Header Right Wrap-->
-                    <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
-                        <div class="header-right-wrap">
-                            <ul>
-                                <?php if($this->session->userdata('logged_in_as')=='customer'): ?>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        
+                        <?php if($this->session->userdata('logged_in_as')=='customer'): ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <?php echo $_SESSION['first_name']; ?>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="<?php echo site_url('my-account'); ?>">MY ACCOUNT</a>
                                     <a class="dropdown-item" href="<?php echo site_url('customer-logout'); ?>">LOGOUT</a>
-                                    </div>
-                                </li>
-                                <?php else: ?>
-                                <li><a href="<?php echo site_url('customer-login'); ?>">LOGIN</a></li>
-                                <?php endif; ?>
-                                <li class="header-search d-none"><a class="header-search-toggle" href="#"><i class="icofont-search-2"></i></a>
-                                    <div class="header-search-form">
-                                        <form method="POST" action="<?php echo site_url('search-game'); ?>">
-                                            <input type="text" name="search-query" placeholder="Type and hit enter">
-                                            <button><i class="icofont-search"></i></button>
-                                        </form>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--Header Right Wrap-->
+                                </div>
+                            </li>
+                        <?php else: ?>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('customer-login'); ?>">LOGIN</a></li>
+                        <?php endif; ?>
+                        
+                        
+                    </ul>
                     
                 </div>
-                
-                <!--Mobile Menu start-->
-                <div class="row">
-                    <div class="col-12 d-flex d-lg-none">
-                        <div class="mobile-menu"></div>
-                    </div>
-                </div>
-                <!--Mobile Menu end-->
-                
-            </div>
+            </nav>
+
         </div>
+        
     </header>
     
     <!--Header section end-->
+    

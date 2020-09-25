@@ -1110,7 +1110,7 @@ header.header.header-static {
     .main-menu > ul > li:last-child {
       margin-right: 0; }
     .main-menu > ul > li > a {
-      font-size: 20px;
+      font-size: 14px;
       line-height: 70px;
       font-weight: 400;
       letter-spacing: 0.25px;
@@ -5403,6 +5403,7 @@ header.header.header-static {
   }
   .page-content{
     padding: 3% 0;
+    min-height: 500px;
   }
   a.nav-link{
     font-size: large;
@@ -5423,3 +5424,15 @@ header.header.header-static {
   a.dropdown-item{
     color: #000000 !important;
   }
+  nav.mean-nav{
+    display: none !important;
+    position: fixed;
+    z-index: 9999;
+    background-color: white;
+    width: 50%;
+    left: 0; bottom: 0; top: 0;
+  }
+  a.nav-link{
+    font-family: "Qanto" !important;
+  }
+

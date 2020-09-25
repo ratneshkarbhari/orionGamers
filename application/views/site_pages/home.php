@@ -12,7 +12,7 @@
     <!--slider section end-->
     
     <!--Featured section start-->
-    <div class="featured-section section pb-95 pb-lg-75 pb-md-65 pb-sm-55 pb-xs-45">
+    <div class="featured-section section pb-95 pb-lg-75 pb-md-65 pb-sm-55 pb-xs-45 d-none">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-12">
@@ -46,6 +46,11 @@
     <section class="featured-section section pb-95 pb-lg-75 pb-md-65 pb-sm-55 pb-xs-45">
     
         <div class="container">
+            <!--Featured Title Start-->
+            <div class="  text-center" style="margin: 5% 0;">
+                <h2><span class="color-blue" style="color: red;">ALL</span> GAMES</h2>
+            </div>
+                    <!--Featured Title End-->
             <div class="row">
                                 
                 <?php foreach($all_games as $game): ?>

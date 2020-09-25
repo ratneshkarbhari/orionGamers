@@ -25,6 +25,7 @@
             $this->load->model('AuthModel');
             
         }
+
         
 
         public function contact_exe(){
@@ -76,11 +77,13 @@
         }
 
         public function update_customer_profile(){
+
             if ($this->session->userdata('logged_in_as')!='customer') {
                 
                 redirect(site_url());
                 
             }
+
             $first_name = $this->input->post('first_name');
             $last_name = $this->input->post('last_name');            
             $email = $this->input->post('email');        

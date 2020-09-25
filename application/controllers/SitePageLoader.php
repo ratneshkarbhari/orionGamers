@@ -249,6 +249,19 @@
 			$this->load->view('site_pages/my_account', $data);
 			$this->load->view('templates/site_footer', $data);	
 		}
+
+		public function forgot_pwd(){
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
+			$data['title'] = 'Forgot Password';
+			$data['error'] = '';
+
+			$this->load->view('templates/site_header', $data);			
+			$this->load->view('site_pages/forgot_pwd', $data);
+			$this->load->view('templates/site_footer', $data);			
+
+		}
 	
 	}
 	
