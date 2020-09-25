@@ -36,7 +36,7 @@
                     
                     <!--Logo start-->
                     <div class="col-12 col-md -3 col-lg-3  ">
-                        <div class="logo">
+                        <div class="">
                             <a class="navbar-brand" href="<?php echo site_url(); ?>"> <img src="<?php echo site_url('assets/images/text_logo_navbar.png'); ?>"></a>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                                     </div>
                                 </li>
                                 
-                                <li><a href="<?php echo site_url('contact'); ?>">How It Works?</a></li>
+                                <li><a href="<?php echo site_url('how-it-works'); ?>">How It Works?</a></li>
                                 <li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
                             </ul>
                         </nav>
@@ -82,7 +82,7 @@
                                 <?php else: ?>
                                 <li><a href="<?php echo site_url('customer-login'); ?>">LOGIN</a></li>
                                 <?php endif; ?>
-                                <li class="header-search"><a class="header-search-toggle" href="#"><i class="icofont-search-2"></i></a>
+                                <li class="header-search d-none"><a class="header-search-toggle" href="#"><i class="icofont-search-2"></i></a>
                                     <div class="header-search-form">
                                         <form method="POST" action="<?php echo site_url('search-game'); ?>">
                                             <input type="text" name="search-query" placeholder="Type and hit enter">

@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center" style="">
+            <div class="text-center d-none" style="">
                 <a href="#" style="text-decoration: underline; margin-top: 2%;">VIEW ALL GAMES</a>
             </div>
         </div>

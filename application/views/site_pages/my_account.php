@@ -15,6 +15,7 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h4 class='text-light'>Edit Profile</h4>
+                        <small class="text-danger"><?php echo $error; ?></small>
                         <form action="<?php echo site_url('update-customer-profile'); ?>" method="post">
                             <div class="container-fluid" style="padding: 0;">
                                 <div class="row">
@@ -39,13 +40,45 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="mobile_number">Mobile Number</label>
-                                            <input class="form-control" type="text" name="mobile_number" <?php if(isset($_SESSION['email'])){
-                                                echo $_SESSION['email'];
-                                            } ?> id="mobile_number">
+                                            <input class="form-control" type="text" name="mobile_number" value="<?php if(isset($_SESSION['mobile_number'])){
+                                                echo $_SESSION['mobile_number'];
+                                            } ?>" id="mobile_number">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="city">City</label>
+                                            <input class="form-control" type="text" name="city" value="<?php if(isset($_SESSION['city'])){
+                                                echo $_SESSION['city'];
+                                            } ?>" id="city">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="pincode">Pincode</label>
+                                            <input class="form-control" type="text" name="pincode" value="<?php if(isset($_SESSION['pincode'])){
+                                                echo $_SESSION['pincode'];
+                                            } ?>" id="city">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <input class="form-control" type="text" name="country" value="<?php if(isset($_SESSION['country'])){
+                                                echo $_SESSION['country'];
+                                            } ?>" id="country">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <input class="form-control" type="text" name="state" value="<?php if(isset($_SESSION['state'])){
+                                                echo $_SESSION['state'];
+                                            } ?>" id="state">
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-12 col-sm-12 col-md-12">
-                                        <button class="btn btn-lg btn-danger btn-block" type="submit">Update Profile</button>
+                                        <button class="btn btn-lg btn-block" type="submit" style="background-color: red;">Update Profile</button>
 
                                     </div>
                                 </div>
@@ -54,8 +87,8 @@
                     </div>
                     <div class="tab-pane fade" id="v-pills-referred-people" role="tabpanel" aria-labelledby="v-pills-v-pills-referred-people-tab">
                         <h4>Refferals</h4>
-                        <label>Refferal Code:</label>
-                        <pre style="color: white; font-size: 18px;">1u310d1</pre>
+                        <label>Refferal Link:</label>
+                        <pre style="color: white; font-size: 18px;"><?php echo site_url('?reff_code='.$_SESSION['reff_code']); ?></pre>
                         <p>People who sign up with your refferal code and purchase will appeare here:</p>                   
                         <span style='padding: 2%; background-color: red !important;'>Not Purchased</span>
                         <span style='padding: 2%; background-color: darkgreen !important;'> Purchased</span>

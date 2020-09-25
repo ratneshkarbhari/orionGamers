@@ -31,7 +31,7 @@
                 
                 <a href="#" data-target="slide-out" class="sidenav-trigger" style="margin: none !important;"><i class="material-icons text-white">menu</i></a>        
                 <a href="<?php echo site_url('admin-dashboard'); ?>" class="brand-logo center">
-                <h4 style="margin: 5% 0; padding: 0; font-size: 25px;">Orion Gamers</h4>
+                <h4 style="margin: 5% 0; padding: 0; font-size: 25px;">OriGamers</h4>
                 <!-- Logo Position -->
                 </a>
                 <ul id="nav-mobile" class="right">

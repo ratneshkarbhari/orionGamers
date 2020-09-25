@@ -21,6 +21,8 @@ $route['privacy-policy'] = 'SitePageLoader/privacy_policy';
 $route['my-account'] = 'SitePageLoader/my_account';
 $route['game-details/(:any)'] = 'SitePageLoader/game_details/$1';
 $route['buy-now'] = 'SitePageLoader/buy_now';
+$route['how-it-works'] = 'SitePageLoader/how_it_works';
+$route['contact'] = 'SitePageLoader/contact';
 
 // Authentication endpoints
 $route['email-login-exe'] = 'Authentication/email_login_exe';
@@ -30,7 +32,9 @@ $route['customer-logout'] = 'Authentication/customer_logout';
 $route['send-verification-email-exe'] = 'Authentication/emailVerif';
 $route['verify-code-exe'] = 'Authentication/codeVerifExe';
 $route['create-customer-account-exe'] = 'Authentication/create_customer_account';
- 
+$route['contact-form-exe'] = 'Authentication/contact_exe';
+$route['update-customer-profile'] = 'Authentication/update_customer_profile';
+
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';
 $route['all-games'] = 'AdminPageLoader/all_games';

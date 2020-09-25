@@ -5420,3 +5420,6 @@ header.header.header-static {
     opacity: 0.5;
   }
   
+  a.dropdown-item{
+    color: #000000 !important;
+  }

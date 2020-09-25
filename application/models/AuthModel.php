@@ -17,6 +17,11 @@
             return $this->db->insert_id();
             
         }
+
+        public function update_customer($obj){
+            $this->db->where('id', $_SESSION['id']);
+            return $this->db->update('customers',$obj);
+        }
     
         public function fetch_admin_data_by_username($username){
             return $this->db->get_where('admins',array('username'=>$username))->row_array();

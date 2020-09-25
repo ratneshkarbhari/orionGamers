@@ -27,6 +27,110 @@
         }
         
 
+        public function contact_exe(){
+            $mail = new PHPMailer(true);
+
+            try {
+                //Server settings
+                $mail->SMTPDebug = SMTP::DEBUG_OFF;                      // Enable verbose debug output
+                $mail->isSMTP();                                            // Send using SMTP
+                $mail->Host       = 'smtp.hostinger.in';                    // Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                $mail->Username   = 'verification@origamers.com';                     // SMTP username
+                $mail->Password   = 'Ratnesh@47';                               // SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('verification@origamers.com', 'Verification');
+                $mail->addAddress('genuineprofitmaker@gmail.com
+                ', 'SiteAdmin');     // Add a recipient
+                $mail->addReplyTo('verification@origamers.com', 'Verification');
+
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = 'New Message from Website Contact Form';
+                $mail->Body    = 'Full Name:'.$this->input->post('full_name').'<br>
+                Email: '.$this->input->post('email').'<br>
+                Message:'.$this->input->post('message').'<br>
+                ';
+                $mail->AltBody = 'Full Name:'.$this->input->post('full_name').',Email: '.$this->input->post('email').'Message:'.$this->input->post('message');
+
+                $mail->send();
+                
+                $data['title'] = 'Contact';
+                $data['success'] = 'Message Sent Successfully';
+                $this->load->model('GamesModel');
+
+                $data['all_games'] = $this->GamesModel->fetch_all();
+
+                $this->load->view('templates/site_header', $data);
+                $this->load->view('site_pages/contact', $data);
+                $this->load->view('templates/site_footer', $data);
+                
+            } catch (Exception $e) {
+                
+                redirect(site_url());
+                
+            }
+        }
+
+        public function update_customer_profile(){
+            if ($this->session->userdata('logged_in_as')!='customer') {
+                
+                redirect(site_url());
+                
+            }
+            $first_name = $this->input->post('first_name');
+            $last_name = $this->input->post('last_name');            
+            $email = $this->input->post('email');        
+            $mobile_number = $this->input->post('mobile_number');            
+            $city = $this->input->post('city');            
+            $pincode = $this->input->post('pincode');      
+            $state = $this->input->post('state');     
+            $country = $this->input->post('country');        
+            
+            $objToUpdate = array(
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'mobile_number' => $mobile_number,
+                'city' => $city,
+                'country' => $country,
+                'pincode' => $pincode,
+                'state' => $state
+            );
+
+            $customerUpdated = $this->AuthModel->update_customer($objToUpdate);
+
+            if($customerUpdated){
+                
+                $objToUpdate['logged_in_as'] = 'customer';
+                
+                $this->session->set_userdata( $objToUpdate );
+
+                
+                redirect(site_url('my-account'));
+                
+                
+            }else {
+                $this->load->model('GamesModel');			
+                $data['all_games'] = $this->GamesModel->fetch_all();
+    
+                $data['title'] = 'My Account';
+                $data['error'] = 'Customer Profile not updated';
+    
+                $this->load->model('RefferalModel');
+                
+                $data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
+    
+                $this->load->view('templates/site_header', $data);			
+                $this->load->view('site_pages/my_account', $data);
+                $this->load->view('templates/site_footer', $data);	
+            }
+
+        }
+
         public function create_customer_account(){
 
             $fname = $this->input->post('enteredFirstName');
@@ -34,8 +138,10 @@
 
             $verifiedEmail = $this->input->cookie()('verifiedEmail');
 
-            if(!isset($parent)){
+            if(!isset($_COOKIE['parent-reff-code'])){
                 $parent = 'independent';
+            }else {
+                $parent = $_COOKIE['parent-reff-code'];
             }
 
             $newCustomerObj = array(
@@ -155,6 +261,7 @@
                             
                             
                             $array = array(
+
                                 'first_name' => $adminData['first_name'],
                                 'last_name' => $adminData['last_name'],
                                 'username' => $adminData['username'],
@@ -315,6 +422,7 @@
                         
                         
                         $array = array(
+                            'id' => $customerData['id'],
                             'first_name' => $customerData['first_name'],
                             'last_name' => $customerData['last_name'],
                             'email' => $customerData['email'],
@@ -405,8 +513,8 @@
                     
                 } else {
 
-                    if ($_COOKIE['reff-code']) {
-                        $parent = $_COOKIE['reff-code'];
+                    if ($_COOKIE['parent-reff-code']) {
+                        $parent = $_COOKIE['parent-reff-code'];
                     } else {
                         $parent = 'independent';
                     }

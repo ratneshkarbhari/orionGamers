@@ -16,9 +16,35 @@
 
 
 			parent::__construct();
-			if(isset($_GET['reff_code'])){
-				setcookie('reff-code', $_GET['reff_code'], time() + (86400 * 30), "/"); 
+			if(isset($_GET['parent_reff_code'])){
+				setcookie('parent-reff-code', $_GET['parent_reff_code'], time() + (86400 * 30), "/"); 
 			}
+		}
+
+		public function how_it_works()
+		{
+			$data['title'] = 'How it Works';
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/how_it_works', $data);
+			$this->load->view('templates/site_footer', $data);
+
+		}
+		
+		public function contact()
+		{
+			$data['title'] = 'Contact';
+			$data['success'] = '';
+			$this->load->model('GamesModel');
+
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/contact', $data);
+			$this->load->view('templates/site_footer', $data);
+
 		}
 		
 
