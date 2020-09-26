@@ -4,7 +4,7 @@
             <!--Hero Item start-->
             <?php foreach($all_games as $game): ?>
             <a href="<?php echo site_url('game-details/'.$game['slug']); ?>">
-                <div class="game-slide" style="background-image: url('<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>'); min-height: 35vw; max-height: 35vw; background-repeat: none; background-size: cover; background-position: center;">
+                <div class="game-slide" style="background-image: url('<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>'); min-height: 35vw; max-height: 35vw; background-repeat: none; background-size: cover; background-position: top;">
             </div>
             </a>
             <?php endforeach; ?>
@@ -49,7 +49,7 @@
 
     <section class="featured-section section pb-95 pb-lg-75 pb-md-65 pb-sm-55 pb-xs-45">
     
-        <div class="container">
+        <div class="container-fluid">
             <!--Featured Title Start-->
             <div class="  text-center" style="margin: 5% 0;">
                 <h2><span class="color-blue" style="color: red;">ALL</span> GAMES</h2>
@@ -58,8 +58,9 @@
             <div class="row">
                                 
                 <?php foreach($all_games as $game): ?>
-                    <div class="single-featured img-full col-lg-4 col-md-12 col-sm-12">
-                        <a href="<?php echo site_url('game-details/'.$game['slug']); ?>"><img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>">
+                    <div class="single-featured img-full col-lg-4 col-md-6 col-sm-6" style="margin-bottom: 5%;">
+                        <a href="<?php echo site_url('game-details/'.$game['slug']); ?>">
+                        <img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>" >
                         <h2 class="game-title" style="margin: 10px 0;"><?php echo $game['title']; ?></h2>
                         </a>
                     </div>

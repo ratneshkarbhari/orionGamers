@@ -58,7 +58,7 @@
                <div class="row">
                    <div class="col-12">
                        <div class="copyright text-center">
-                           <p>Copyright &copy;2020 <a  href="#"> <img src="<?php echo site_url('assets/images/text_logo_white.png'); ?>">.</a>. All rights reserved.</p>
+                           <p>Copyright &copy;2020 <a  href="#"> <img src="<?php echo site_url('assets/images/text_logo_white.png'); ?>"></a> All rights reserved.</p>
                        </div>
                    </div>
                </div>

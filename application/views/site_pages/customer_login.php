@@ -120,7 +120,7 @@
                             
                                 $("button#verifyCode").click(function (e) { 
                                     e.preventDefault();
-                                    let enteredCode = $("input#register-customer-code");
+                                    let enteredCode = $("input#register-customer-code").val();
                                     if(enteredCode==''){
                                         $("small#emptyError").html('Please Enter code to verify');
                                     }else{
@@ -131,7 +131,14 @@
                                                 'entered_code' : enteredCode
                                             },
                                             success: function (response) {
-                                                console.log(response);
+                                                if(response=='success'){
+                                                    $("div#verifyCodeBox").fadeOut();
+                                                    $("div#nameAndPasswordBox").css('display','block');
+                                                    $("small#emptyError").html('');
+                                                    $("div#nameAndPasswordBox").fadeIn();
+                                                }else{
+                                                    $("small#emptyError").html('Verification Code is incorrect');
+                                                }
                                             }
                                         });
                                     }
@@ -146,21 +153,24 @@
 
                             <small class="text-success">Congrats! your Email is verified! </small><br>
 
-                            <label for="register-customer-first-name"></label>                        
+                            <label for="register-customer-first-name">Enter first Name</label>                        
                             <input class="form-control" type="text" name="register-customer-first-name" id="register-customer-first-name">
-                            <br><br>
-                            <label for="register-customer-last-name"></label>                        
+                            <br>
+                            <label for="register-customer-last-name">Enter Last Name</label>                        
                             <input class="form-control" type="text" name="register-customer-last-name" id="register-customer-last-name">
-
+                            <br>
+                            <label for="register-customer-password">Set a Password</label>                        
+                            <input class="form-control" type="text" name="register-customer-password" id="register-customer-password"><br>
                             <button id="createAccountWithVerifiedEmail" class="btn" style="background-color: red;">Create Account with verified Email</button>
 
                             <script>
                             
-                            $("button#verifyCode").click(function (e) { 
+                            $("button#createAccountWithVerifiedEmail").click(function (e) { 
                                 let enteredFirstName = $("input#register-customer-first-name").val();
                                 let enteredLastName = $("input#register-customer-last-name").val();
-                                if (enteredFirstName==''||enteredLastName=='') {
-                                    $("small#emptyError").html('Please enter both first and Last name');
+                                let enteredPassword = $("input#register-customer-password").val();
+                                if (enteredFirstName==''||enteredLastName==''||enteredPassword=='') {
+                                    $("small#emptyError").html('Please enter first, Last name and password');
                                 }else{
                                     $("small#emptyError").html('');
                                     $.ajax({
@@ -169,10 +179,11 @@
                                         data: {
                                             'enteredFirstName' : enteredFirstName, 
                                             'enteredLastName' : enteredLastName,
+                                            'enteredPassword' : enteredPassword
                                         },
                                         success: function (response) {
                                             if (response=='success') {
-                                                redirect(site_url('my-account'));
+                                                window.location.href = "<?php echo site_url('my-account'); ?>";
                                             } else {
                                                 $("small#emptyError").html('We are experiencing some errors please try later');
                                             }

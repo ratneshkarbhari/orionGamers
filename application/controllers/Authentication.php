@@ -29,6 +29,7 @@
         
 
         public function contact_exe(){
+            
             $mail = new PHPMailer(true);
 
             try {
@@ -138,31 +139,46 @@
 
             $fname = $this->input->post('enteredFirstName');
             $lname = $this->input->post('enteredLastName');
+            $enteredPwd = $this->input->post('enteredPassword');
 
-            $verifiedEmail = $this->input->cookie()('verifiedEmail');
+            $verifiedEmail = $_SESSION['verified_email'];
 
             if(!isset($_COOKIE['parent-reff-code'])){
                 $parent = 'independent';
             }else {
                 $parent = $_COOKIE['parent-reff-code'];
             }
-
+            $reffCode = uniqid();
             $newCustomerObj = array(
                 'first_name' => $fname,
                 'last_name' => $lname,
                 'email' => $verifiedEmail,
+                'password' => password_hash($enteredPwd,PASSWORD_DEFAULT),
                 'account_auth_by' => 'email',
                 'purchased' => 'no',
                 'parent_code' => $parent,
-                'reff_code' => uniqid()
+                'reff_code' => $reffCode
             );
 
             $newId = $this->AuthModel->create_customer($newCustomerObj);            
 
             if ($newId) {
                 
-                redirect(site_url('my-account'));
+                $array = array(
+                    'id' => $newId,
+                    'reff_code' => $reffCode,
+                    'first_name' => $fname,
+                    'last_name' => $lname,
+                    'email' => $verifiedEmail,
+                    'logged_in_as' => 'customer'
+                );
                 
+                $this->session->set_userdata( $array );
+
+                exit('success');
+                
+            }else {
+                exit('fail');
             }
 
         }
@@ -173,8 +189,11 @@
             
             $md5Hash = md5($enteredCode);
 
-            if($this->cookie('verification_code')==$md5Hash){
-                $this->input->set_cookie('verifiedEmail', $_COOKIE['email_under_verification'], time()+30*24*60*60);
+            if($_COOKIE['verification_code']==$md5Hash){
+                // $this->input->set_cookie('verifiedEmail', $_COOKIE['email_under_verification'], time()+30*24*60*60);
+                $array = array('verified_email' => $_SESSION['email_under_verification']);
+                
+                $this->session->set_userdata( $array );
                 
                 exit('success');
             }else {
@@ -193,7 +212,10 @@
             $emailSent = $this->sendVerificationEmail($email,$random);
 
             if ($emailSent) {
-                $this->input->set_cookie('email_under_verification', $email, time()+3600*24*30);
+                $array = array('email_under_verification' => $email);
+                
+                $this->session->set_userdata( $array );
+                
                 $this->input->set_cookie('verification_code', md5($random), time()+3600*24*30);
                 exit('success');
             } else {
