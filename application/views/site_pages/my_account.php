@@ -7,8 +7,10 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Edit Profile</a>
+                <?php if($purchased=='yes'): ?>
                 <a class="nav-link" id="v-referred-people-tab" data-toggle="pill" href="#v-pills-referred-people" role="tab" aria-controls="v-pills-referred-people" aria-selected="false">Refferals</a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Discount Settings</a>
+                <?php endif; ?>
                 </div>
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12">
@@ -96,11 +98,11 @@
 
                         <div class="container-fluid">
                             <div class="row">
-                            <?php foreach($reffered_customers as $reffCust): ?>
+                            <?php $purchased = 0; foreach($reffered_customers as $reffCust): ?>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-left:0;padding-right:0;">
                                     <div class="card" style="<?php if($reffCust['purchased']=='no'){echo 'background-color: red;';}else{
-                                        echo 'background-color: darkgreen;';
+                                        echo 'background-color: darkgreen; '; $purchased++;
                                     } ?>">
                                         <div class="card-body">
                                             <h4 style="background-color: transparent !important;"><?php echo $reffCust['first_name'].' '.$reffCust['last_name']; ?></h4>
@@ -118,12 +120,12 @@
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                         <h4>Discount Settings</h4>
-                        <form action="<?php //echo site_url('update-google-play-credit-email'); ?>" method="post">
+                        <form action="<?php echo site_url('update-google-play-credit-email'); ?>" method="post">
                             <div class="form-group">
                                 <label for="google-play-credits-email">Gmail address to recieve Google Play credit discount</label>
-                                <input class="form-control" type="email" name="google-play-email" id="google-play-email" disabled>
+                                <input class="form-control" type="email" name="google-play-email" id="google-play-email" <?php if($purchased<3){echo 'disabled';} ?>>
                             </div>
-                            <button type="submit" class="btn btn-danger" disabled>Save</button>
+                            <button type="submit" class="btn btn-danger" <?php if($purchased<3){echo 'disabled';} ?>>Save</button>
                         </form>                   
                     </div>
                 </div>

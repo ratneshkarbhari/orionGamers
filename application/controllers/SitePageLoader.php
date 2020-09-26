@@ -243,6 +243,13 @@
 
 			$this->load->model('RefferalModel');
 			
+			$this->load->model('AuthModel');
+			
+			$customerData = $this->AuthModel->fetch_customer_data_by_id($_SESSION['id']);
+
+			$data['purchased'] = $customerData['purchased'];
+			
+
 			$data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
 
 			$this->load->view('templates/site_header', $data);			

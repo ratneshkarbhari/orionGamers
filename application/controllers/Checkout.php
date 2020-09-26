@@ -25,6 +25,14 @@
             }
 
         }
+
+        public function create_google_play_credit_request(){
+            $customerID = $_SESSION['id'];
+            $googlePlayEmail = $this->input->post('google-play-email');
+            $this->load->model('TransactionModel');
+            $createdRequest = $this->TransactionModel->create_gplay_credit_req($customerID,$googlePlayEmail);
+            redirect(site_url('my-account'));
+        }
     
     }
     
