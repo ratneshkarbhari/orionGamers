@@ -34,7 +34,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black; color: white;">
                 <a class="navbar-brand" href="<?php echo site_url(); ?>">
-                    <img src="<?php echo site_url('assets/images/text_logo_navbar.png'); ?>" id="siteRedLogo">
+                    <img src="<?php echo site_url('assets/images/origamersTransparent.png'); ?>" id="siteRedLogo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" style="color: white;"></span>

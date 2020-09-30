@@ -63,7 +63,7 @@ $('.hero-slider').slick({
     fade: true,
     nav: false,
     dots: false,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 3000,
     autoplay: true,
     prevArrow: '<button class="slick-prev"><i class="icofont-long-arrow-left"></i>Pre</button>',
     nextArrow: '<button class="slick-next">Next<i class="icofont-long-arrow-right"></i></button>',

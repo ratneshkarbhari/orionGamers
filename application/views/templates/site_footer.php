@@ -1,4 +1,5 @@
-<footer class="footer-section style-2 section bg-theme" style="background-image: url(<?php echo site_url('assets/images/bg/footer-bg.jpg'); ?>)">
+
+    <footer class="footer-section style-2 section bg-theme" style="background-image: url('<?php echo site_url('assets/images/bg/footer-bg.jpg'); ?>')">
        
        <!--Footer Top start-->
        <div class="footer-top section pt-80 pt-lg-70 pt-md-60 pt-sm-50 pt-xs-40 pb-80 pb-lg-70 pb-md-60 pb-sm-15 pb-xs-40">
@@ -9,7 +10,7 @@
                    <div class="col-xl-3 col-lg-2 col-md-3">
                        <div class="footer-widget">
                            <div class="footer-logo">
-                               <a class="navbar-brand" href="index.html"> <img src="<?php echo site_url('assets/images/text_logo.png'); ?>"></a>
+                               <h2 style="background-color: transparent !important;">origamers</h2>
                            </div>
                        </div>
                    </div>
@@ -21,9 +22,8 @@
                            <div class="footer-nav">
                                <nav>
                                    <ul>
-                                       <li><a href="#">how it works</a></li>
-                                       <li><a href="#">support</a></li>
-                                       <li><a href="#">terms & conditions</a></li>
+                                       <li><a href="<?php echo site_url('privacy-policy'); ?>">privacy policy</a></li>
+                                       <li><a href="<?php echo site_url('terms-and-conditions'); ?>">terms and conditions</a></li>
                                    </ul>
                                </nav>
                            </div>
@@ -58,7 +58,7 @@
                <div class="row">
                    <div class="col-12">
                        <div class="copyright text-center">
-                           <p>Copyright &copy;2020 <a  href="#"> <img src="<?php echo site_url('assets/images/text_logo_white.png'); ?>"></a> All rights reserved.</p>
+                           <p>Copyright ©2018 <a href="#">Gilbard</a>. All rights reserved.</p>
                        </div>
                    </div>
                </div>
@@ -67,7 +67,6 @@
        <!--Footer bottom end-->
        
     </footer>
-    <!--Footer section end-->
    
 </div>
 

@@ -5379,9 +5379,6 @@ header.header.header-static {
       min-height: 0vw; max-height: 70vw;
     }
   }
-  .footer-top {
-    display: none !important;
-  }
   .slick-arrow:hover{
     color: red !important;
   }
@@ -5408,6 +5405,7 @@ header.header.header-static {
     min-height: 500px;
   }
   a.nav-link{
+    color: #ffffff !important;
     font-size: large;
     text-transform: uppercase;
   }

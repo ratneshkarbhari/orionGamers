@@ -47,7 +47,7 @@
     </div>
     <!--Featured section end-->
 
-    <section class="featured-section section pb-95 pb-lg-75 pb-md-65 pb-sm-55 pb-xs-45">
+    <section class="featured-section section  pb-md-65  pb-xs-45">
     
         <div class="container-fluid">
             <!--Featured Title Start-->
@@ -58,7 +58,7 @@
             <div class="row">
                                 
                 <?php foreach($all_games as $game): ?>
-                    <div class="single-featured img-full col-lg-4 col-md-6 col-sm-6" style="margin-bottom: 5%;">
+                    <div class="single-featured img-full col-lg-4 col-md-6 col-sm-6" style="margin-bottom: 2%;">
                         <a href="<?php echo site_url('game-details/'.$game['slug']); ?>">
                         <img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>" >
                         <h2 class="game-title" style="margin: 10px 0;"><?php echo $game['title']; ?></h2>
