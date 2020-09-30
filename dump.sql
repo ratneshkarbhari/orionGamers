@@ -177,7 +177,8 @@ CREATE TABLE `transactions` (
   `razorpay_signature` text NOT NULL,
   `payee_customer_email` varchar(500) NOT NULL,
   `payee_customer_name` text NOT NULL,
-  `date` date NOT NULL,
+  `product_id` int NOT NULL,
+  `date` text NOT NULL,
   `amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -189,7 +190,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (1,'pay_FfdvJTwnhB9lfN','order_FfduXwwo2Ix1UJ','e63907c632b0cfb4e9d5627657718fb88502c53cff357b1c51bfc3b1492dd986','codesevaco@gmail.com','Code Seva','0000-00-00',1.00),(2,'pay_Ffe2U8CN7XyN49','order_Ffe1lBRav0OXuZ','4b438788e4c34444a8698a95361710c3993cdbf4e5e5dc079ce1a069cdc88064','codesevaco@gmail.com','Code Seva','0000-00-00',1.00),(3,'pay_FgLLMvWdfqW8FF','order_FgLKgr7whC0CqI','626d4d661eb479cdd3498e3bd31682d6692c76da36d647d9c4e2c9e0e918105e','rkarbhari23@gmail.com','Ratnesh Karbhari','0000-00-00',2.00);
+INSERT INTO `transactions` VALUES (1,'pay_FfdvJTwnhB9lfN','order_FfduXwwo2Ix1UJ','e63907c632b0cfb4e9d5627657718fb88502c53cff357b1c51bfc3b1492dd986','codesevaco@gmail.com','Code Seva',10,'2020-09-25',1.00),(2,'pay_Ffe2U8CN7XyN49','order_Ffe1lBRav0OXuZ','4b438788e4c34444a8698a95361710c3993cdbf4e5e5dc079ce1a069cdc88064','codesevaco@gmail.com','Code Seva',13,'2020-09-25',1.00),(3,'pay_FgLLMvWdfqW8FF','order_FgLKgr7whC0CqI','626d4d661eb479cdd3498e3bd31682d6692c76da36d647d9c4e2c9e0e918105e','rkarbhari23@gmail.com','Ratnesh Karbhari',14,'2020-09-25',2.00);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -202,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-30 11:37:26
+-- Dump completed on 2020-09-30 12:53:04

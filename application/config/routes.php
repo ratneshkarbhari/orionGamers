@@ -48,7 +48,10 @@ $route['edit-game/(:any)'] = 'AdminPageLoader/edit_game/$1';
 $route['all-game-products'] = 'AdminPageLoader/all_game_products';
 $route['add-new-game-product'] = 'AdminPageLoader/add_new_game_product';
 $route['edit-game-product/(:any)'] = 'AdminPageLoader/edit_game_product/$1';
+$route['all-sales'] = 'AdminPageLoader/see_all_transactions';
+$route['transaction-details/(:num)'] = 'AdminPageLoader/transaction_details/$1';
 
+// Checkout Endpoints
 $route['save-transaction-add-purchase'] = 'Checkout/save_transaction';
 $route['thank-you'] = 'SitePageLoader/thank_you';
 

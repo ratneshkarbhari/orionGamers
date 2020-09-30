@@ -31,6 +31,14 @@
             return $this->db->update('customers');
         }
 
+        public function fetch_transaction_details_by_id($id){
+            return $this->db->get_where('transactions',array('id'=>$id))->row_array();
+        }
+
+        public function fetch_all(){
+            return $this->db->get('transactions')->result_array();
+        }
+
         public function save($data){
             return $this->db->insert('transactions',$data);
         }

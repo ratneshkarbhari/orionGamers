@@ -16,6 +16,36 @@
             }
         }
 
+        public function see_all_transactions(){
+
+            $this->load->model('TransactionModel');
+
+            $data['title'] = 'All Transactions';
+            $data['all_transactions'] = $this->TransactionModel->fetch_all();
+            $data['success'] = $data['error'] = '';
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/all_transactions', $data);
+            $this->load->view('templates/admin_footer', $data);
+
+        }
+
+        public function transaction_details($id){
+
+            $this->load->model('TransactionModel');
+            $this->load->model('GameProductsModel');
+            $this->load->model('AuthModel');
+            $data ['transaction'] = $transaction = $this->TransactionModel->fetch_transaction_details_by_id($id);
+            $data['customer'] = $this->AuthModel->fetch_customer_data_by_email($transaction['payee_customer_email']);
+            $data['product'] = $this->GameProductsModel->fetch_by_id($transaction['product_id']);
+            $data['title'] = 'Details for transaction id: '.$id;
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/transaction_details', $data);
+            $this->load->view('templates/admin_footer', $data);
+
+        }
+
         public function edit_game_product($slug){
             $data['title'] = 'Edit game Product';
             $this->load->model('GamesModel');

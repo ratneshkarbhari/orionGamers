@@ -18,7 +18,7 @@
                 </div></a>
             </div>
             <div class="col l4 m12 s12">
-                <a href="<?php echo site_url('sales'); ?>"><div class="card custom-card-one-third center-align">
+                <a href="<?php echo site_url('all-sales'); ?>"><div class="card custom-card-one-third center-align">
                 <h6>Sales</h6>
                 </div></a>
             </div>
