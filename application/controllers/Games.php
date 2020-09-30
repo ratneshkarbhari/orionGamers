@@ -171,6 +171,7 @@
                 $configMultiple['encrypt_name'] = TRUE;
 
                 $sliderImageNames = json_decode($oldGameData['banner_images'],TRUE);
+                $sliderImageNamesNew = array();
                 
                 $sliderImagesCount = count($sliderImages['name']);
 
@@ -193,11 +194,11 @@
 
 
 
-                    $sliderImageNames[] = $sliderImageName;               
+                    $sliderImageNamesNew[] = $sliderImageName;               
 
                 }
 
-                $sliderImageNamesJson = json_encode($sliderImageNames);
+                $sliderImageNamesJson = json_encode($sliderImageNamesNew);
             }else {
                 $sliderImageNamesJson = $oldGameData['banner_images'];
             }
