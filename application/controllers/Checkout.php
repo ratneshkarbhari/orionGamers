@@ -28,10 +28,10 @@
         
         public function mark_gplay_claim_settled(){
 
-            $customerID = $this->input->post('customer-id');
+            echo $customerID = $this->input->post('customer-id');
 
             $this->load->model('TransactionModel');
-            $settled = $this->TransactionModel->mark_gplay_claim_settled($customerId);
+            $settled = $this->TransactionModel->mark_gplay_claim_settled($customerID);
 
             
             redirect(site_url('all-google-play-credit-request'));

@@ -38,6 +38,7 @@
         }
 
         public function mark_gplay_claim_settled($custId){
+            echo $custId;
             $this->db->where('id', $custId);
             $this->db->set('gpay_credit_claim_status','settled');
             return $this->db->update('customers');

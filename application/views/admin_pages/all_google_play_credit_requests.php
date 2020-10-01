@@ -24,7 +24,7 @@
                     <td>
                     <form method="POST" action="<?php echo site_url('update-claim-status-to-settled'); ?>" style="display: inline;">
                         <input type="hidden" name="customer-id" value="<?php echo $customer['id']; ?>">
-                        <button type="submit" class="btn blue">Mark Settled</button>
+                        <button type="submit" class="btn blue" <?php if($customer['gpay_credit_claim_status']=='settled'){echo 'disabled';} ?>>Mark Settled</button>
                     </form>
                     </td>
                 </tr>
