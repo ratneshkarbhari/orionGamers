@@ -11,6 +11,7 @@
                        <div class="footer-widget">
                            <div class="footer-logo">
                                <h2 style="background-color: transparent !important;">origamers</h2>
+                               <img src="<?php echo site_url('assets/images/makeInIndia.png'); ?>" style="width: 50%;">
                            </div>
                        </div>
                    </div>
