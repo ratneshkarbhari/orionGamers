@@ -25,6 +25,7 @@ $route['how-it-works'] = 'SitePageLoader/how_it_works';
 $route['contact'] = 'SitePageLoader/contact';
 $route['forgot-password'] = 'SitePageLoader/forgot_pwd';
 $route['update-google-play-credit-email'] = 'Checkout/create_google_play_credit_request';
+$route['terms-and-conditions'] = 'SitePageLoader/tnc';
 
 
 // Authentication endpoints

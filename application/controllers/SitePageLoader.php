@@ -228,6 +228,14 @@
 
 		}
 
+		public function tnc(){
+			$data['title'] = 'Terms and Conditions';
+			$this->load->model('GamesModel');			
+			$data['all_games'] = $this->GamesModel->fetch_all();
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/tnc', $data);
+			$this->load->view('templates/site_footer', $data);
+		}
 
 		public function my_account(){
 
@@ -247,6 +255,7 @@
 			
 			$customerData = $this->AuthModel->fetch_customer_data_by_id($_SESSION['id']);
 
+			$data['customerData'] = $customerData;
 			$data['purchased'] = $customerData['purchased'];
 			
 

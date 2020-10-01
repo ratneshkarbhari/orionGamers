@@ -76,7 +76,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (2,'Ratnesh','Karbhari','rkarbhari23@gmail.com','9137976398','','5f6d9bcf2a0bc','independent','Mumbai','400083','India','Maharashtra','google_login','no','',''),(6,'Ratnesh','Karbhari','codesevaco@gmail.com','','$2y$10$DykzdpWPC9STG6/2poeMAe7XFJzVYro1coAhxqGFcJpQXyYd/Z2Ai','5f6ed90c52867','independent','','','','','email','no','requested','rkarbhari23@gmail.com'),(7,'Emmanuel','Peter','mr.peter0201@gmail.com','','','5f70b3848c5d0','independent','','','','','google_login','no','','');
+INSERT INTO `customers` VALUES (2,'Ratnesh','Karbhari','rkarbhari23@gmail.com','9137976398','','5f6d9bcf2a0bc','independent','Mumbai','400083','India','Maharashtra','google_login','yes','',''),(6,'Ratnesh','Karbhari','codesevaco@gmail.com','','$2y$10$DykzdpWPC9STG6/2poeMAe7XFJzVYro1coAhxqGFcJpQXyYd/Z2Ai','5f6ed90c52867','5f6d9bcf2a0bc','','','','','email','no','settled','rkarbhari23@gmail.com'),(7,'Emmanuel','Peter','mr.peter0201@gmail.com','','','5f70b3848c5d0','5f6d9bcf2a0bc','','','','','google_login','yes','','');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-01 10:48:13
+-- Dump completed on 2020-10-01 11:30:08

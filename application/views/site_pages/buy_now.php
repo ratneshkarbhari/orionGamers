@@ -95,10 +95,10 @@
             data: {
                 'razorpay_payment_id' : response.razorpay_payment_id,
                 'razorpay_order_id' : response.razorpay_order_id,
-                'product_id' => $game_details['id'],
+                'product_id' : $game_details['id'],
                 'razorpay_signature' : response.razorpay_signature,
                 'payee_customer_email' : '<?php echo $_SESSION['email']; ?>',
-                'date' => '<?php echo date('d-m-Y'); ?>'
+                'date' : '<?php echo date('d-m-Y'); ?>',
                 'payee_customer_name' : '<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>',
                 'amount' : <?php echo $game_details['sale_price']; ?>
             },
