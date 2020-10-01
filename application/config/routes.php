@@ -50,6 +50,8 @@ $route['add-new-game-product'] = 'AdminPageLoader/add_new_game_product';
 $route['edit-game-product/(:any)'] = 'AdminPageLoader/edit_game_product/$1';
 $route['all-sales'] = 'AdminPageLoader/see_all_transactions';
 $route['transaction-details/(:num)'] = 'AdminPageLoader/transaction_details/$1';
+$route['all-google-play-credit-request'] = 'AdminPageLoader/all_google_play_credit_request';
+$route['update-claim-status-to-settled'] = 'Checkout/mark_gplay_claim_settled';
 
 // Checkout Endpoints
 $route['save-transaction-add-purchase'] = 'Checkout/save_transaction';

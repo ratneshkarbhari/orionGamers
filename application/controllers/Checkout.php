@@ -25,6 +25,19 @@
             }
 
         }
+        
+        public function mark_gplay_claim_settled(){
+
+            $customerID = $this->input->post('customer-id');
+
+            $this->load->model('TransactionModel');
+            $settled = $this->TransactionModel->mark_gplay_claim_settled($customerId);
+
+            
+            redirect(site_url('all-google-play-credit-request'));
+            
+
+        }
 
         public function create_google_play_credit_request(){
             $customerID = $_SESSION['id'];

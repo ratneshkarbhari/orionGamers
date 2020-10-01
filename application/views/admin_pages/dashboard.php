@@ -22,6 +22,11 @@
                 <h6>Sales</h6>
                 </div></a>
             </div>
+            <div class="col l12 m12 s12">
+                <a href="<?php echo site_url('all-google-play-credit-request'); ?>"><div class="card custom-card-one-third center-align">
+                <h6>All Google Play Credit Request</h6>
+                </div></a>
+            </div>
 
         </div>
         

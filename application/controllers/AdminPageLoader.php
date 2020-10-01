@@ -30,6 +30,19 @@
 
         }
 
+        public function all_google_play_credit_request(){
+
+            $data['title'] = 'All Google Play Credit Requests';
+            $this->load->model('TransactionModel');
+            $this->load->model('AuthModel');
+            $data['google_play_credit_requests'] = $this->TransactionModel->fetch_all_google_play_credit_requests();
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/all_google_play_credit_requests', $data);
+            $this->load->view('templates/admin_footer', $data);
+
+        }
+
         public function transaction_details($id){
 
             $this->load->model('TransactionModel');

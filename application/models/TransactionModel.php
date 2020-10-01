@@ -31,6 +31,18 @@
             return $this->db->update('customers');
         }
 
+        public function fetch_all_google_play_credit_requests(){
+            $this->db->order_by('id', 'desc');
+            
+            return $this->db->get('gpay_credit_requests')->result_array();
+        }
+
+        public function mark_gplay_claim_settled($custId){
+            $this->db->where('id', $custId);
+            $this->db->set('gpay_credit_claim_status','settled');
+            return $this->db->update('customers');
+        }
+
         public function fetch_transaction_details_by_id($id){
             return $this->db->get_where('transactions',array('id'=>$id))->row_array();
         }

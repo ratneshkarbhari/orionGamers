@@ -120,6 +120,7 @@
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                         <h4>Discount Settings</h4>
+                        <?php if($customerData['gpay_credit_claim_status']!='requested'||$customerData['gpay_credit_claim_status']!='settled'): ?>
                         <form action="<?php echo site_url('update-google-play-credit-email'); ?>" method="post">
                             <div class="form-group">
                                 <label for="google-play-credits-email">Gmail address to recieve Google Play credit discount</label>
@@ -127,6 +128,7 @@
                             </div>
                             <button type="submit" class="btn btn-danger" <?php if($purchased<3){echo 'disabled';} ?>>Save</button>
                         </form>                   
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
