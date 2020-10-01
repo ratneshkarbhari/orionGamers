@@ -31,7 +31,7 @@
                 <div class="col-12">
                     <div class="featured-slide">
                         
-                        <?php foreach($all_games as $game): ?>
+                        <?php $all_games=array_reverse($all_games); foreach($all_games as $game): ?>
                         <div class="single-featured img-full">
                             <a href="<?php echo site_url('game-details/'.$game['slug']); ?>"><img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>"></a>
                         </div>
