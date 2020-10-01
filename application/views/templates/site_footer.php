@@ -58,7 +58,7 @@
                <div class="row">
                    <div class="col-12">
                        <div class="copyright text-center">
-                           <p>Copyright ©2018 <a href="#">Gilbard</a>. All rights reserved.</p>
+                           <p>Copyright ©2020 <a href="#">Origamers</a>. All rights reserved.</p>
                        </div>
                    </div>
                </div>
