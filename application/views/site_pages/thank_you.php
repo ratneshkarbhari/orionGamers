@@ -15,7 +15,7 @@
                 This is your Refferal Link, join 3 people to Enjoy your discount.
             </h1>
             <small class="text-success" id="successMsg"></small>
-            <button type="button" id="copyReffLink" class="btn btn-secondary" data-clipboard-text="<?php echo 'Do visit origamers.com they provide the privilege to the gamers to enjoy premium packs of all your favorite games at affordable rates.  '.site_url('?reff_code='.$_SESSION['reff_code']); ?>">Copy Link</button>
+            <button type="button" id="copyReffLink" class="btn btn-secondary" data-clipboard-text="<?php echo 'Do visit origamers.com they provide the privilege to the gamers to enjoy premium packs of all your favorite games at affordable rates.  '.site_url('?parent_reff_code='.$_SESSION['reff_code']); ?>">Copy Link</button>
         </section>
     </main>
 

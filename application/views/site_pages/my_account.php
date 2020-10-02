@@ -93,7 +93,7 @@
                     <div class="tab-pane fade" id="v-pills-referred-people" role="tabpanel" aria-labelledby="v-pills-v-pills-referred-people-tab">
                         <h4>Refferals</h4>
                         <label>Refferal Link:</label>
-                        <pre style="color: white; font-size: 18px;"><?php echo site_url('?reff_code='.$_SESSION['reff_code']); ?></pre>
+                        <pre style="color: white; font-size: 18px;"><?php echo site_url('?parent_reff_code='.$_SESSION['reff_code']); ?></pre>
                         <p>People who sign up with your refferal code and purchase will appeare here:</p>                   
                         <span style='padding: 2%; background-color: red !important;'>Not Purchased</span>
                         <span style='padding: 2%; background-color: darkgreen !important;'> Purchased</span>

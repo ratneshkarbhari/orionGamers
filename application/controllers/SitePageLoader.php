@@ -18,6 +18,9 @@
 			parent::__construct();
 			if(isset($_GET['parent_reff_code'])){
 				setcookie('parent-reff-code', $_GET['parent_reff_code'], time() + (86400 * 30), "/"); 
+				
+				redirect(site_url());
+				
 			}
 		}
 
