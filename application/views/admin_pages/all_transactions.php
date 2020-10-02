@@ -18,7 +18,7 @@
 
             <tbody>
                 
-                <?php foreach($all_transactions as $transaction):  ?>
+                <?php $all_transactions = array_reverse($all_transactions); foreach($all_transactions as $transaction):  ?>
                 <tr>
                     <td><?php echo $transaction['amount']; ?></td>
                     <td><?php echo $transaction['product_id']; ?></td>
