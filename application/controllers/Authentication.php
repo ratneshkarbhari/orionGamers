@@ -125,6 +125,10 @@
                 $data['all_games'] = $this->GamesModel->fetch_all();
                 
                 $data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
+                $customerData = $this->AuthModel->fetch_customer_data_by_id($_SESSION['id']);
+
+                $data['customerData'] = $customerData;
+                $data['purchased'] = $customerData['purchased'];
     
                 $this->load->view('templates/site_header', $data);			
                 $this->load->view('site_pages/my_account', $data);
