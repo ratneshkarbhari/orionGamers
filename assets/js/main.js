@@ -65,8 +65,8 @@ $('.hero-slider').slick({
     dots: false,
     autoplaySpeed: 3000,
     autoplay: true,
-    prevArrow: '<button class="slick-prev"><i class="icofont-long-arrow-left"></i>Pre</button>',
-    nextArrow: '<button class="slick-next">Next<i class="icofont-long-arrow-right"></i></button>',
+    prevArrow: '<button style="background: red; color: white;" class="slick-prev"><i class="icofont-long-arrow-left"></i>Pre</button>',
+    nextArrow: '<button style="background: red; color: white;" class="slick-next">Next<i class="icofont-long-arrow-right"></i></button>',
     responsive: [
         {
         breakpoint: 992,

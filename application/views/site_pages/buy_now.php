@@ -127,8 +127,12 @@
 };
 var rzp1 = new Razorpay(options);
 document.getElementById('checkoutExeButton').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
+    if ($("input#tncAccepted").prop("checked")==true) {
+        rzp1.open();
+        e.preventDefault();
+    }else{
+        alert('Please Accept Terms and Conditions to proceed');
+    }
 }
 
 </script>
