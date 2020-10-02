@@ -9,7 +9,9 @@
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Edit Profile</a>
                 <?php if($purchased=='yes'): ?>
                 <a class="nav-link" id="v-referred-people-tab" data-toggle="pill" href="#v-pills-referred-people" role="tab" aria-controls="v-pills-referred-people" aria-selected="false">Refferals</a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Discount Settings</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Request Google Play Voucher</a>
+                <a class="nav-link" id="v-pills-refund-tab" data-toggle="pill" href="#v-pills-refund" role="tab" aria-controls="v-pills-refund" aria-selected="false">Request Refund</a>
+
                 <?php endif; ?>
                 </div>
             </div>
@@ -18,6 +20,7 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h4 class='text-light'>Edit Profile</h4>
                         <small class="text-danger"><?php echo $error; ?></small>
+                        <small class="text-success"><?php echo $success; ?></small>
                         <form action="<?php echo site_url('update-customer-profile'); ?>" method="post">
                             <div class="container-fluid" style="padding: 0;">
                                 <div class="row">
@@ -119,8 +122,22 @@
 
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <h4>Discount Settings</h4>
+                        <h4>Request Google Play Voucher</h4>
                         <?php if($customerData['gpay_credit_claim_status']!='requested'||$customerData['gpay_credit_claim_status']!='settled'): ?>
+                        <p>Once 3 people have joined and purchased using your refferal code, the form below will unlock kindly submit your working gmail id to receive your google play voucher code. </p>
+                        <form action="<?php echo site_url('update-google-play-credit-email'); ?>" method="post">
+                            <div class="form-group">
+                                <label for="google-play-credits-email">Gmail address to recieve Google Play credit discount</label>
+                                <input class="form-control" type="email" name="google-play-email" id="google-play-email" <?php if($purchased<3){echo 'disabled';} ?>>
+                            </div>
+                            <button type="submit" class="btn btn-danger" <?php if($purchased<3){echo 'disabled';} ?>>Save</button>
+                        </form>                   
+                        <?php endif; ?>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-refund" role="tabpanel" aria-labelledby="v-pills-refund-tab">
+                        <h4>Request Google Play Voucher</h4>
+                        <?php if($customerData['gpay_credit_claim_status']!='requested'||$customerData['gpay_credit_claim_status']!='settled'): ?>
+                        <p>Once 3 people have joined and purchased using your refferal code, the form below will unlock kindly submit your working gmail id to receive your google play voucher code. </p>
                         <form action="<?php echo site_url('update-google-play-credit-email'); ?>" method="post">
                             <div class="form-group">
                                 <label for="google-play-credits-email">Gmail address to recieve Google Play credit discount</label>

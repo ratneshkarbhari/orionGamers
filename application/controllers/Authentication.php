@@ -106,6 +106,10 @@
             );
 
             $customerUpdated = $this->AuthModel->update_customer($objToUpdate);
+            $this->load->model('GamesModel');	
+            
+            $this->load->model('RefferalModel');		
+
 
             if($customerUpdated){
                 
@@ -114,17 +118,28 @@
                 $this->session->set_userdata( $objToUpdate );
 
                 
-                redirect(site_url('my-account'));
+                $data['title'] = 'My Account';
+                $data['error'] = '';
+                $data['success'] = 'Customer Profile updated successfully';
+    
+                $data['all_games'] = $this->GamesModel->fetch_all();
+                
+                $data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
+    
+                $this->load->view('templates/site_header', $data);			
+                $this->load->view('site_pages/my_account', $data);
+                $this->load->view('templates/site_footer', $data);	
                 
                 
             }else {
-                $this->load->model('GamesModel');			
-                $data['all_games'] = $this->GamesModel->fetch_all();
     
                 $data['title'] = 'My Account';
                 $data['error'] = 'Customer Profile not updated';
+                $data['success'] = '';
     
                 $this->load->model('RefferalModel');
+                $data['all_games'] = $this->GamesModel->fetch_all();
+
                 
                 $data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
     

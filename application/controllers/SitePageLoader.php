@@ -247,7 +247,7 @@
 			$data['all_games'] = $this->GamesModel->fetch_all();
 
 			$data['title'] = 'My Account';
-			$data['error'] = '';
+			$data['error'] = $data['success'] = '';
 
 			$this->load->model('RefferalModel');
 			
