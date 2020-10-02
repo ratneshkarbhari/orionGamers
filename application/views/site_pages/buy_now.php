@@ -44,7 +44,7 @@
                                 <label for="email">Email</label>
                                 <input class="form-control" value="<?php echo $_SESSION['email']; ?>" type="email" name="email" id="email">
                             </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <!-- <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                 <label for="country">Country</label>
                                 <input  class="form-control" type="text" name="country" id="country">
                             </div>
@@ -59,6 +59,12 @@
                             <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                 <label for="pincode">Pincode</label>
                                 <input class="form-control" type="text" name="pincode" id="pincode">
+                            </div> -->
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group form-check">
+                            
+                                <input type="checkbox" class="form-check-input" id="tncAccepted">
+                                <label class="form-check-label" for="tncAccepted">I Agree to all Terms and conditions</label>
+                            
                             </div>
 
                         </div>

@@ -37,7 +37,9 @@
 
 
                 <?php foreach($all_games as $game): ?>
-                <option value="<?php echo $game['id']; ?>"><?php echo $game['title']; ?></option>
+                <option value="<?php echo $game['id']; ?>" <?php if ($gameProduct['parent_game']==$game['id']) {
+                    echo 'selected';
+                } ?>><?php echo $game['title']; ?></option>
                 <?php endforeach; ?>
 
             </select>
