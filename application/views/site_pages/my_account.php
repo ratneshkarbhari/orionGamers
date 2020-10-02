@@ -36,7 +36,7 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input class="form-control" type="email" name="email" value='<?php echo $_SESSION['email']; ?>' id="email">
+                                            <input class="form-control" type="email" name="email" value='<?php echo $_SESSION['email']; ?>' id="email" readonly>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12">

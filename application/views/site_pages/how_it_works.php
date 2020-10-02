@@ -5,7 +5,7 @@
         </div>
         <div class="login-section section " style="margin-bottom: 3%;">
             <!-- <h1 class="page-title">How it Works?</h1> -->
-            <p style="margin: 2% 0;" class="description">Welcome, gamers our website is made for the most overpowered gamers to have all the privileges of the games we are offering. We sell all the Premium packs, Diamonds, UC, CP, Gems of your favorite games. We provide it in a very reasonable and affordable price. To receive this discount there are certain criteria’s to be followed.</p>
+            <p style="margin: 2% 0;" class="description"><span style="color: red !important;">Welcome, gamers our website is made for the most overpowered gamers to have all the privileges of the games we are offering. We sell all the Premium packs, Diamonds, UC, CP, Gems of your favorite games. We provide it in a very reasonable and affordable price.</span> To receive this discount there are certain criteria’s to be followed.</p>
             <p style="margin: 2% 0;" class='description'>First you need to register/login in your account from our website..</p>
             <img src="<?php echo site_url('assets/images/ss1.png'); ?>" style="width: 100%;">
             <p style="margin: 2% 0;" class="description">Select the product and click on buy now proceed to check out</p>

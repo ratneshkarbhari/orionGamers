@@ -61,7 +61,11 @@
                     <div class="single-featured img-full col-lg-4 col-md-6 col-sm-6" style="margin-bottom: 2%;">
                         <a href="<?php echo site_url('game-details/'.$game['slug']); ?>">
                         <img src="<?php echo site_url('assets/images/game_featured_images/'.$game['featured_image']); ?>" >
-                        <h2 class="game-title" style="margin: 10px 0;"><?php echo $game['title']; ?></h2>
+                        <h2 class="game-title" <?php if ($game['slug']=='clash-of-clans') {
+                            echo 'style="margin: 50px 0;"';
+                        }else {
+                            echo 'style="margin: 10px 0;"';
+                        } ?>><?php echo $game['title']; ?></h2>
                         </a>
                     </div>
                 <?php endforeach; ?>

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-lg-3 col-sm-12 col-md-12"></div>
             <div class="col-lg-6 col-sm-12 col-md-12">
-                <?php foreach($game_products as $game_product): ?>
+                <?php $game_products = array_reverse($game_products); foreach($game_products as $game_product): ?>
                 <div class="container-fluid card hovercard" style="padding: 2%; background-color: black; border: 1px solid red;">
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-sm-12">
