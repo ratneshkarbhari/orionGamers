@@ -47,7 +47,7 @@
                 $mail->setFrom('verification@origamers.com', 'Verification');
                 $mail->addAddress('genuineprofitmaker@gmail.com
                 ', 'SiteAdmin');     // Add a recipient
-                $mail->addReplyTo('verification@origamers.com', 'Verification');
+                $mail->addReplyTo('emailverification@origamers.com', 'Verification');
 
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
@@ -255,15 +255,15 @@
                 $mail->isSMTP();                                            // Send using SMTP
                 $mail->Host       = 'smtp.hostinger.in';                    // Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = 'verification@origamers.com';                     // SMTP username
+                $mail->Username   = 'emailverification@origamers.com';                     // SMTP username
                 $mail->Password   = 'Ratnesh@47';                               // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
                 //Recipients
-                $mail->setFrom('verification@origamers.com', 'Verification');
+                $mail->setFrom('emailverification@origamers.com', 'Verification');
                 $mail->addAddress($recieverEmail, 'Unverified User');     // Add a recipient
-                $mail->addReplyTo('verification@origamers.com', 'Verification');
+                $mail->addReplyTo('emailverification@origamers.com', 'Verification');
 
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
