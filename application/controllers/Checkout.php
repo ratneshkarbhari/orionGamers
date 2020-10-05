@@ -9,26 +9,13 @@
         public function save_transaction()
         {
 
-            $this->load->model('TransactionModel');
-            
-            $dataToSave = $_POST;
-            
-            $transactionSaved = $this->TransactionModel->save($dataToSave);
 
-            if ($transactionSaved) {
-
-                $updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id']);
-
-                exit('success');
-            }else{
-                exit('fail');
-            }
 
         }
         
         public function mark_gplay_claim_settled(){
 
-            echo $customerID = $this->input->post('customer-id');
+            $customerID = $this->input->post('customer-id');
 
             $this->load->model('TransactionModel');
             $settled = $this->TransactionModel->mark_gplay_claim_settled($customerID);

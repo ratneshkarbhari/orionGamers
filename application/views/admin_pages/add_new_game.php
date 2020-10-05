@@ -23,7 +23,7 @@
             <div class="ip-field-container">
 
                 <label for="product-slug">Game slug</label>
-                <input id="product-slug" class="ip-field" type="text" name="slug">
+                <input id="product-slug" class="ip-field" type="text" name="slug" required>
 
             </div>
 

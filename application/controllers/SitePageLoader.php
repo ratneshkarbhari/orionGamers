@@ -97,11 +97,49 @@
 			$this->load->model('GamesModel');			
 			$data['all_games'] = $this->GamesModel->fetch_all();
 
+
 			$this->load->model('AuthModel');
 			
-			$data['title'] = 'Thank you for the purchase';
 			$customerData = $this->AuthModel->fetch_customer_data_by_email($_SESSION['email']);
 			$data['reff_code'] = $customerData['reff_code'];
+
+			$orderId = $_POST["orderId"];
+			$orderAmount = $_POST["orderAmount"];
+			$referenceId = $_POST["referenceId"];
+			$txStatus = $_POST["txStatus"];
+			$paymentMode = $_POST["paymentMode"];
+			$txMsg = $_POST["txMsg"];
+			$txTime = $_POST["txTime"];
+			$signature = $_POST["signature"];
+			$data = $orderId.$orderAmount.$referenceId.$txStatus.$paymentMode.$txMsg.$txTime;
+			$hash_hmac = hash_hmac('sha256', $data, "acfee4a71bbf8d867cf458af2a2d6688980015fc", true) ;
+			$computedSignature = base64_encode($hash_hmac);
+			if ($signature == $computedSignature) {
+				$this->load->model('TransactionModel');
+            
+				$dataToSave = array(
+					'order_id' => $orderId,
+					'amount' => $orderAmount,
+					'product_id' => $_COOKIE['checkout_product'],
+					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
+					'payee_customer_email' => $this->session->userdata('email'),
+					'cashfree_signature' => $signature,
+					'date' => $txTime,
+
+				);
+				
+				$transactionSaved = $this->TransactionModel->save($dataToSave);
+	
+				
+				$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id']);
+	
+				
+			 } else {
+			  // Reject this call
+			}
+
+
+			$data =array('tile'=>'Thanks');
 
 			$this->load->view('templates/site_header', $data);
 			$this->load->view('site_pages/thank_you', $data);
@@ -123,19 +161,53 @@
 			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
+			$this->input->set_cookie('checkout_product', $gameProductId, time()+(10*60));
+			
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {
 				
 				$data['title'] = 'Buy '.$gameProductData['title'];
 				$data['game_details'] = $gameProductData;
 
-				$api = new Api('rzp_live_zxrps8h6nsCw9a', 'zOUBfQo0ZR9GkiSVrHVyuXIu');
+				$secretKey = "acfee4a71bbf8d867cf458af2a2d6688980015fc";
+				$postData = array(
+				"appId" => "33090190a25fd481164ee1c1c09033",
+				"orderId" => rand(1000,9999),
+				// "orderAmount" => $gameProductData['sale_price'],
+				"orderAmount" => 1.00,
+				"orderCurrency" => "INR",
+				"orderNote" => "",
+				"customerName" => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
+				"customerPhone" => "9137976398",
+				"customerEmail" => $this->session->userdata('email'),
+				"returnUrl" => site_url('thank-you'),
+				"notifyUrl" => site_url('cashfree-notify'),
+			  );
+			   // get secret key from your config
+			   ksort($postData);
+			   $signatureData = "";
+			   foreach ($postData as $key => $value){
+					$signatureData .= $key.$value;
+			   }
+			   $signature = hash_hmac('sha256', $signatureData, $secretKey,true);
+			   $signature = base64_encode($signature);
+			  
 
-				$order = $api->order->create(array(  'receipt' => rand(1000,9999),  'amount' => $gameProductData['sale_price']*100,  'currency' => 'INR' ,         'payment_capture' => 1 // auto capture
-				));
+				$returlUrl = site_url('cashfree-return');
 
-	
-				$data['orderData'] = $order;
+				$data['orderData'] = array(
+					'appId' => "33090190a25fd481164ee1c1c09033",
+					'id' => $postData['orderId'],
+					'customerName' => $postData['customerName'],
+					'customerEmail' => $postData['customerEmail'],
+					'customerPhone' => $postData['customerPhone'],
+					// 'amount' => $gameProduc6tData['sale_price'],
+					'amount' => 1.00,
+					'notifyUrl' => $postData['notifyUrl'],
+					'returnUrl' => $postData['returnUrl'],
+					'mode' => "LIVE"
+				);
+				$data['token'] = $signature;
 
 
 				$this->load->view('templates/site_header', $data);

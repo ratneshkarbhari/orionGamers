@@ -17,7 +17,7 @@
             $this->db->where('id', $custId);
             $this->db->set('google_play_email_id',$googlePlayEmail);
             $this->db->set('gpay_credit_claim_status','requested');
-            $this->db->update('customers');
+            return $this->db->update('customers');
         }
 
         public function create_gplay_credit_req($custId,$googlePlayEmail){
@@ -42,7 +42,6 @@
         }
 
         public function mark_gplay_claim_settled($custId){
-            echo $custId;
             $this->db->where('id', $custId);
             $this->db->set('gpay_credit_claim_status','settled');
             return $this->db->update('customers');

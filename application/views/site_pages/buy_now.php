@@ -1,4 +1,4 @@
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://www.cashfree.com/assets/cashfree.sdk.v1.2.js" type="text/javascript"></script>
 
 <main class="page-content" id="buy-now">
 
@@ -17,122 +17,148 @@
     <section id="buy-now-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <img src="<?php echo site_url('assets/images/game_product_featured_images/'.$game_details['featured_image']); ?>" style="width: 100%;">
-                    <br><br>
-                    <h2><?php echo $game_details['title']; ?></h2>
-                    <p style="color: red; font-size: 250%;">₹ <?php echo $game_details['sale_price']; ?></p>
-                </div>
+                
+                <div class="col-lg-3 col-md-12 col-sm-12"></div>
+                <div class="col-lg-6 col-md-12 col-sm-12 text-center">
 
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div class="card">
 
-                    <!-- <form class="container-fluid" action="<?php echo site_url('checkout-exe'); ?>" method="post"> -->
+                    <div class="card-body">
+                    
+                      <img src="<?php echo site_url('assets/images/game_product_featured_images/'.$game_details['featured_image']); ?>" style="width: 50%;">
+                      <br><br>
+                      <h2><?php echo $game_details['title']; ?></h2>
+                      <p style="color: red; font-size: 250%;">₹ <?php echo $game_details['sale_price']; ?></p>
+                    
+                    </div>
+                  
+                  </div>
 
-                        <div class="container-fluid">
-
-                        <div class="row">
-
-                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                <label for="first_name">First Name</label>
-                                <input class="form-control" value="<?php echo $_SESSION['first_name']; ?>" type="text" name="first_name" id="first_name">
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                <label for="last_name">Last Name</label>
-                                <input value="<?php echo $_SESSION['last_name']; ?>" class="form-control" type="text" name="last_name" id="last_name">
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                <label for="email">Email</label>
-                                <input class="form-control" value="<?php echo $_SESSION['email']; ?>" type="email" name="email" id="email">
-                            </div>
-                            <!-- <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                <label for="country">Country</label>
-                                <input  class="form-control" type="text" name="country" id="country">
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                <label for="state">State</label>
-                                <input class="form-control" type="text" name="state" id="state">
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                <label for="city">City</label>
-                                <input class="form-control" type="text" name="city" id="city">
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                <label for="pincode">Pincode</label>
-                                <input class="form-control" type="text" name="pincode" id="pincode">
-                            </div> -->
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group form-check">
-                            
-                                <input type="checkbox" class="form-check-input" id="tncAccepted">
-                                <label class="form-check-label" for="tncAccepted">I Agree to all Terms and conditions</label>
-                            
-                            </div>
-
-                        </div>
-
-                        </div>
-
-
-                        <button type="button" id="checkoutExeButton" class="btn btn-large btn-block" style="background-color: red; color: white;">BUY NOW</button>
-
-                        
-
-                    <!-- </form> -->
+                  <form id="redirectForm" method="post" action="https://www.cashfree.com/checkout/post/submit">
+                    <input type="hidden" name="appId" value="33090190a25fd481164ee1c1c09033"/>
+                    <input type="hidden" name="orderId" value="<?php echo $orderData['id']; ?>"/>
+                    <input type="hidden" name="orderAmount" value="<?php echo $orderData['amount']; ?>"/>
+                    <input type="hidden" name="orderCurrency" value="INR"/>
+                    <input type="hidden" name="orderNote" value=""/>
+                    <input type="hidden"  name="customerName" value="<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>"/>
+                    <input type="hidden" name="customerEmail" value="<?php echo $_SESSION['email']; ?>"/>
+                    <input type="hidden" name="customerPhone" value="<?php echo $orderData['customerPhone']; ?>"/>
+                    <input type="hidden" name="returnUrl" value="<?php echo $orderData['returnUrl']; ?>"/>
+                    <input type="hidden" name="notifyUrl" value="<?php echo $orderData['notifyUrl']; ?>"/>
+                    <input type="hidden" name="signature" value="<?php echo $token; ?>"/>
+                    <button type="submit" class="btn btn-large btn-block btn-danger">Pay Now</button>
+                  </form>
 
                 </div>
+                <div class="col-lg-3 col-md-12 col-sm-12"></div>
             </div>
         </div>
     </section>
 
 </main>
-<script>
-    var options = {
-    "key": "rzp_live_zxrps8h6nsCw9a", // Enter the Key ID generated from the Dashboard
-    "amount": '<?php echo $orderData['amount']; ?>', // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "Ori Gamers",
-    "description": "Payment for <?php echo $game_details['title']; ?>",
-    "image": "<?php echo site_url('assets/images/website_logo.png'); ?>",
-    "order_id": "<?php echo $orderData['id']; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "handler": function (response){
+<script type="text/javascript">  
+      var payCard = null;
+      var payBank = null;
+      var payWallet = null;
+      var payUpi = null;
 
-        $.ajax({
-            type: "POST",
-            url: "<?php echo site_url('save-transaction-add-purchase'); ?>",
-            data: {
-                'razorpay_payment_id' : response.razorpay_payment_id,
-                'razorpay_order_id' : response.razorpay_order_id,
-                'product_id' : '<?php echo $game_details['id']; ?>',
-                'razorpay_signature' : response.razorpay_signature,
-                'payee_customer_email' : '<?php echo $_SESSION['email']; ?>',
-                'date' : '<?php echo date('d-m-Y'); ?>',
-                'payee_customer_name' : '<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>',
-                'amount' : <?php echo $game_details['sale_price']; ?>
-            },
-            success: function (response) {
-                if (response=='success') {
-                    location.href="<?php echo site_url('thank-you'); ?>"
-                }  
+      (function() {
+
+        var data = {};
+        data.appId = "33090190a25fd481164ee1c1c09033";
+        data.orderId = "<?php echo $orderData['id']; ?>";
+        data.orderAmount = <?php echo $orderData['amount']; ?>;
+        data.customerName = "<?php echo $orderData['customerName']; ?>";
+        data.customerPhone = "<?php echo $orderData['customerPhone']; ?>";
+        data.customerEmail = "<?php echo $orderData['customerEmail']; ?>";
+        data.notifyUrl = "<?php echo $orderData['notifyUrl']; ?>";
+        data.orderNote = "";
+        data.pc = "";
+        data.orderCurrency = "INR";
+        data.paymentToken = "<?php echo $token; ?>";
+        
+        var config = {};
+        config.layout = {};
+        config.checkout = "transparent";
+        config.mode = "PRODUCTION";
+        var response = CashFree.init(config);
+
+        if (response.status != "OK") {
+          // Handle error in initializing 
+        }
+
+        var postPaymentCallback = function (event) {
+          console.log(event);
+          // Callback method that handles Payment 
+          if (event.name == "PAYMENT_RESPONSE" && event.status == "SUCCESS") {
+            // Handle Success 
+          } 
+          else if (event.name == "PAYMENT_RESPONSE" && event.status == "CANCELLED") {
+            // Handle Cancelled
+          } 
+          else if (event.name == "PAYMENT_RESPONSE" && event.status == "FAILED") {
+            // Handle Failed
+          } 
+          else if (event.name == "VALIDATION_ERROR") { 
+            // Incorrect inputs
+          }
+        };
+
+        var pc = function () {
+            // CashFree.initPopup(); This will not work because browsers block popup requests being initiated from a callback
+            data.paymentOption = "card";
+            data.card = {};
+            data.card.number = document.getElementById("card-num").value; 
+            data.card.expiryMonth = document.getElementById("card-mm").value;
+            data.card.expiryYear = document.getElementById("card-yyyy").value;
+            data.card.holder = document.getElementById("card-name").value;
+            data.card.cvv = document.getElementById("card-cvv").value;
+            CashFree.paySeamless(data, postPaymentCallback);
+            return false;
+        }
+
+        // PayCard shows how to implement it if there is a callback involved in your payment click.
+        payCard = function() {
+          CashFree.initPopup(); // This is required for the popup to work even in case of callback.
+            $.ajax({
+            url: "https://reqres.in/api/users?page=2", // This is an open endpoint.
+            type: "GET",
+            success: function(response){
+                console.log(response);
+                pc();
+
             }
         });
+        };
 
-       
-    },
-    "prefill": {
-        "name": "<?php echo $_SESSION['first_name']; ?>",
-        "email": "<?php echo $_SESSION['email']; ?>"
-    },
-    "theme": {
-        "color": "#000000"
-    }
-};
-var rzp1 = new Razorpay(options);
-document.getElementById('checkoutExeButton').onclick = function(e){
-    if ($("input#tncAccepted").prop("checked")==true) {
-        rzp1.open();
-        e.preventDefault();
-    }else{
-        alert('Please Accept Terms and Conditions to proceed');
-    }
-}
+        payBank = function() {
+          CashFree.initPopup();
+          data.paymentOption = "nb";
+          data.nb = {};
+          data.nb.code = document.getElementById("bank-code").value;
 
-</script>
+          CashFree.paySeamless(data , postPaymentCallback);
+          return false;
+        };
+
+        payWallet = function() {
+          data.paymentOption = "wallet";
+          data.wallet = {};
+          data.wallet.code = document.getElementById("wallet-code").value;
+
+          CashFree.paySeamless(data, postPaymentCallback);
+          return false;
+        };
+
+        payUpi = function() {
+          data.paymentOption = "upi";
+          data.upi = {};
+          data.upi.vpa = document.getElementById("upi-vpa").value;
+
+          CashFree.paySeamless(data, postPaymentCallback);
+          return false;
+        };
+
+      })();
+
+    </script>

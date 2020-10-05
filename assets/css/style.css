@@ -5358,7 +5358,7 @@ header.header.header-static {
     width: 90%;
     margin: 0 auto;
   }
-  body,h1,h2,h3,h4,h5,h6{
+  body,h1,h2,h3,h4,h5,h6,.card{
     background-color: black !important;
     color: white !important;
   }
