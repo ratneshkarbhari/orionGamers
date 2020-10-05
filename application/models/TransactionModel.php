@@ -13,7 +13,7 @@
             $this->load->database();
         }
 
-        public function updateGpayCreditREquestStatus($custId){
+        public function updateGpayCreditREquestStatus($custId,$googlePlayEmail){
             $this->db->where('id', $custId);
             $this->db->set('google_play_email_id',$googlePlayEmail);
             $this->db->set('gpay_credit_claim_status','requested');
@@ -41,8 +41,15 @@
             return $this->db->get('gpay_credit_requests')->result_array();
         }
 
-        public function mark_gplay_claim_settled($custId){
+        public function make_independent($parentCode){
+            $this->db->where('parent_code', $parentCode);
+            $this->db->set('parent_code',"independent");
+            return $this->db->update('customers');
+        }
+
+        public function mark_gplay_claim_settled($custId,$current_product){
             $this->db->where('id', $custId);
+            $this->db->set('current_product',$current_product);
             $this->db->set('gpay_credit_claim_status','settled');
             return $this->db->update('customers');
         }

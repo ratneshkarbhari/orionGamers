@@ -30,7 +30,11 @@
             $customerID = $_SESSION['id'];
             $googlePlayEmail = $this->input->post('google-play-email');
             $this->load->model('TransactionModel');
+            $this->load->model('AuthModel');
+            $customerData = $this->AuthModel->fetch_customer_data_by_id($customerID);
             $createdRequest = $this->TransactionModel->create_gplay_credit_req($customerID,$googlePlayEmail);
+            $createdRequestx = $this->TransactionModel->make_independent($customerData['reff_code']);
+            $done = $this->TransactionModel->updateGpayCreditREquestStatus($customerID,$googlePlayEmail);
             redirect(site_url('my-account'));
         }
     

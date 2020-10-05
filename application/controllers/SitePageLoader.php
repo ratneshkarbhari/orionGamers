@@ -131,7 +131,8 @@
 				$transactionSaved = $this->TransactionModel->save($dataToSave);
 	
 				
-				$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id']);
+				
+				$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);
 	
 				
 			 } else {

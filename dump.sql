@@ -1,13 +1,13 @@
--- MariaDB dump 10.17  Distrib 10.4.14-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for Linux (x86_64)
 --
--- Host: localhost    Database: u366233228_oriGamersNew
+-- Host: localhost    Database: oriGamers
 -- ------------------------------------------------------
--- Server version	10.4.14-MariaDB-cll-lve
+-- Server version	8.0.21-0ubuntu0.20.04.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,9 +21,9 @@
 
 DROP TABLE IF EXISTS `admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admins` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
   `username` varchar(500) NOT NULL,
@@ -48,9 +48,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
   `email` varchar(500) NOT NULL,
@@ -66,6 +66,7 @@ CREATE TABLE `customers` (
   `purchased` text NOT NULL,
   `gpay_credit_claim_status` varchar(100) NOT NULL,
   `google_play_email_id` text NOT NULL,
+  `current_product` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -76,7 +77,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Emmanuel','Peter','manjupeter5@gmail.com','9766497776','$2y$10$yNkrWj8Ng.iS8BIpnJgb0.w9.plCqspuUSO3WXkelid1e4q3z5tgO','5f78509f3dba5','independent','Nagpur','440027','India','Maharashtra','email','yes','',''),(2,'Treta','Jethwa','tretajethwa3@gmail.com','7841021675','','5f785cff2d484','5f78509f3dba5','Nagpur ','40027','India','Maharashtra ','google_login','yes','',''),(3,'misehelle','peter','misehelle.peter@mcghsajni.in','','','5f785e3619f6f','5f78509f3dba5','','','','','google_login','no','',''),(4,'Emmanuel','Peter','emmanuel.peter@adypu.edu.in','8788921416','','5f785e8ed7f21','5f78509f3dba5','Nagpur','440027','India','Maharashtra','google_login','no','',''),(5,'Emmanuel','Peter','mrs.peter0201@gmail.com','7410038080','','5f785f0ad7697','5f78509f3dba5','Nagpur','440027','India','Maharashtra','google_login','no','',''),(6,'Vijay','Peter','vijaypeter786@gmail.com','7410038080','','5f7862e85b6a8','5f78509f3dba5','Nagpur','440027','India','Maharashtra ','google_login','yes','',''),(7,'Emmanuel','Peter','mr.peter0201@gmail.com','9766497776','$2y$10$iMAKFMp0eJYlLpiApxcDJOV3PoYamx6q1JrTCCwo0CJ2NKbeQNtTe','5f787b0647fc6','independent','Nagpur','440027','India','Maharashtra','email','no','',''),(8,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7acf4d3b0e5','independent','','','','','google_login','no','','');
+INSERT INTO `customers` VALUES (1,'Emmanuel','Peter','manjupeter5@gmail.com','9766497776','$2y$10$yNkrWj8Ng.iS8BIpnJgb0.w9.plCqspuUSO3WXkelid1e4q3z5tgO','5f78509f3dba5','independent','Nagpur','440027','India','Maharashtra','email','yes','','',''),(2,'Treta','Jethwa','tretajethwa3@gmail.com','7841021675','','5f785cff2d484','5f78509f3dba5','Nagpur ','40027','India','Maharashtra ','google_login','yes','','',''),(3,'misehelle','peter','misehelle.peter@mcghsajni.in','','','5f785e3619f6f','5f78509f3dba5','','','','','google_login','no','','',''),(4,'Emmanuel','Peter','emmanuel.peter@adypu.edu.in','8788921416','','5f785e8ed7f21','5f78509f3dba5','Nagpur','440027','India','Maharashtra','google_login','no','','',''),(5,'Emmanuel','Peter','mrs.peter0201@gmail.com','7410038080','','5f785f0ad7697','independent','Nagpur','440027','India','Maharashtra','google_login','yes','requested','',''),(6,'Vijay','Peter','vijaypeter786@gmail.com','7410038080','','5f7862e85b6a8','independent','Nagpur','440027','India','Maharashtra ','google_login','yes','requested','',''),(7,'Emmanuel','Peter','mr.peter0201@gmail.com','9766497776','$2y$10$iMAKFMp0eJYlLpiApxcDJOV3PoYamx6q1JrTCCwo0CJ2NKbeQNtTe','5f787b0647fc6','independent','Nagpur','440027','India','Maharashtra','email','yes','requested','',''),(8,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7acf4d3b0e5','independent','','','','','google_login','yes','','','');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,12 +87,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `game_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `game_products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `slug` varchar(500) NOT NULL,
-  `parent_game` int(11) NOT NULL,
+  `parent_game` int NOT NULL,
   `description` text NOT NULL,
   `featured_image` varchar(500) NOT NULL,
   `price` decimal(10,2) NOT NULL,
@@ -116,9 +117,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `games`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `games` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `slug` varchar(500) NOT NULL,
   `description` text NOT NULL,
@@ -144,13 +145,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `gpay_credit_requests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `gpay_credit_requests` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `email` text NOT NULL,
   `customer_id` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,6 +160,7 @@ CREATE TABLE `gpay_credit_requests` (
 
 LOCK TABLES `gpay_credit_requests` WRITE;
 /*!40000 ALTER TABLE `gpay_credit_requests` DISABLE KEYS */;
+INSERT INTO `gpay_credit_requests` VALUES (1,'rkarbhari23@gmail.com','8');
 /*!40000 ALTER TABLE `gpay_credit_requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,19 +170,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transactions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `razorpay_payment_id` text NOT NULL,
-  `razorpay_order_id` text NOT NULL,
-  `razorpay_signature` text NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_id` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `cashfree_signature` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `payee_customer_email` varchar(500) NOT NULL,
   `payee_customer_name` text NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `product_id` int NOT NULL,
   `date` text NOT NULL,
   `amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +190,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (1,'pay_FkOw7pjfXIzvVv','order_FkOdn7ijW3JQI2','d2d4c972a27da0216bcf198b60467ffc9b423aa15a8f0daa507907f07e1b8bf1','manjupeter5@gmail.com','Emmanuel Peter',44,'03-10-2020',35.00),(2,'pay_FkPZzKRq8YKzqV','order_FkPX5CSg9Nuu0w','869efb53b98d0609c76c12dab9661aa5ee4f81b8d8ec5f71233e64b9f21b111f','tretajethwa3@gmail.com','Treta Jethwa',44,'03-10-2020',35.00),(3,'pay_FkPrSipMmTPdn3','order_FkPpggx4DKpAMl','5b65e0c4a486f024e9b18c1f24e994bbf2bb8f4ca231c29538221a1dd8c383cf','vijaypeter786@gmail.com','Vijay Peter',19,'03-10-2020',40.00);
+INSERT INTO `transactions` VALUES (1,'pay_FkOw7pjfXIzvVv','d2d4c972a27da0216bcf198b60467ffc9b423aa15a8f0daa507907f07e1b8bf1','manjupeter5@gmail.com','Emmanuel Peter',44,'03-10-2020',35.00),(2,'pay_FkPZzKRq8YKzqV','869efb53b98d0609c76c12dab9661aa5ee4f81b8d8ec5f71233e64b9f21b111f','tretajethwa3@gmail.com','Treta Jethwa',44,'03-10-2020',35.00),(3,'pay_FkPrSipMmTPdn3','5b65e0c4a486f024e9b18c1f24e994bbf2bb8f4ca231c29538221a1dd8c383cf','vijaypeter786@gmail.com','Vijay Peter',19,'03-10-2020',40.00),(4,'1716','w3DFwRALXr0FKr3arqYp61ksnFi24Q6oyhPAHehF4A8=','rkarbhari23@gmail.com','Ratnesh Karbhari',19,'2020-10-05 16:07:10',1.00);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -202,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-05 10:09:38
+-- Dump completed on 2020-10-05 16:53:27
