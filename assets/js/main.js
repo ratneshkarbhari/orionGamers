@@ -130,8 +130,8 @@ $('.hero-slider-four').slick({
     infinite: true,
     fade: true,
     dots: false,
-    prevArrow: '<button class="slick-prev"><i class="icofont-long-arrow-left"></i>Pre</button>',
-    nextArrow: '<button class="slick-next">Next<i class="icofont-long-arrow-right"></i></button>',
+    prevArrow: '<a class="slick-prev"><i class="icofont-long-arrow-left"></i>Pre</a>',
+    nextArrow: '<a class="slick-next">Next<i class="icofont-long-arrow-right"></i></a>',
     responsive: [
         {
         breakpoint: 992,
