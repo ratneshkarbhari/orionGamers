@@ -5381,7 +5381,7 @@ header.header.header-static {
       min-height: 0vw; max-height: 70vw;
     }
   }
-  .slick-arrow:hover{
+  .slick-pre,.slick-next{
     color: red !important;
   }
   input{
