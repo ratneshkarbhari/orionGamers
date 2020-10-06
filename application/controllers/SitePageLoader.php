@@ -132,8 +132,13 @@
 	
 				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($_COOKIE['checkout_product']);
 				
-				$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);
-	
+				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
+
+				if ($reffererData['current_product']==$_COOKIE['checkout_product']) {
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);					
+				}
+
+
 				
 			 } else {
 			  // Reject this call

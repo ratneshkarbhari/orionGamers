@@ -35,8 +35,9 @@
             return $this->db->insert('gpay_credit_requests',$obj);
         }
 
-        public function update_purchased($id){
+        public function update_purchased($id,$pid){
             $this->db->where('id', $id);
+            $this->db->set('current_product',$pid);
             $this->db->set('purchased','yes');
             return $this->db->update('customers');
         }

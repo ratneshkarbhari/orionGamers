@@ -34,20 +34,20 @@
 
             try {
                 //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+                $mail->SMTPDebug = SMTP::DEBUG_OFF;                      // Enable verbose debug output
                 $mail->isSMTP();                                            // Send using SMTP
-                $mail->Host       = 'smtp.hostinger.in';                    // Set the SMTP server to send through
+                $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = 'verification@origamers.com';                     // SMTP username
-                $mail->Password   = 'Ratnesh47';                               // SMTP password
+                $mail->Username   = 'genuineprofitmaker@gmail.com';                     // SMTP username
+                $mail->Password   = 'genuineprofitmaker@0201';                               // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
                 //Recipients
-                $mail->setFrom('verification@origamers.com', 'Verification');
+                $mail->setFrom('leadgen@gmail.com', 'Lead Gen.');
                 $mail->addAddress('genuineprofitmaker@gmail.com
                 ', 'SiteAdmin');     // Add a recipient
-                $mail->addReplyTo('emailverification@origamers.com', 'Verification');
+                $mail->addReplyTo('genuineprofitmaker@gmail.com', 'Verification');
 
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
@@ -253,17 +253,17 @@
                 //Server settings
                 $mail->SMTPDebug = SMTP::DEBUG_OFF;                      // Enable verbose debug output
                 $mail->isSMTP();                                            // Send using SMTP
-                $mail->Host       = 'smtp.hostinger.in';                    // Set the SMTP server to send through
+                $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = 'emailverification@origamers.com';                     // SMTP username
-                $mail->Password   = 'Ratnesh@47';                               // SMTP password
+                $mail->Username   = 'genuineprofitmaker@gmail.com';                     // SMTP username
+                $mail->Password   = 'genuineprofitmaker@0201';                               // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
                 //Recipients
-                $mail->setFrom('emailverification@origamers.com', 'Verification');
+                $mail->setFrom('genuineprofitmaker@gmail.com', 'Verification');
                 $mail->addAddress($recieverEmail, 'Unverified User');     // Add a recipient
-                $mail->addReplyTo('emailverification@origamers.com', 'Verification');
+                $mail->addReplyTo('genuineprofitmaker@gmail.com', 'Verification');
 
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML

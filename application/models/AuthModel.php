@@ -17,6 +17,12 @@
             return $this->db->get('customers')->row_array();
         }
 
+        public function fetch_customer_by_reff_id($reff_id){
+            $this->db->where('reff_code', $reff_id);
+            return $this->db->get('customers')->row_array();
+            
+        }
+
         public function create_customer($newCustomerObj){
             $this->db->insert('customers',$newCustomerObj);
             return $this->db->insert_id();
