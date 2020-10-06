@@ -48,9 +48,19 @@
             $res = mail("genuineprofitmaker@gmail.com","New Enquiry from contact form",$body,$headers);
 
             if ($res) {
-                exit('success');
+                $data['title'] = 'Contact';
+                $data['success'] = 'Message Sent Successfully';
+                $this->load->model('GamesModel');
+
+                $data['all_games'] = $this->GamesModel->fetch_all();
+
+                $this->load->view('templates/site_header', $data);
+                $this->load->view('site_pages/contact', $data);
+                $this->load->view('templates/site_footer', $data);
             } else {
-                exit('fail');
+                
+                redirect(site_url());
+                
             }
 
            
