@@ -30,51 +30,30 @@
 
         public function contact_exe(){
             
-            $mail = new PHPMailer(true);
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            
+            $from = "email_verification@origamers.com";
 
-            try {
-                //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_OFF;                      // Enable verbose debug output
-                $mail->isSMTP();                                            // Send using SMTP
-                $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = 'genuineprofitmaker@gmail.com';                     // SMTP username
-                $mail->Password   = 'genuineprofitmaker@0201';                               // SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-                $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+            // Create email headers
+            $headers .= 'From: '.$from."\r\n".
+                'Reply-To: '.$from."\r\n" .
+                'X-Mailer: PHP/' . phpversion();
 
-                //Recipients
-                $mail->setFrom('leadgen@gmail.com', 'Lead Gen.');
-                $mail->addAddress('genuineprofitmaker@gmail.com
-                ', 'SiteAdmin');     // Add a recipient
-                $mail->addReplyTo('genuineprofitmaker@gmail.com', 'Verification');
-
-                // Content
-                $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = 'New Message from Website Contact Form';
-                $mail->Body    = 'Full Name:'.$this->input->post('full_name').'<br>
-                Email: '.$this->input->post('email').'<br>
-                Message:'.$this->input->post('message').'<br>
-                ';
-                $mail->AltBody = 'Full Name:'.$this->input->post('full_name').',Email: '.$this->input->post('email').'Message:'.$this->input->post('message');
-
-                $mail->send();
+            $body =  'Full Name:'.$this->input->post('full_name').'<br>
+            Email: '.$this->input->post('email').'<br>
+            Message:'.$this->input->post('message').'<br>
+            ';
                 
-                $data['title'] = 'Contact';
-                $data['success'] = 'Message Sent Successfully';
-                $this->load->model('GamesModel');
+            $res = mail($recieverEmail,"Email Verification",$body,$headers);
 
-                $data['all_games'] = $this->GamesModel->fetch_all();
-
-                $this->load->view('templates/site_header', $data);
-                $this->load->view('site_pages/contact', $data);
-                $this->load->view('templates/site_footer', $data);
-                
-            } catch (Exception $e) {
-                
-                var_dump($e);
-                
+            if ($res) {
+                exit('success');
+            } else {
+                exit('fail');
             }
+
+           
         }
 
         public function update_customer_profile(){
