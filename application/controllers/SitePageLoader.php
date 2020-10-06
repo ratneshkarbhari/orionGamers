@@ -130,7 +130,7 @@
 				
 				$transactionSaved = $this->TransactionModel->save($dataToSave);
 	
-				
+				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($_COOKIE['checkout_product']);
 				
 				$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);
 	

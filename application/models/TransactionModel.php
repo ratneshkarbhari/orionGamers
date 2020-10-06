@@ -13,6 +13,12 @@
             $this->load->database();
         }
 
+        public function saveCurrentProduct($pid){
+            $this->db->where('id', $_SESSION['id']);
+            $this->db->set('current_product',$pid);
+            return $this->db->update('customers');
+        }
+
         public function updateGpayCreditREquestStatus($custId,$googlePlayEmail){
             $this->db->where('id', $custId);
             $this->db->set('google_play_email_id',$googlePlayEmail);
@@ -47,9 +53,8 @@
             return $this->db->update('customers');
         }
 
-        public function mark_gplay_claim_settled($custId,$current_product){
+        public function mark_gplay_claim_settled($custId){
             $this->db->where('id', $custId);
-            $this->db->set('current_product',$current_product);
             $this->db->set('gpay_credit_claim_status','settled');
             return $this->db->update('customers');
         }
