@@ -33,7 +33,7 @@
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             
-            $from = "email_verification@origamers.com";
+            $from = "contact_form@origamers.com";
 
             // Create email headers
             $headers .= 'From: '.$from."\r\n".
@@ -45,7 +45,7 @@
             Message:'.$this->input->post('message').'<br>
             ';
                 
-            $res = mail($recieverEmail,"Email Verification",$body,$headers);
+            $res = mail("genuineprofitmaker@gmail.com","New Enquiry from contact form",$body,$headers);
 
             if ($res) {
                 exit('success');
