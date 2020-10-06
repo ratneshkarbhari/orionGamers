@@ -5381,9 +5381,7 @@ header.header.header-static {
       min-height: 0vw; max-height: 70vw;
     }
   }
-  .slick-pre,.slick-next{
-    color: red !important;
-  }
+
   input{
     color: black !important;
     background-color: white !important;
