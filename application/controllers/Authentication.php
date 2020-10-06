@@ -249,7 +249,7 @@
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             
-            $from = "email_verification@origamers.com"
+            $from = "email_verification@origamers.com";
 
             // Create email headers
             $headers .= 'From: '.$from."\r\n".
