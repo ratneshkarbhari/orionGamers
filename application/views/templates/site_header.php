@@ -27,6 +27,9 @@
 <body>
     
 <div id="main-wrapper">
+
+    <?php print_r($_COOKIE); ?>
+    <?php print_r($_SESSION); ?>
    
     <!--Header section start-->
     <header class="header header-static bg-black" style="box-shadow: 0px 0px 50px red;">
