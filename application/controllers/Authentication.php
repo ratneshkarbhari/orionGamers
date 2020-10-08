@@ -197,6 +197,8 @@
             
             $md5Hash = md5($enteredCode);
 
+            
+
             if($_COOKIE['verification_code']==$md5Hash){
                 // $this->input->set_cookie('verifiedEmail', $_COOKIE['email_under_verification'], time()+30*24*60*60);
                 $array = array('verified_email' => $_SESSION['email_under_verification']);
@@ -224,7 +226,8 @@
                 
                 $this->session->set_userdata( $array );
                 
-                $this->input->set_cookie('verification_code', md5($random), time()+3600*24*30);
+                $this->input->set_cookie('verification_code', md5($random), time()+3600*24*30, site_url());
+                
                 exit('success');
             } else {
                 exit('fail');
