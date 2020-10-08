@@ -221,20 +221,14 @@
 
             $emailSent = $this->sendVerificationEmail($email,$random);
 
-            if ($emailSent) {
-                $array = array('email_under_verification' => $email);
-                
-                $this->session->set_userdata( $array );
+            $cookie_name = "verification_code";
+            $cookie_value = md5($random);
+            setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/"); // 86400 = 1 day
 
-                $cookie_name = "verification_code";
-                $cookie_value = md5($random);
-                setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/"); // 86400 = 1 day
-                
-                
-                exit('success');
-            } else {
-                exit('fail');
-            }
+            exit('success');
+
+
+            
             
 
         }
