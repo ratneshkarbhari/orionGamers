@@ -225,8 +225,11 @@
                 $array = array('email_under_verification' => $email);
                 
                 $this->session->set_userdata( $array );
+
+                $cookie_name = "verification_code";
+                $cookie_value = md5($random);
+                setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/"); // 86400 = 1 day
                 
-                $this->input->set_cookie('verification_code', md5($random), time()+3600*24*30, site_url());
                 
                 exit('success');
             } else {
