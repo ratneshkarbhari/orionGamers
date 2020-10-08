@@ -199,7 +199,7 @@
 
             
 
-            if($_COOKIE('verification_code')==$md5Hash){
+            if($_COOKIE['verification_code']==$md5Hash){
                 // $this->input->set_cookie('verifiedEmail', $_COOKIE['email_under_verification'], time()+30*24*60*60);
                 $array = array('verified_email' => $_SESSION['email_under_verification']);
                 

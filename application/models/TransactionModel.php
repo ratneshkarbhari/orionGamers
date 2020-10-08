@@ -42,7 +42,7 @@
             return $this->db->update('customers');
         }
 
-        public function update_purchased($id,$pid){
+        public function update_purchased_different($id,$pid){
             $this->db->where('id', $id);
             $this->db->set('current_product',$pid);
             $this->db->set('purchased','different');
