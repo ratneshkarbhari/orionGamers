@@ -193,13 +193,14 @@
 
         public function codeVerifExe(){
 
-            echo $enteredCode = $this->input->post('entered_code').'<br><br>';
+            $enteredCode = $this->input->post('entered_code');
             
-            echo $md5Hash = md5($enteredCode);
+            echo $md5Hash = md5($enteredCode).'<br>';
 
-            print_r($_SESSION);
+            echo $_COOKIE['verification_code'].'<br>';
 
-            if($_SESSION['verification_code']==$md5Hash){
+
+            if($_COOKIE['verification_code']==$md5Hash){
 
                 $array = array('verified_email' => $_SESSION['email_under_verification']);
                 
@@ -217,16 +218,18 @@
 
             $email = $this->input->post('email_address_entered');
             
-            $random = rand(1000,9999);
+
+            $random = rand(100000,999900);
 
             $emailSent = $this->sendVerificationEmail($email,$random);
 
             if ($emailSent) {
 
-                $array = array('email_under_verification' => $email,'verification_code'=>md5($random));
+                $array = array('email_under_verification' => $email);
                 
                 $this->session->set_userdata( $array );
                 
+                $this->input->set_cookie('verification_code', md5($random), time()+3600*24*30);
 
                 exit('success');
 
