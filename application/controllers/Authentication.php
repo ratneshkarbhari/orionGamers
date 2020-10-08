@@ -197,6 +197,8 @@
             
             echo $md5Hash = md5($enteredCode);
 
+            print_r($_SESSION);
+
             if($_SESSION['verification_code']==$md5Hash){
 
                 $array = array('verified_email' => $_SESSION['email_under_verification']);
