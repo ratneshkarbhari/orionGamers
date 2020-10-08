@@ -141,7 +141,7 @@
 						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($_SESSION['id'],$_COOKIE['checkout_product']);					
 					}
 				} else {
-					# code...
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);					
 				}
 				
 

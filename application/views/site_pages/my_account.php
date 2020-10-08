@@ -101,11 +101,11 @@
 
                         <div class="container-fluid">
                             <div class="row">
-                            <?php $purchased = 0; foreach($reffered_customers as $reffCust): ?>
+                            <?php $purchasedCount = 0; foreach($reffered_customers as $reffCust): ?>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-left:0;padding-right:0;">
-                                    <div class="card" style="<?php if($reffCust['purchased']=='no'){echo 'background-color: red;';}else{
-                                        echo 'background-color: darkgreen; '; $purchased++;
+                                    <div class="card" style="<?php if($reffCust['purchased']=='no'||$reffCust['purchased']=='different'){echo 'background-color: red;';}else{
+                                        echo 'background-color: darkgreen; '; $purchasedCount++;
                                     } ?>">
                                         <div class="card-body">
                                             <h4 style="background-color: transparent !important;"><?php echo $reffCust['first_name'].' '.$reffCust['last_name']; ?></h4>
@@ -128,9 +128,9 @@
                         <form action="<?php echo site_url('update-google-play-credit-email'); ?>" method="post">
                             <div class="form-group">
                                 <label for="google-play-credits-email">Gmail address to recieve Google Play credit discount</label>
-                                <input class="form-control" type="email" name="google-play-email" id="google-play-email" <?php if($purchased<3){echo 'disabled';} ?>>
+                                <input class="form-control" type="email" name="google-play-email" id="google-play-email" <?php if($purchasedCount<3){echo 'disabled';} ?>>
                             </div>
-                            <button type="submit" class="btn btn-danger" <?php if($purchased<3){echo 'disabled';} ?>>Save</button>
+                            <button type="submit" class="btn btn-danger" <?php if($purchasedCount<3){echo 'disabled';} ?>>Save</button>
                         </form>                   
                         <?php endif; ?>
                     </div>
