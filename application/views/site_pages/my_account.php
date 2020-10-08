@@ -7,7 +7,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Edit Profile</a>
-                <?php if($purchased=='yes'): ?>
+                <?php if($purchased=='yes'||$purchased=='different'): ?>
                 <a class="nav-link" id="v-referred-people-tab" data-toggle="pill" href="#v-pills-referred-people" role="tab" aria-controls="v-pills-referred-people" aria-selected="false">Refferals</a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Request Google Play Voucher</a>
                 <a class="nav-link" id="v-pills-refund-tab" data-toggle="pill" href="#v-pills-refund" role="tab" aria-controls="v-pills-refund" aria-selected="false">Request Refund</a>

@@ -193,9 +193,9 @@
 
         public function codeVerifExe(){
 
-            $enteredCode = $this->input->post('entered_code');
+            echo $enteredCode = $this->input->post('entered_code').'<br><br>';
             
-            $md5Hash = md5($enteredCode);
+            echo $md5Hash = md5($enteredCode);
 
             if($_SESSION['verification_code']==$md5Hash){
 
@@ -221,7 +221,7 @@
 
             if ($emailSent) {
 
-                $array = array('email_under_verification' => $email,'verification_code'=>$random);
+                $array = array('email_under_verification' => $email,'verification_code'=>md5($random));
                 
                 $this->session->set_userdata( $array );
                 

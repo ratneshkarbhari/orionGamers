@@ -134,9 +134,18 @@
 				
 				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
 
-				if ($reffererData['current_product']==$_COOKIE['checkout_product']) {
-					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);					
+				if ($reffererData) {
+					if ($reffererData['current_product']==$_COOKIE['checkout_product']) {
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);					
+					}else {
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($_SESSION['id'],$_COOKIE['checkout_product']);					
+					}
+				} else {
+					# code...
 				}
+				
+
+				
 
 
 				
