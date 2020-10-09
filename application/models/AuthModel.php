@@ -23,6 +23,10 @@
             
         }
 
+        public function fetch_otp($otp){
+            return $this->db->insert('otps',array('otp'=>$otp,'email'=>$email));
+        }
+
         public function save_otp($email,$otp){
             return $this->db->insert('otps',array('otp'=>$otp,'email'=>$email));
         }
