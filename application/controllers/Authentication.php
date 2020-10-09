@@ -320,6 +320,16 @@
 
         }
 
+        public function fetch_otp_api(){
+            $otpentered = $this->input->post('entered_code');
+            $otpData = $this->AuthModel->fetch_otp();
+            if ($otpData) {
+                exit('verified');
+            } else {
+                exit('verification-fail');
+            }
+        }
+
     
         public function admin_login_exe()
         {
