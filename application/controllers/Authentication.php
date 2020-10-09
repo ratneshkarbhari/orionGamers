@@ -270,7 +270,7 @@
 
         }
 
-        public function sendVerificationEmailx){
+        public function sendVerificationEmailx(){
 
             $recieverEmail = $this->input->post('email');
             
