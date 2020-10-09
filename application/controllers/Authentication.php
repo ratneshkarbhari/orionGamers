@@ -200,7 +200,7 @@
             
 
             if($_COOKIE['verification_code']==$md5Hash){
-                // $this->input->set_cookie('verifiedEmail', $_COOKIE['email_under_verification'], time()+30*24*60*60);
+
                 $array = array('verified_email' => $_SESSION['email_under_verification']);
                 
                 $this->session->set_userdata( $array );
@@ -212,6 +212,13 @@
 
         }
 
+        public function setCookie($email,$random){
+            $cookie_name = "verification_code";
+            $cookie_value = md5($random);
+            $saved = $this->AuthModel->save_otp($email,$cookie_value);
+            exit(TRUE);
+        }
+
         public function emailVerif(){
 
             $email = $this->input->post('email_address_entered');
@@ -221,15 +228,20 @@
 
             $emailSent = $this->sendVerificationEmail($email,$random);
 
-            $cookie_name = "verification_code";
-            $cookie_value = md5($random);
-            setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/"); // 86400 = 1 day
 
-            exit('success');
+            if ($emailSent) {
+
+                $this->AuthModel->save_otp(md5($random),$email);
+
+                exit('success');
+                
+            }else {
+                
+                exit('failure');
+                
+            }
 
 
-            
-            
 
         }
 
@@ -238,7 +250,7 @@
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             
-            $from = "email_verification@origamers.com";
+            $from = "email_verification@origamers.com,Email Verification";
 
             // Create email headers
             $headers .= 'From: '.$from."\r\n".

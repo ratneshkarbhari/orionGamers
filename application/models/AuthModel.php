@@ -23,10 +23,13 @@
             
         }
 
+        public function save_otp($email,$otp){
+            return $this->db->insert('otps',array('otp'=>$otp,'email'=>$email));
+        }
+
         public function create_customer($newCustomerObj){
             $this->db->insert('customers',$newCustomerObj);
             return $this->db->insert_id();
-            
         }
 
         public function update_customer($obj){

@@ -72,7 +72,6 @@
                         <small class="text-danger" id="emptyError"></small>
                         <div class="form-group"  id="registerEmailBox">
 
-
                             <label for="register-email">Enter your Email Address</label>                        
                             <input class="form-control" type="email" name="register-email" id="register-customer-email">
                             <br>
