@@ -40,6 +40,7 @@ $route['verify-code-exe'] = 'Authentication/codeVerifExe';
 $route['create-customer-account-exe'] = 'Authentication/create_customer_account';
 $route['contact-form-exe'] = 'Authentication/contact_exe';
 $route['update-customer-profile'] = 'Authentication/update_customer_profile';
+$route['email-verification-api'] = 'Authentication/sendVerificationEmailx';
 
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';
