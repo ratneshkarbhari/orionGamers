@@ -1,6 +1,6 @@
 -- MariaDB dump 10.17  Distrib 10.4.14-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: oriGamers
+-- Host: localhost    Database: origamers
 -- ------------------------------------------------------
 -- Server version	10.4.14-MariaDB
 
@@ -68,7 +68,7 @@ CREATE TABLE `customers` (
   `google_play_email_id` text NOT NULL,
   `current_product` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Emmanuel','Peter','manjupeter5@gmail.com','9766497776','$2y$10$yNkrWj8Ng.iS8BIpnJgb0.w9.plCqspuUSO3WXkelid1e4q3z5tgO','5f78509f3dba5','independent','Nagpur','440027','India','Maharashtra','email','yes','','',''),(2,'Treta','Jethwa','tretajethwa3@gmail.com','7841021675','','5f785cff2d484','5f78509f3dba5','Nagpur ','40027','India','Maharashtra ','google_login','yes','','',''),(3,'misehelle','peter','misehelle.peter@mcghsajni.in','','','5f785e3619f6f','5f78509f3dba5','','','','','google_login','no','','',''),(4,'Emmanuel','Peter','emmanuel.peter@adypu.edu.in','8788921416','','5f785e8ed7f21','5f78509f3dba5','Nagpur','440027','India','Maharashtra','google_login','no','','',''),(5,'Emmanuel','Peter','mrs.peter0201@gmail.com','7410038080','','5f785f0ad7697','independent','Nagpur','440027','India','Maharashtra','google_login','yes','requested','',''),(6,'Vijay','Peter','vijaypeter786@gmail.com','7410038080','','5f7862e85b6a8','independent','Nagpur','440027','India','Maharashtra ','google_login','yes','requested','',''),(7,'Emmanuel','Peter','mr.peter0201@gmail.com','9766497776','$2y$10$iMAKFMp0eJYlLpiApxcDJOV3PoYamx6q1JrTCCwo0CJ2NKbeQNtTe','5f787b0647fc6','independent','Nagpur','440027','India','Maharashtra','email','yes','requested','',''),(8,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7acf4d3b0e5','independent','','','','','google_login','yes','','','');
+INSERT INTO `customers` VALUES (1,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7eb7fbaac55','independent','','','','','google_login','yes','','','10'),(3,'Code','Seva','codesevaco@gmail.com','','','5f7eb8e46d9d9','5f7eb7fbaac55','','','','','google_login','different','','','31');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,6 +165,29 @@ INSERT INTO `gpay_credit_requests` VALUES (1,'rkarbhari23@gmail.com','8');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `otps`
+--
+
+DROP TABLE IF EXISTS `otps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `otps` (
+  `otp` varchar(500) NOT NULL,
+  `email` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `otps`
+--
+
+LOCK TABLES `otps` WRITE;
+/*!40000 ALTER TABLE `otps` DISABLE KEYS */;
+INSERT INTO `otps` VALUES ('codesevaco@gmail.com','720039b3483d6ee2f5fe0f025dd37f1c'),('codesevaco@gmail.com','cfb84e484c38e8aba094e07ed4431989');
+/*!40000 ALTER TABLE `otps` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `transactions`
 --
 
@@ -181,7 +204,7 @@ CREATE TABLE `transactions` (
   `date` text NOT NULL,
   `amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +213,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (1,'pay_FkOw7pjfXIzvVv','d2d4c972a27da0216bcf198b60467ffc9b423aa15a8f0daa507907f07e1b8bf1','manjupeter5@gmail.com','Emmanuel Peter',44,'03-10-2020',35.00),(2,'pay_FkPZzKRq8YKzqV','869efb53b98d0609c76c12dab9661aa5ee4f81b8d8ec5f71233e64b9f21b111f','tretajethwa3@gmail.com','Treta Jethwa',44,'03-10-2020',35.00),(3,'pay_FkPrSipMmTPdn3','5b65e0c4a486f024e9b18c1f24e994bbf2bb8f4ca231c29538221a1dd8c383cf','vijaypeter786@gmail.com','Vijay Peter',19,'03-10-2020',40.00),(4,'1716','w3DFwRALXr0FKr3arqYp61ksnFi24Q6oyhPAHehF4A8=','rkarbhari23@gmail.com','Ratnesh Karbhari',19,'2020-10-05 16:07:10',1.00);
+INSERT INTO `transactions` VALUES (1,'1786','TTAQpQknVydaO3/YnM1U/TMl9jjTR1KRtFXqOsGQbSA=','rkarbhari23@gmail.com','Ratnesh Karbhari',10,'2020-10-08 12:26:09',1.00),(2,'4074','icSF4GrBjKs3pnS1WLWfIFJxpuBylDTYxu/gAJDScu8=','codesevaco@gmail.com','Code Seva',10,'2020-10-08 12:27:56',1.00),(3,'8506','zINs1edVD+EcQ8C+jUrXfoJREOUFdm2pTQ68QZRpTRI=','codesevaco@gmail.com','Code Seva',31,'2020-10-08 12:30:04',1.00);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -203,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-05 23:52:37
+-- Dump completed on 2020-10-10 12:16:08
