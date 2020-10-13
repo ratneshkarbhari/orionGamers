@@ -186,7 +186,9 @@
                                         success: function (response) {
                                             if (response=='success') {
                                                 window.location.href = "<?php echo site_url('my-account'); ?>";
-                                            } else {
+                                            } else if(response=='failure') {
+                                                $("small#emptyError").html('We are experiencing some errors please try later');
+                                            }else if(response=='customer-exists'){
                                                 $("small#emptyError").html('We are experiencing some errors please try later');
                                             }
                                         }

@@ -149,7 +149,7 @@
             $lname = $this->input->post('enteredLastName');
             $enteredPwd = $this->input->post('enteredPassword');
 
-            $verifiedEmail = $this->input->post['email_verified'];
+            $verifiedEmail = $this->input->post('email_verified');
 
             if(!isset($_COOKIE['parent-reff-code'])){
                 $parent = 'independent';
@@ -216,7 +216,13 @@
         public function emailVerif(){
 
             $email = $this->input->post('email_address_entered');
+
+            $customerExists = $this->AuthModel->fetch_customer_data_by_email($email);
             
+            if ($customerExists) {
+                exit('customer-exists');
+            }
+
             $existingOtpData = $this->AuthModel->fetch_otp($email);
 
             if ($existingOtpData) {

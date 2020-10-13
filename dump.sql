@@ -68,7 +68,7 @@ CREATE TABLE `customers` (
   `google_play_email_id` text NOT NULL,
   `current_product` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7eb7fbaac55','independent','','','','','google_login','yes','','','10'),(3,'Code','Seva','codesevaco@gmail.com','','','5f7eb8e46d9d9','5f7eb7fbaac55','','','','','google_login','different','','','31');
+INSERT INTO `customers` VALUES (1,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7eb7fbaac55','independent','','','','','google_login','yes','','','10');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,9 +172,11 @@ DROP TABLE IF EXISTS `otps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `otps` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `otp` varchar(500) NOT NULL,
-  `email` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +185,6 @@ CREATE TABLE `otps` (
 
 LOCK TABLES `otps` WRITE;
 /*!40000 ALTER TABLE `otps` DISABLE KEYS */;
-INSERT INTO `otps` VALUES ('codesevaco@gmail.com','720039b3483d6ee2f5fe0f025dd37f1c'),('codesevaco@gmail.com','cfb84e484c38e8aba094e07ed4431989');
 /*!40000 ALTER TABLE `otps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-10 12:16:08
+-- Dump completed on 2020-10-13 11:32:12
