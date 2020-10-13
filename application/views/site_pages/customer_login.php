@@ -96,6 +96,7 @@
                                                     $("div#registerEmailBox").fadeOut();
                                                     $("div#verifyCodeBox").css('display','block');
                                                     $("small#emptyError").html('');
+                                                    localStorage.setItem("email_under_verification", enteredVerifEmail);
                                                     $("div#verifyCodeBox").fadeIn();
                                                 }else{
                                                     $("small#emptyError").html('Email couldnt be sent');
@@ -127,6 +128,7 @@
                                             type: "POST",
                                             url: "<?php echo site_url('verify-code-exe') ?>",
                                             data: {
+                                                'email_under_verification' : localStorage.getItem("email_under_verification"),
                                                 'entered_code' : enteredCode
                                             },
                                             success: function (response) {
@@ -178,7 +180,8 @@
                                         data: {
                                             'enteredFirstName' : enteredFirstName, 
                                             'enteredLastName' : enteredLastName,
-                                            'enteredPassword' : enteredPassword
+                                            'enteredPassword' : enteredPassword,
+                                            'email_verified' : localStorage.getItem("email_under_verification"),
                                         },
                                         success: function (response) {
                                             if (response=='success') {

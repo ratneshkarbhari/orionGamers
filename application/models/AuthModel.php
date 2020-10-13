@@ -17,14 +17,19 @@
             return $this->db->get('customers')->row_array();
         }
 
+        public function delete_otp($email){
+            $this->db->where('email', $email);
+            return $this->db->delete('otps');
+        }
+
         public function fetch_customer_by_reff_id($reff_id){
             $this->db->where('reff_code', $reff_id);
             return $this->db->get('customers')->row_array();
             
         }
 
-        public function fetch_otp($otp){
-            return $this->db->insert('otps',array('otp'=>$otp,'email'=>$email));
+        public function fetch_otp($email){
+            return $this->db->get_where('otps',array('email'=>$email))->row_array();
         }
 
         public function save_otp($email,$otp){

@@ -149,7 +149,7 @@
             $lname = $this->input->post('enteredLastName');
             $enteredPwd = $this->input->post('enteredPassword');
 
-            $verifiedEmail = $_SESSION['verified_email'];
+            $verifiedEmail = $this->input->post['email_verified'];
 
             if(!isset($_COOKIE['parent-reff-code'])){
                 $parent = 'independent';
@@ -194,74 +194,91 @@
         public function codeVerifExe(){
 
             $enteredCode = $this->input->post('entered_code');
+            $emailUnderVerif = $this->input->post('email_under_verification');
             
             $md5Hash = md5($enteredCode);
 
-            if($_COOKIE['verification_code']==$md5Hash){
+            $otpData = $this->AuthModel->fetch_otp($emailUnderVerif);
 
-                $array = array('verified_email' => $_SESSION['email_under_verification']);
-                
-                $this->session->set_userdata( $array );
-                
+
+            if (md5($otpData['otp'])==$md5Hash) {
+            
+                $this->AuthModel->delete_otp($emailUnderVerif);
+
                 exit('success');
-            }else {
-                exit('fail');
+            
+            } else {
+                exit('failure');
             }
-
-        }
-
-        public function setCookie($email,$random){
-            $cookie_name = "verification_code";
-            $cookie_value = md5($random);
-            $saved = $this->AuthModel->save_otp($email,$cookie_value);
-            exit(TRUE);
+            
         }
 
         public function emailVerif(){
 
             $email = $this->input->post('email_address_entered');
             
+            $existingOtpData = $this->AuthModel->fetch_otp($email);
 
-            $random = rand(100000,999900);
-
-
-
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://origamers.com/email-verification-api",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => array('email' => $email,'code' => rand(10000,99999)),
-            CURLOPT_HTTPHEADER => array(
-                "Cookie: __cfduid=dcdaa12686f170fa9f59f5fef1d791a6e1602233984; ci_session=b4833f5e884236952dff7a31ec72a8985320d8d2"
-            ),
-            ));
-
-            $emailSent = curl_exec($curl);
-
-            curl_close($curl);
-            
-
-
-            if ($emailSent) {
-
-                $this->AuthModel->save_otp(md5($random),$email);
-
-                exit('success');
+            if ($existingOtpData) {
                 
-            }else {
+                $random = $existingOtpData['otp'];
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://origamers.com/email-verification-api",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS => array('email' => $email,'code' => $random),
+                CURLOPT_HTTPHEADER => array(
+                    "Cookie: __cfduid=dcdaa12686f170fa9f59f5fef1d791a6e1602233984; ci_session=b4833f5e884236952dff7a31ec72a8985320d8d2"
+                ),
+                ));
+    
+                $emailSent = curl_exec($curl);
+    
+                curl_close($curl);
                 
-                exit('failure');
                 
+            } else {
+                
+                $random = rand(100000,999900);
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://origamers.com/email-verification-api",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS => array('email' => $email,'code' => $random),
+                CURLOPT_HTTPHEADER => array(
+                    "Cookie: __cfduid=dcdaa12686f170fa9f59f5fef1d791a6e1602233984; ci_session=b4833f5e884236952dff7a31ec72a8985320d8d2"
+                ),
+                ));
+    
+                $emailSent = curl_exec($curl);
+    
+                curl_close($curl);
+
+                $this->AuthModel->save_otp($email,$random);
+                    
             }
 
-
+            if ($emailSent) {
+                $_SESSION['email_under_verification'] = $email;
+                exit('success');
+            } else {
+                exit('failure');
+            }
+            
 
         }
 
@@ -311,7 +328,6 @@
             $res = mail($recieverEmail,"Email Verification",$body,$headers);
 
             if ($res) {
-                $saved = $this->AuthModel->save_otp($email,$code);
                 exit('success');
             } else {
                 exit('fail');
