@@ -543,6 +543,7 @@
                             'first_name' => $customerData['first_name'],
                             'last_name' => $customerData['last_name'],
                             'email' => $customerData['email'],
+                            'reff_code' => $customerData['reff_code'],
                             'logged_in_as' => 'customer'
                         );
                         

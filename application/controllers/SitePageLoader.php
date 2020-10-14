@@ -100,8 +100,9 @@
 
 			$this->load->model('AuthModel');
 			
-			$customerData = $this->AuthModel->fetch_customer_data_by_email($_SESSION['email']);
-			$data['reff_code'] = $customerData['reff_code'];
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($this->session->userdata('email'));
+
+
 
 			$orderId = $_POST["orderId"];
 			$orderAmount = $_POST["orderAmount"];
@@ -122,7 +123,7 @@
 					'amount' => $orderAmount,
 					'product_id' => $_COOKIE['checkout_product'],
 					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
-					'payee_customer_email' => $this->session->userdata('email'),
+					'payee_customer_email' => $_SESSION['email'],
 					'cashfree_signature' => $signature,
 					'date' => $txTime,
 
@@ -176,7 +177,7 @@
 			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
-			$this->input->set_cookie('checkout_product', $gameProductId, time()+(10*60));
+			setcookie('checkout_product', $gameProductId, time()+(10*60));
 			
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {

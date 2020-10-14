@@ -46,6 +46,8 @@
                     <input type="hidden" name="returnUrl" value="<?php echo $orderData['returnUrl']; ?>"/>
                     <input type="hidden" name="notifyUrl" value="<?php echo $orderData['notifyUrl']; ?>"/>
                     <input type="hidden" name="signature" value="<?php echo $token; ?>"/>
+
+
                     <button type="submit" class="btn btn-large btn-block btn-danger">Pay Now</button>
                   </form>
 

@@ -68,7 +68,7 @@ CREATE TABLE `customers` (
   `google_play_email_id` text NOT NULL,
   `current_product` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','','5f7eb7fbaac55','independent','','','','','google_login','yes','','','10');
+INSERT INTO `customers` VALUES (7,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','$2y$10$BHqm5d/VYgwzk9qt79Hteem/BDeBgdhttT0Tz4sV7fCm5yNvn5bxa','5f86d9096dc5b','independent','','','','','email','yes','','','53');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `otps` (
   `otp` varchar(500) NOT NULL,
   `email` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,33 @@ CREATE TABLE `otps` (
 
 LOCK TABLES `otps` WRITE;
 /*!40000 ALTER TABLE `otps` DISABLE KEYS */;
+INSERT INTO `otps` VALUES (7,'217782','rkarbhari23x@gmail.com');
 /*!40000 ALTER TABLE `otps` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` bigint(20) NOT NULL DEFAULT 0,
+  `data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES ('qaati5ebi60f560c3r9fj0flq1a0b9mi','::1',1602673762,'__ci_last_regenerate|i:1602673594;id|s:1:\"7\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86d9096dc5b\";logged_in_as|s:8:\"customer\";');
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -205,7 +231,7 @@ CREATE TABLE `transactions` (
   `date` text NOT NULL,
   `amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +240,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (1,'1786','TTAQpQknVydaO3/YnM1U/TMl9jjTR1KRtFXqOsGQbSA=','rkarbhari23@gmail.com','Ratnesh Karbhari',10,'2020-10-08 12:26:09',1.00),(2,'4074','icSF4GrBjKs3pnS1WLWfIFJxpuBylDTYxu/gAJDScu8=','codesevaco@gmail.com','Code Seva',10,'2020-10-08 12:27:56',1.00),(3,'8506','zINs1edVD+EcQ8C+jUrXfoJREOUFdm2pTQ68QZRpTRI=','codesevaco@gmail.com','Code Seva',31,'2020-10-08 12:30:04',1.00);
+INSERT INTO `transactions` VALUES (1,'1786','TTAQpQknVydaO3/YnM1U/TMl9jjTR1KRtFXqOsGQbSA=','rkarbhari23@gmail.com','Ratnesh Karbhari',10,'2020-10-08 12:26:09',1.00),(2,'4074','icSF4GrBjKs3pnS1WLWfIFJxpuBylDTYxu/gAJDScu8=','codesevaco@gmail.com','Code Seva',10,'2020-10-08 12:27:56',1.00),(3,'8506','zINs1edVD+EcQ8C+jUrXfoJREOUFdm2pTQ68QZRpTRI=','codesevaco@gmail.com','Code Seva',31,'2020-10-08 12:30:04',1.00),(4,'8556','NUr6QukYfraSBmfEukZbO+lDmFHaZce46r4datX0WD8=','rkarbhari23@gmail.com','Ratnesh Karbhari',53,'2020-10-14 16:36:57',1.00);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -227,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-13 11:32:12
+-- Dump completed on 2020-10-14 17:02:12

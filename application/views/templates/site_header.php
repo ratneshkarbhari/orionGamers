@@ -1,3 +1,4 @@
+<?php print_r($_SESSION); ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
