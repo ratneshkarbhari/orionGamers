@@ -122,7 +122,7 @@
 				$dataToSave = array(
 					'order_id' => $orderId,
 					'amount' => $orderAmount,
-					'product_id' => $this->input->cookie('checkout_product'),
+					'product_id' => $this->session->userdata('checkout_product'),
 					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
 					'payee_customer_email' => $this->session->userdata('email'),
 					'cashfree_signature' => $signature,
@@ -143,7 +143,7 @@
 						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($_SESSION['id'],$_COOKIE['checkout_product']);					
 					}
 				} else {
-					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);					
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_SESSION['checkout_product']);					
 				}
 				
 
@@ -157,6 +157,9 @@
 
 
 			$data =array('tile'=>'Thanks');
+
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
 
 			$this->load->view('templates/site_header', $data);
 			$this->load->view('site_pages/thank_you', $data);
@@ -178,8 +181,9 @@
 			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
-			setcookie('checkout_product', $gameProductId, time()+(3*24*60));
 			
+			$_SESSION['checkout_product'] = $gameProductId;
+
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {
 				
