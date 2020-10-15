@@ -159,7 +159,7 @@
 			$data =array('tile'=>'Thanks');
 
 			$data['all_games'] = $this->GamesModel->fetch_all();
-
+			$data['title'] = 'Thank you';
 
 			$this->load->view('templates/site_header', $data);
 			$this->load->view('site_pages/thank_you', $data);
