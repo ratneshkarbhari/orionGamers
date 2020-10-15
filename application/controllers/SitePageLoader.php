@@ -100,6 +100,7 @@
 
 			$this->load->model('AuthModel');
 			
+
 			$customerData = $this->AuthModel->fetch_customer_data_by_email($this->session->userdata('email'));
 
 
@@ -121,9 +122,9 @@
 				$dataToSave = array(
 					'order_id' => $orderId,
 					'amount' => $orderAmount,
-					'product_id' => $_COOKIE['checkout_product'],
+					'product_id' => $this->input->cookie('checkout_product'),
 					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
-					'payee_customer_email' => $customerData['email'],
+					'payee_customer_email' => $this->session->userdata('email'),
 					'cashfree_signature' => $signature,
 					'date' => $txTime,
 
@@ -131,7 +132,7 @@
 				
 				$transactionSaved = $this->TransactionModel->save($dataToSave);
 	
-				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($_COOKIE['checkout_product']);
+				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($this->input->cookie('checkout_product'));
 				
 				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
 
