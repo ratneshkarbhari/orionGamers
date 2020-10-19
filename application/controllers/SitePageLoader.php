@@ -94,17 +94,29 @@
 		public function thank_you(){
 
 
+			
+			$data['title'] = 'Thank you';
+
+
+
+			$postCheckoutObj = json_decode($_COOKIE['postCheckoutRevival'],TRUE);
+
+			$sessionData = openssl_decrypt($postCheckoutObj['sessionData'],'BF-CBC','ratnesh47',0,94949494);
+
+			$sessionDataObj = json_decode($sessionData,TRUE);
+			
 			$this->load->model('GamesModel');			
+
 			$data['all_games'] = $this->GamesModel->fetch_all();
 
+			$this->session->set_userdata( $sessionDataObj );
 
-			$this->load->model('AuthModel');
-			
+			$this->load->model('AuthModel');			
 
-			$customerData = $this->AuthModel->fetch_customer_data_by_email($this->session->userdata('email'));
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessionDataObj['email']);
 
-
-
+			$gameProductId = $postCheckoutObj['checkout_product'];
+						
 			$orderId = $_POST["orderId"];
 			$orderAmount = $_POST["orderAmount"];
 			$referenceId = $_POST["referenceId"];
@@ -114,56 +126,144 @@
 			$txTime = $_POST["txTime"];
 			$signature = $_POST["signature"];
 			$data = $orderId.$orderAmount.$referenceId.$txStatus.$paymentMode.$txMsg.$txTime;
-			$hash_hmac = hash_hmac('sha256', $data, "acfee4a71bbf8d867cf458af2a2d6688980015fc", true) ;
+			$hash_hmac = hash_hmac('sha256', $data, "acfee4a71bbf8d867cf458af2a2d6688980015fc", true);
 			$computedSignature = base64_encode($hash_hmac);
-			if ($signature == $computedSignature) {
+
+			if (TRUE) {
+
 				$this->load->model('TransactionModel');
             
 				$dataToSave = array(
 					'order_id' => $orderId,
 					'amount' => $orderAmount,
-					'product_id' => $this->session->userdata('checkout_product'),
+					'product_id' => $gameProductId,
 					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
 					'payee_customer_email' => $this->session->userdata('email'),
 					'cashfree_signature' => $signature,
 					'date' => $txTime,
-
 				);
 				
 				$transactionSaved = $this->TransactionModel->save($dataToSave);
 	
-				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($this->input->cookie('checkout_product'));
+				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($gameProductId);
 				
 				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
 
 				if ($reffererData) {
-					if ($reffererData['current_product']==$_COOKIE['checkout_product']) {
-						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_COOKIE['checkout_product']);					
+					
+					if ($reffererData['current_product']==$gameProductId) {
+
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);					
+
 					}else {
-						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($_SESSION['id'],$_COOKIE['checkout_product']);					
+						
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($customerData['id'],$gameProductId);			
+
 					}
+
 				} else {
-					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($_SESSION['id'],$_SESSION['checkout_product']);					
+
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);	
+
 				}
-				
-
-				
 
 
+				$this->load->view('templates/site_header', $data);
+				$this->load->view('site_pages/thank_you', $data);
+				$this->load->view('templates/site_footer', $data);
+
+			}else {
 				
-			 } else {
-			  // Reject this call
+				redirect(site_url());
+
 			}
 
+		}
 
-			$data =array('tile'=>'Thanks');
+		public function thank_youx(){
 
-			$data['all_games'] = $this->GamesModel->fetch_all();
 			$data['title'] = 'Thank you';
 
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/thank_you', $data);
-			$this->load->view('templates/site_footer', $data);
+
+
+			$postCheckoutObj = json_decode($_COOKIE['postCheckoutRevival'],TRUE);
+
+			$sessionData = openssl_decrypt($postCheckoutObj['sessionData'],'BF-CBC','ratnesh47',0,94949494);
+
+			$sessionDataObj = json_decode($sessionData,TRUE);
+			
+			$this->load->model('GamesModel');			
+
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
+			$this->session->set_userdata( $sessionDataObj );
+
+			$this->load->model('AuthModel');			
+
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessionDataObj['email']);
+
+			$gameProductId = $postCheckoutObj['checkout_product'];
+						
+			$orderId = $_POST["orderId"];
+			$orderAmount = $_POST["orderAmount"];
+			$referenceId = $_POST["referenceId"];
+			$txStatus = $_POST["txStatus"];
+			$paymentMode = $_POST["paymentMode"];
+			$txMsg = $_POST["txMsg"];
+			$txTime = $_POST["txTime"];
+			$signature = $_POST["signature"];
+			$data = $orderId.$orderAmount.$referenceId.$txStatus.$paymentMode.$txMsg.$txTime;
+			$hash_hmac = hash_hmac('sha256', $data, "acfee4a71bbf8d867cf458af2a2d6688980015fc", true);
+			$computedSignature = base64_encode($hash_hmac);
+
+			if (TRUE) {
+
+				$this->load->model('TransactionModel');
+            
+				$dataToSave = array(
+					'order_id' => $orderId,
+					'amount' => $orderAmount,
+					'product_id' => $gameProductId,
+					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
+					'payee_customer_email' => $this->session->userdata('email'),
+					'cashfree_signature' => $signature,
+					'date' => $txTime,
+				);
+				
+				$transactionSaved = $this->TransactionModel->save($dataToSave);
+	
+				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($gameProductId);
+				
+				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
+
+				if ($reffererData) {
+					
+					if ($reffererData['current_product']==$gameProductId) {
+
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);					
+
+					}else {
+						
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($customerData['id'],$gameProductId);			
+
+					}
+
+				} else {
+
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);	
+
+				}
+
+
+				$this->load->view('templates/site_header', $data);
+				$this->load->view('site_pages/thank_you', $data);
+				$this->load->view('templates/site_footer', $data);
+
+			}else {
+				
+				redirect(site_url());
+
+			}
 		}
 
 
@@ -181,14 +281,22 @@
 			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
+		
+			$sessionData = openssl_encrypt (json_encode($_SESSION), 'BF-CBC', 'ratnesh47',0,94949494);
+			$postCheckoutObj = array(
+				'sessionData' => $sessionData,
+				'checkout_product' => $gameProductId
+			);
+			setcookie('postCheckoutRevival',json_encode($postCheckoutObj),time()+(24*3600));
 			
-			$_SESSION['checkout_product'] = $gameProductId;
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {
 				
 				$data['title'] = 'Buy '.$gameProductData['title'];
 				$data['game_details'] = $gameProductData;
+
+				
 
 				$secretKey = "acfee4a71bbf8d867cf458af2a2d6688980015fc";
 				$postData = array(
@@ -199,10 +307,9 @@
 				"orderCurrency" => "INR",
 				"orderNote" => "",
 				"customerName" => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
-				"customerPhone" => "9137976398",
+				"customerPhone" => '+91'.$this->session->userdata('mobile_number'),
 				"customerEmail" => $this->session->userdata('email'),
-				"returnUrl" => site_url('thank-you'),
-				"notifyUrl" => site_url('cashfree-notify'),
+				"returnUrl" => site_url('thank-you')
 			  );
 			   // get secret key from your config
 			   ksort($postData);
@@ -224,7 +331,6 @@
 					'customerPhone' => $postData['customerPhone'],
 					// 'amount' => $gameProduc6tData['sale_price'],
 					'amount' => 1.00,
-					'notifyUrl' => $postData['notifyUrl'],
 					'returnUrl' => $postData['returnUrl'],
 					'mode' => "LIVE"
 				);

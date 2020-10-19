@@ -68,7 +68,7 @@ CREATE TABLE `customers` (
   `google_play_email_id` text NOT NULL,
   `current_product` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (7,'Ratnesh','Karbhari','rkarbhari23@gmail.com','','$2y$10$BHqm5d/VYgwzk9qt79Hteem/BDeBgdhttT0Tz4sV7fCm5yNvn5bxa','5f86d9096dc5b','independent','','','','','email','yes','','','53');
+INSERT INTO `customers` VALUES (8,'Ratnesh','Karbhari','rkarbhari23@gmail.com','9137976398','$2y$10$0Px5e1Qkeb6Ceo5MG5mYu.vTUkfzr4dgwvP8JQi6Uv2YPNZnxBtGq','5f8c0914c70ff','independent','','','','','email','yes','','','54');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `otps` (
   `otp` varchar(500) NOT NULL,
   `email` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `otps` (
 
 LOCK TABLES `otps` WRITE;
 /*!40000 ALTER TABLE `otps` DISABLE KEYS */;
-INSERT INTO `otps` VALUES (7,'217782','rkarbhari23x@gmail.com');
+INSERT INTO `otps` VALUES (7,'217782','rkarbhari23x@gmail.com'),(12,'440637','codesevaco@outlook.com');
 /*!40000 ALTER TABLE `otps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +210,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('qaati5ebi60f560c3r9fj0flq1a0b9mi','::1',1602673762,'__ci_last_regenerate|i:1602673594;id|s:1:\"7\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86d9096dc5b\";logged_in_as|s:8:\"customer\";');
+INSERT INTO `sessions` VALUES ('qt5re3817h8ll5r0e2lads33ktcf2neq','::1',1602676480,'__ci_last_regenerate|i:1602676480;id|s:1:\"7\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86d9096dc5b\";logged_in_as|s:8:\"customer\";'),('qaati5ebi60f560c3r9fj0flq1a0b9mi','::1',1602676686,'__ci_last_regenerate|i:1602676485;email_under_verification|s:21:\"rkarbhari23@gmail.com\";id|i:8;reff_code|s:13:\"5f86e75b5814d\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";logged_in_as|s:8:\"customer\";'),('itlb5ufrppidrmevnuldnhhpgfhannf0','::1',1602676632,'__ci_last_regenerate|i:1602676632;'),('a2gtdqt9tvddc9glj3cb40n51ph8qk64','::1',1602676777,'__ci_last_regenerate|i:1602676777;'),('2qeni3ub20ldmaecdlg8adhh7a3honcs','::1',1602709689,'__ci_last_regenerate|i:1602709689;'),('pbrjqdet4m5sk376ajirbgtkchgckivh','::1',1602709692,'__ci_last_regenerate|i:1602709692;'),('qv4gncl66fn043s219ce3s09skpcvl3a','::1',1602735641,'__ci_last_regenerate|i:1602735640;'),('oig3pqcanvqu01lpg4tlvkl7ol073lbg','::1',1602735650,'__ci_last_regenerate|i:1602735649;'),('bubn2rpdgrrvcli9lb2oouml0dqhejjm','::1',1602735658,'__ci_last_regenerate|i:1602735658;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";'),('bef78nmjk2nugprmlofhcdvotgl1tlu4','::1',1602735658,'__ci_last_regenerate|i:1602735658;'),('nab97jiesn05aaqaids6j3ernmhhegd7','::1',1602735658,'__ci_last_regenerate|i:1602735658;'),('sdblu44arstbk51kjhg50nhsb1vhv187','::1',1602735660,'__ci_last_regenerate|i:1602735660;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";'),('6b19bto9v1j6i49f3k4a1h9u4nbkam1d','::1',1602735660,'__ci_last_regenerate|i:1602735660;'),('95r5541plermcv3s4tqv9g9bpb7mdfb0','::1',1602735660,'__ci_last_regenerate|i:1602735660;'),('nnnvpee360rj1088kj6q3f3krvjm515o','::1',1602735661,'__ci_last_regenerate|i:1602735660;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";'),('0c3q8l8bpikhfq151o0j5q343npe4460','::1',1602735661,'__ci_last_regenerate|i:1602735661;'),('live9g2crgt189h0e24je420lf5iq3t8','::1',1602735661,'__ci_last_regenerate|i:1602735661;'),('jjp0446nu7gktrsqjctbeqroo98dnnsk','::1',1602735662,'__ci_last_regenerate|i:1602735662;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";'),('8fvlrolv7d41hioihitrr82g7vuq6o2g','::1',1602735662,'__ci_last_regenerate|i:1602735662;'),('df83qdkoe0rh9ld06753i2dfvm2o0nko','::1',1602735662,'__ci_last_regenerate|i:1602735662;'),('phbnfcdmq3r6gime25bhdk3vupr2it1q','::1',1602735795,'__ci_last_regenerate|i:1602735785;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";'),('s8bo3fiesl8ngb62si1pj9dkf40q7227','::1',1602736931,'__ci_last_regenerate|i:1602736931;'),('3ugqoblj1vj40pj953q0vt2r593plk1j','::1',1602737285,'__ci_last_regenerate|i:1602737166;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";checkout_product|s:2:\"53\";'),('70c95n3jil3hclp7b3ld32ainb9htsqn','::1',1602737766,'__ci_last_regenerate|i:1602737766;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";checkout_product|s:2:\"53\";'),('55vf0mtjn3l714g3l7ts2gg36b08cuv2','::1',1602737766,'__ci_last_regenerate|i:1602737766;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";checkout_product|s:2:\"53\";'),('p2gdar92nq7gsajeep1o6bcmiasljj4o','::1',1602764431,'__ci_last_regenerate|i:1602764178;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";checkout_product|s:2:\"53\";'),('578j5d78ffimi0l92iiq6h07dnn2gi9r','::1',1602764848,'__ci_last_regenerate|i:1602764848;'),('6s18n6d749oaqfug2bmoq58r4lpmr6t2','::1',1602764970,'__ci_last_regenerate|i:1602764848;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";checkout_product|s:2:\"53\";'),('kaiegn8537e45gqpjmdvnvl4544dcel9','::1',1602765346,'__ci_last_regenerate|i:1602765326;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";checkout_product|s:2:\"33\";'),('qcif0u585mi2v5jhg7k11k3o0j2ufp94','::1',1602765326,'__ci_last_regenerate|i:1602765326;id|s:1:\"8\";first_name|s:7:\"Ratnesh\";last_name|s:8:\"Karbhari\";email|s:21:\"rkarbhari23@gmail.com\";reff_code|s:13:\"5f86e75b5814d\";logged_in_as|s:8:\"customer\";'),('2r322cvs0jcmdv0tfq6qgin2tq2on1r4','::1',1602765444,'__ci_last_regenerate|i:1602765444;'),('onpffp80r919llicot1le1p3nti7k3lh','::1',1602824117,'__ci_last_regenerate|i:1602824116;'),('e61tddiuq7ad66qh2liupuhsubb965rm','::1',1602824584,'__ci_last_regenerate|i:1602824584;');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +231,7 @@ CREATE TABLE `transactions` (
   `date` text NOT NULL,
   `amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (1,'1786','TTAQpQknVydaO3/YnM1U/TMl9jjTR1KRtFXqOsGQbSA=','rkarbhari23@gmail.com','Ratnesh Karbhari',10,'2020-10-08 12:26:09',1.00),(2,'4074','icSF4GrBjKs3pnS1WLWfIFJxpuBylDTYxu/gAJDScu8=','codesevaco@gmail.com','Code Seva',10,'2020-10-08 12:27:56',1.00),(3,'8506','zINs1edVD+EcQ8C+jUrXfoJREOUFdm2pTQ68QZRpTRI=','codesevaco@gmail.com','Code Seva',31,'2020-10-08 12:30:04',1.00),(4,'8556','NUr6QukYfraSBmfEukZbO+lDmFHaZce46r4datX0WD8=','rkarbhari23@gmail.com','Ratnesh Karbhari',53,'2020-10-14 16:36:57',1.00);
+INSERT INTO `transactions` VALUES (1,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017566',1.00),(2,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017609',1.00),(3,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017627',1.00),(4,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017682',1.00),(5,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017718',1.00),(6,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017750',1.00),(7,'1234','asdasdasd','rkarbhari23@gmail.com','Ratnesh Karbhari',54,'1603017774',1.00);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -253,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-14 17:02:12
+-- Dump completed on 2020-10-19 11:11:57

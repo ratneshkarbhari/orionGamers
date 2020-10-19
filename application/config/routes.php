@@ -42,6 +42,8 @@ $route['contact-form-exe'] = 'Authentication/contact_exe';
 $route['update-customer-profile'] = 'Authentication/update_customer_profile';
 $route['email-verification-api'] = 'Authentication/sendVerificationEmailx';
 
+$route['create-customer-account-with-google'] = 'Authentication/create_customer_account_google';
+
 // admin CMS routes
 $route['admin-dashboard'] = 'AdminPageLoader/dashboard';
 $route['all-games'] = 'AdminPageLoader/all_games';
@@ -60,6 +62,8 @@ $route['update-claim-status-to-settled'] = 'Checkout/mark_gplay_claim_settled';
 // Checkout Endpoints
 $route['save-transaction-add-purchase'] = 'Checkout/save_transaction';
 $route['thank-you'] = 'SitePageLoader/thank_you';
+
+$route['thank-you-x'] = 'SitePageLoader/thank_youx';
 
 // Games Exe routes
 $route['add-new-game-exe'] = 'Games/add_new';

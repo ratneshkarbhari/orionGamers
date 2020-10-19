@@ -160,6 +160,9 @@
                             <label for="register-customer-last-name">Enter Last Name</label>                        
                             <input class="form-control" type="text" name="register-customer-last-name" id="register-customer-last-name">
                             <br>
+                            <label for="register-customer-mobile-number">Enter Mobile Number</label>                        
+                            <input class="form-control" type="number" name="register-customer-mobile-number" id="register-customer-mobile-number">
+                            <br>
                             <label for="register-customer-password">Set a Password</label>                        
                             <input class="form-control" type="text" name="register-customer-password" id="register-customer-password"><br>
                             <button id="createAccountWithVerifiedEmail" class="btn" style="background-color: red;">Create Account with verified Email</button>
@@ -170,7 +173,8 @@
                                 let enteredFirstName = $("input#register-customer-first-name").val();
                                 let enteredLastName = $("input#register-customer-last-name").val();
                                 let enteredPassword = $("input#register-customer-password").val();
-                                if (enteredFirstName==''||enteredLastName==''||enteredPassword=='') {
+                                let enteredMobileNumber = $("input#register-customer-mobile-number").val();
+                                if (enteredFirstName==''||enteredLastName==''||enteredPassword==''||enteredMobileNumber=='') {
                                     $("small#emptyError").html('Please enter first, Last name and password');
                                 }else{
                                     $("small#emptyError").html('');
@@ -182,6 +186,7 @@
                                             'enteredLastName' : enteredLastName,
                                             'enteredPassword' : enteredPassword,
                                             'email_verified' : localStorage.getItem("email_under_verification"),
+                                            'mobile_number' : enteredMobileNumber
                                         },
                                         success: function (response) {
                                             if (response=='success') {

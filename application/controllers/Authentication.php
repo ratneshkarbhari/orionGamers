@@ -148,6 +148,7 @@
             $fname = $this->input->post('enteredFirstName');
             $lname = $this->input->post('enteredLastName');
             $enteredPwd = $this->input->post('enteredPassword');
+            $enterdMobileNumber = $this->input->post('mobile_number');
 
             $verifiedEmail = $this->input->post('email_verified');
 
@@ -164,6 +165,7 @@
                 'password' => password_hash($enteredPwd,PASSWORD_DEFAULT),
                 'account_auth_by' => 'email',
                 'purchased' => 'no',
+                'mobile_number' => $enterdMobileNumber,
                 'parent_code' => $parent,
                 'reff_code' => $reffCode
             );
@@ -178,6 +180,7 @@
                     'first_name' => $fname,
                     'last_name' => $lname,
                     'email' => $verifiedEmail,
+                    'mobile_number' => $enterdMobileNumber,
                     'logged_in_as' => 'customer'
                 );
                 
@@ -544,6 +547,7 @@
                             'last_name' => $customerData['last_name'],
                             'email' => $customerData['email'],
                             'reff_code' => $customerData['reff_code'],
+                            'mobile_number' => $customerData['mobile_number'],
                             'logged_in_as' => 'customer'
                         );
                         
@@ -619,6 +623,7 @@
                         'first_name' => $accountExists['first_name'],
                         'last_name' => $accountExists['last_name'],
                         'email' => $accountExists['email'],
+                        'mobile_number' => $accountExists['mobile_number'],
                         'logged_in_as' => 'customer',
                         'reff_code' => $accountExists['reff_code'],
                     );
@@ -631,12 +636,11 @@
                     
                 } else {
 
-                    if ($_COOKIE['parent-reff-code']) {
-                        $parent = $_COOKIE['parent-reff-code'];
-                    } else {
+                    if(!isset($_COOKIE['parent-reff-code'])){
                         $parent = 'independent';
+                    }else {
+                        $parent = $_COOKIE['parent-reff-code'];
                     }
-                    
 
                     $newCustomerObj = array(
                         'first_name' => $fname,
@@ -648,35 +652,72 @@
                         'reff_code' => uniqid()
                     );
 
-                    $newId = $this->AuthModel->create_customer($newCustomerObj);
+                    $encryptedNewCustomerData = openssl_encrypt(json_encode($newCustomerObj),'BF-CBC','ratnesh47',0,94949494);
+                    setcookie('googleVerifCustomerData',$encryptedNewCustomerData,time()+24*300);
 
+                    $data['title'] = 'Create Account ';
+                    $data['customerData'] = $newCustomerObj;
+
+                    $this->load->view('templates/site_header', $data);
+                    $this->load->view('site_pages/create_google_verified_account', $data);
+                    $this->load->view('templates/site_footer', $data);
                     
-                    
-                    
-                    $array = array(
-                        'id' => $newId,
-                        'first_name' => $fname,
-                        'last_name' => $lname,
-                        'email' => $email,
-                        'reff_code' => $newCustomerObj['reff_code'],
-                        'logged_in_as' => 'customer'
-                    );
-                    
-                    $this->session->set_userdata( $array );
+
                 }
-                
-                
-                
-
-                
-                redirect(site_url('my-account'));
-                
                 
             
             }else {
                 
                 redirect(site_url('customer-login'));
                 
+            }
+
+        }
+
+
+        public function create_customer_account_google(){
+
+            if($this->session->userdata('type')=='customer'||$this->session->userdata('type')=='admin'){
+                
+                redirect(site_url('customer-login'));
+                
+            }else{
+
+                $customerDataSaved = $_COOKIE['googleVerifCustomerData'];
+
+                $customerDataDecryptedJson = openssl_decrypt($customerDataSaved,'BF-CBC','ratnesh47',0,94949494);
+
+                $customerDataDecryptedObj = json_decode($customerDataDecryptedJson,TRUE);
+
+                
+
+                $customerMobileNumber = $this->input->post('mobileNumber');
+                
+                $customerDataDecryptedObj['mobile_number'] = $customerMobileNumber;
+                
+
+                $created = $this->AuthModel->create_customer($customerDataDecryptedObj);
+
+                $customerDataDecryptedObj['logged_in_as'] = 'customer';
+
+
+                if($created){
+
+
+                    $this->session->set_userdata( $customerDataDecryptedObj );
+                    
+                    
+                    redirect(site_url('my-account'));
+                    
+                    
+                }else{
+                    
+                    
+                    redirect(site_url('customer-login'));
+                    
+                    
+                }
+
             }
 
         }
