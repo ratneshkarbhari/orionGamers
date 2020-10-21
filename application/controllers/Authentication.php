@@ -703,6 +703,7 @@
 
                 if($created){
 
+                    $customerDataDecryptedObj['id'] = $created;
 
                     $this->session->set_userdata( $customerDataDecryptedObj );
                     
