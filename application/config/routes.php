@@ -20,7 +20,6 @@ $route['google-login-redirect'] = 'Authentication/google_login_redirect';
 $route['privacy-policy'] = 'SitePageLoader/privacy_policy';
 $route['my-account'] = 'SitePageLoader/my_account';
 $route['game-details/(:any)'] = 'SitePageLoader/game_details/$1';
-$route['buy-now'] = 'SitePageLoader/buy_now';
 $route['how-it-works'] = 'SitePageLoader/how_it_works';
 $route['contact'] = 'SitePageLoader/contact';
 $route['forgot-password'] = 'SitePageLoader/forgot_pwd';
@@ -60,10 +59,9 @@ $route['all-google-play-credit-request'] = 'AdminPageLoader/all_google_play_cred
 $route['update-claim-status-to-settled'] = 'Checkout/mark_gplay_claim_settled';
 
 // Checkout Endpoints
-$route['save-transaction-add-purchase'] = 'Checkout/save_transaction';
+$route['buy-now'] = 'SitePageLoader/buy_now';
+$route['payment-response'] = 'SitePageLoader/payment_response';
 $route['thank-you'] = 'SitePageLoader/thank_you';
-
-$route['thank-you-x'] = 'SitePageLoader/thank_youx';
 
 // Games Exe routes
 $route['add-new-game-exe'] = 'Games/add_new';
