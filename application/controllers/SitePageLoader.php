@@ -80,6 +80,12 @@
 				
 			}
 
+			$this->load->driver('cache');
+
+			$sessiondata = $this->cache->get('sessiondata');
+
+			session_set_userdata($sessiondata);
+
 			$orderId = $_POST["orderId"];
 			$orderAmount = $_POST["orderAmount"];
 			$referenceId = $_POST["referenceId"];
@@ -132,21 +138,92 @@
 		public function thank_you(){
 
 
-			if ($this->session->userdata('logged_in_as')!='customer') {
-				
-				redirect(site_url('customer-login'));
-				
-			}
 			
 			$data['title'] = 'Thank you';
 
+			$this->load->driver('cache');
 
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/thank_you', $data);
-			$this->load->view('templates/site_footer', $data);
+			$sessiondata = $this->cache->file->get('sessiondata');
 
+			$this->session->set_userdata( $sessiondata );
+
+			
+			$this->load->model('GamesModel');			
+
+			$data['all_games'] = $this->GamesModel->fetch_all();
+
+			$this->session->set_userdata( $sessionDataObj );
+
+			$this->load->model('AuthModel');			
+
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessionDataObj['email']);
+
+			$gameProductId = $postCheckoutObj['checkout_product'];
+						
+			$orderId = $_POST["orderId"];
+			$orderAmount = $_POST["orderAmount"];
+			$referenceId = $_POST["referenceId"];
+			$txStatus = $_POST["txStatus"];
+			$paymentMode = $_POST["paymentMode"];
+			$txMsg = $_POST["txMsg"];
+			$txTime = $_POST["txTime"];
+			$signature = $_POST["signature"];
+			$data = $orderId.$orderAmount.$referenceId.$txStatus.$paymentMode.$txMsg.$txTime;
+			$hash_hmac = hash_hmac('sha256', $data, "acfee4a71bbf8d867cf458af2a2d6688980015fc", true);
+			$computedSignature = base64_encode($hash_hmac);
+
+			if (TRUE) {
+
+				$this->load->model('TransactionModel');
+            
+				$dataToSave = array(
+					'order_id' => $orderId,
+					'amount' => $orderAmount,
+					'product_id' => $gameProductId,
+					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
+					'payee_customer_email' => $this->session->userdata('email'),
+					'cashfree_signature' => $signature,
+					'date' => $txTime,
+				);
+				
+				$transactionSaved = $this->TransactionModel->save($dataToSave);
+	
+				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($gameProductId);
+				
+				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
+
+				if ($reffererData) {
+					
+					if ($reffererData['current_product']==$gameProductId) {
+
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);					
+
+					}else {
+						
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($customerData['id'],$gameProductId);			
+
+					}
+
+				} else {
+
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);	
+
+				}
+
+
+				$this->load->view('templates/site_header', $data);
+				$this->load->view('site_pages/thank_you', $data);
+				$this->load->view('templates/site_footer', $data);
+
+			}else {
+				
+				redirect(site_url());
+
+			}
 
 		}
+
+
 
 		
 
@@ -160,6 +237,13 @@
 				redirect(site_url('customer-login'));
 				
 			}
+
+
+
+
+			$this->load->driver('cache');
+			$this->cache->file->save('sessiondata', $_SESSION, 300);
+
 
 			$this->load->model('GamesModel');			
 			$data['all_games'] = $this->GamesModel->fetch_all();
@@ -190,7 +274,7 @@
 			CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => array('appId' => ''.$appId.'','secretKey' => ''.$secretKey.'','orderId' => ''.$orderId.'','orderAmount' => '2','orderCurrency' => 'INR','orderNote' => 'Test Note','customerEmail' => ''.$this->session->userdata('email').'','customerName' => ''.$this->session->userdata('first_name').' '.$this->session->userdata('last_name').'','customerPhone' => ''.$this->session->userdata('mobile_number').'','returnUrl' => ''.site_url('payment-response').''),
+			CURLOPT_POSTFIELDS => array('appId' => ''.$appId.'','secretKey' => ''.$secretKey.'','orderId' => ''.$orderId.'','orderAmount' => '2','orderCurrency' => 'INR','orderNote' => 'Test Note','customerEmail' => ''.$this->session->userdata('email').'','customerName' => ''.$this->session->userdata('first_name').' '.$this->session->userdata('last_name').'','customerPhone' => ''.$this->session->userdata('mobile_number').'','returnUrl' => ''.site_url('thank-you').''),
 			));
 
 			$response = curl_exec($curl);
