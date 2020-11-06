@@ -145,6 +145,11 @@
 
 			$sessiondata = $this->cache->file->get('sessiondata');
 
+			$productID = $this->cache->file->get('checkout_product');
+
+
+		
+
 			$this->session->set_userdata( $sessiondata );
 
 			
@@ -152,13 +157,13 @@
 
 			$data['all_games'] = $this->GamesModel->fetch_all();
 
-			$this->session->set_userdata( $sessionDataObj );
+			$this->session->set_userdata( $sessiondata );
 
 			$this->load->model('AuthModel');			
 
-			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessionDataObj['email']);
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessiondata['email']);
 
-			$gameProductId = $postCheckoutObj['checkout_product'];
+			
 						
 			$orderId = $_POST["orderId"];
 			$orderAmount = $_POST["orderAmount"];
@@ -179,7 +184,7 @@
 				$dataToSave = array(
 					'order_id' => $orderId,
 					'amount' => $orderAmount,
-					'product_id' => $gameProductId,
+					'product_id' => $productID,
 					'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
 					'payee_customer_email' => $this->session->userdata('email'),
 					'cashfree_signature' => $signature,
@@ -188,19 +193,19 @@
 				
 				$transactionSaved = $this->TransactionModel->save($dataToSave);
 	
-				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($gameProductId);
+				$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($productID);
 				
 				$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
 
 				if ($reffererData) {
 					
-					if ($reffererData['current_product']==$gameProductId) {
+					if ($reffererData['current_product']==$productID) {
 
-						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);					
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$productID);					
 
 					}else {
 						
-						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($customerData['id'],$gameProductId);			
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($customerData['id'],$productID);			
 
 					}
 
@@ -251,6 +256,9 @@
 			$gameProductId = $this->input->post('game-product');
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
+
+			$this->cache->file->save('checkout_product', $gameProductId, 300);
+
 
 			$data['title'] = "Buy ".$gameProductData['title']."now";
 			$data['gameProductData'] = $gameProductData;
