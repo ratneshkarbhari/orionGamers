@@ -211,7 +211,7 @@
 
 				} else {
 
-					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$gameProductId);	
+					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$productID);	
 
 				}
 
