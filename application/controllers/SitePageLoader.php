@@ -139,7 +139,6 @@
 
 
 			
-			$data['title'] = 'Thank you';
 
 			$this->load->driver('cache');
 
@@ -214,6 +213,8 @@
 					$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$productID);	
 
 				}
+
+				$data['title'] = 'Thank you';
 
 
 				$this->load->view('templates/site_header', $data);

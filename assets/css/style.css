@@ -59,7 +59,7 @@ body {
     text-align: right; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Qanto", Sans-Serif;
+  font-family: "Ubuntu", sans-serif;
   color: #252525;
   font-weight: 400;
   margin-top: 0;
@@ -365,7 +365,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     .section-title ul li a {
       font-size: 16px;
       line-height: 28px;
-      font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
       display: block; }
       .section-title ul li a:hover, .section-title ul li a.active {
         color: #ef0034; }
@@ -398,7 +398,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   line-height: 25px;
   height: 50px;
   font-weight: 400;
-  font-family: "Qanto";
+  font-family: "Ubuntu", sans-serif;
   padding: 15px 42px;
   text-transform: uppercase;
   border-radius: 0px;
@@ -507,7 +507,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
       font-size: 75px;
       line-height: 75px;
       font-weight: 300;
-      font-family: "Bauhaus 93";
+      font-family: "Ubuntu", sans-serif;
       color: #ffffff;
       text-shadow: -6px 4px 1px #252525; }
       @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -585,7 +585,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     font-size: 100px;
     line-height: 90px;
     font-weight: 300;
-    font-family: "Bauhaus 93";
+    font-family: "Ubuntu", sans-serif;
     color: #ffffff;
     text-shadow: -6px 4px 1px #252525; }
     @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -698,7 +698,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     font-size: 14px;
     font-weight: 300;
     letter-spacing: 0.5px;
-    font-family: "Qanto";
+    font-family: "Ubuntu", sans-serif;
     line-height: 1;
     margin-top: 10px; }
     @media only screen and (max-width: 575px) {
@@ -984,7 +984,7 @@ header.header.header-static {
       font-size: 20px;
       line-height: 30px;
       display: block;
-      font-family: "Qanto";
+  font-family: "Ubuntu", sans-serif;
       color: #9f9f9f; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .header-right-wrap ul li a {
@@ -1114,7 +1114,7 @@ header.header.header-static {
       line-height: 70px;
       font-weight: 400;
       letter-spacing: 0.25px;
-      font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
       color: #ffffff;
       display: block;
       padding: 30px 0;
@@ -1181,7 +1181,7 @@ header.header.header-static {
       margin-bottom: 0; }
     .sub-menu li a {
       letter-spacing: 0.25px;
-      font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
       color: #151515;
       display: block;
       font-size: 14px;
@@ -1305,7 +1305,7 @@ header.header.header-static {
           .mobile-menu .mean-bar .mean-nav > ul li a {
             font-size: 13px;
             display: block;
-            font-family: "Qanto";
+            font-family: "Ubuntu", sans-serif;
             color: #151515;
             font-weight: 600;
             text-transform: uppercase;
@@ -1418,7 +1418,7 @@ header.header.header-static {
   font-size: 17px;
   line-height: 28px;
   color: #b6b6b6;
-  font-family: "Qanto"; }
+  font-family: "Ubuntu", sans-serif; }
   @media only screen and (max-width: 767px) {
     .hero-slider .slick-arrow, .hero-slider-four .slick-arrow {
       bottom: 20px; } }
@@ -1600,7 +1600,7 @@ header.header.header-static {
     font-size: 100px;
     line-height: 90px;
     font-weight: 300;
-    font-family: "Bauhaus 93";
+    font-family: "Ubuntu", sans-serif;
     color: #ffffff;
     text-shadow: -6px 4px 1px #252525; }
     @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -1622,7 +1622,7 @@ header.header.header-static {
     font-size: 100px;
     line-height: 90px;
     font-weight: 300;
-    font-family: "Bauhaus 93";
+    font-family: "Ubuntu", sans-serif;
     color: #ffffff;
     text-shadow: -6px 4px 1px #252525; }
     @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -1670,7 +1670,7 @@ header.header.header-static {
   font-size: 100px;
   line-height: 90px;
   font-weight: 300;
-  font-family: "Bauhaus 93";
+  font-family: "Ubuntu", sans-serif;
   color: #ffffff;
   text-shadow: -6px 4px 1px #252525; }
   @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -1734,7 +1734,7 @@ header.header.header-static {
   font-size: 70px;
   line-height: 70px;
   font-weight: 300;
-  font-family: "Bauhaus 93";
+  font-family: "Ubuntu", sans-serif;
   color: #ffffff;
   text-shadow: -6px 4px 1px #252525; }
   @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -1972,7 +1972,7 @@ header.header.header-static {
         line-height: 45px;
         position: relative;
         display: inline-block;
-        font-family: "Qanto"; }
+          font-family: "Ubuntu", sans-serif; }
         @media only screen and (max-width: 767px) {
           .download-area.section .download-demo-content ul li a {
             font-size: 18px;
@@ -2238,7 +2238,7 @@ header.header.header-static {
   .featured-title a {
     font-size: 18px;
     line-height: 70px;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     text-decoration: underline;
     margin-right: 60px; }
     @media only screen and (max-width: 767px) {
@@ -2532,7 +2532,7 @@ header.header.header-static {
       font-size: 20px;
       line-height: 28px;
       color: #ffffff;
-      font-family: "Qanto"; }
+        font-family: "Ubuntu", sans-serif; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .single-video-popup .video-img .video-content span {
           font-size: 14px; } }
@@ -2664,7 +2664,7 @@ header.header.header-static {
       font-size: 18px;
       line-height: 28px;
       color: #ffffff;
-      font-family: "Qanto"; }
+        font-family: "Ubuntu", sans-serif; }
       .single-video .video-img .video-content a i {
         margin-right: 5px;
         font-size: 18px; }
@@ -2685,7 +2685,7 @@ header.header.header-static {
   font-size: 17px;
   line-height: 28px;
   color: #b6b6b6;
-  font-family: "Qanto"; }
+    font-family: "Ubuntu", sans-serif; }
   .video-slider-active .slick-arrow i {
     font-size: 30px;
     line-height: 28px;
@@ -2742,7 +2742,7 @@ header.header.header-static {
     line-height: 26px; }
     .install-content p:nth-child(1) {
       max-width: 430px;
-      font-family: "Qanto"; }
+        font-family: "Ubuntu", sans-serif; }
     .install-content p:nth-child(2) {
       max-width: 480px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -3038,7 +3038,7 @@ header.header.header-static {
     font-size: 16px;
     line-height: 28px;
     color: #ef0034;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     float: right; }
     @media only screen and (min-width: 1200px) and (max-width: 1499px) {
       .single-game .game-content span {
@@ -3199,7 +3199,7 @@ header.header.header-static {
       font-size: 16px;
       line-height: 28px;
       color: #ef0034;
-      font-family: "Qanto"; }
+        font-family: "Ubuntu", sans-serif; }
       @media only screen and (min-width: 1200px) and (max-width: 1499px) {
         .upcoming-game-slider .single-upcoming-game .upcoming-game-content span {
           font-size: 14px; } }
@@ -3463,7 +3463,7 @@ header.header.header-static {
         .ratting-wrap .rating-area .rating-review .single-rating .rating-star span {
           font-size: 18px;
           line-height: 28px;
-          font-family: "Qanto";
+            font-family: "Ubuntu", sans-serif;
           color: #151515; }
         .ratting-wrap .rating-area .rating-review .single-rating .rating-star i {
           font-size: 18px;
@@ -3490,7 +3490,7 @@ header.header.header-static {
           font-size: 20px;
           line-height: 28px;
           color: #151515;
-          font-family: "Qanto"; }
+            font-family: "Ubuntu", sans-serif; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .review-wrap {
@@ -3563,7 +3563,7 @@ header.header.header-static {
   font-size: 14px;
   line-height: 28px;
   color: #7c7c7c;
-  font-family: "Qanto"; }
+    font-family: "Ubuntu", sans-serif; }
   .review-wrap .reply-btn a:hover {
     color: #ef0034; }
   .review-wrap .reply-btn a i {
@@ -3600,7 +3600,7 @@ header.header.header-static {
     font-size: 16px;
     line-height: 28px;
     color: #ef0034;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     float: right; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .single-games-review .review-content span {
@@ -3739,7 +3739,7 @@ header.header.header-static {
     opacity: 1;
     font-size: 17px;
     line-height: 28px;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     width: 45px;
     height: 45px;
     line-height: 45px; }
@@ -3795,7 +3795,7 @@ header.header.header-static {
       .single-blog-post .blog-content .blog-bottom a.read-btn {
         font-size: 16px;
         line-height: 24px;
-        font-family: "Qanto"; }
+          font-family: "Ubuntu", sans-serif; }
         .single-blog-post .blog-content .blog-bottom a.read-btn i {
           margin-left: 5px; }
     .single-blog-post .blog-content ul {
@@ -4053,7 +4053,7 @@ header.header.header-static {
         font-size: 16px;
         line-height: 28px;
         color: #ffffff;
-        font-family: "Qanto";
+          font-family: "Ubuntu", sans-serif;
         float: right; }
         @media only screen and (min-width: 1200px) and (max-width: 1499px) {
           .single-gallery .gallery-image .gallery-hover span {
@@ -4137,7 +4137,7 @@ header.header.header-static {
       .single-forum .forum-meta ul li {
         font-size: 16px;
         line-height: 28px;
-        font-family: "Qanto";
+          font-family: "Ubuntu", sans-serif;
         color: #7f7f7f;
         position: relative; }
         @media only screen and (max-width: 767px) {
@@ -4165,7 +4165,7 @@ header.header.header-static {
     .single-forum .forum-meta span.view {
       font-size: 16px;
       line-height: 28px;
-      font-family: "Qanto";
+        font-family: "Ubuntu", sans-serif;
       color: #7f7f7f; }
       @media only screen and (max-width: 767px) {
         .single-forum .forum-meta span.view {
@@ -4180,7 +4180,7 @@ header.header.header-static {
     background-color: #ef0034;
     font-size: 14px;
     line-height: 30px;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     color: #ffffff;
     text-align: center; }
 
@@ -4189,7 +4189,7 @@ header.header.header-static {
   display: block;
   font-size: 24px;
   line-height: 28px;
-  font-family: "Qanto";
+    font-family: "Ubuntu", sans-serif;
   margin-bottom: 15px; }
 
 .single-input input {
@@ -4231,7 +4231,7 @@ header.header.header-static {
 .forum-post label, .forum-post .file-input button.save-btn, .file-input .forum-post button.save-btn {
   font-size: 20px;
   line-height: 28px;
-  font-family: "Qanto";
+    font-family: "Ubuntu", sans-serif;
   margin-bottom: 0; }
 
 .forum-post button.df-btn {
@@ -4342,7 +4342,7 @@ header.header.header-static {
     .forum-reply-wrap .forum-meta ul li {
       font-size: 16px;
       line-height: 28px;
-      font-family: "Qanto";
+        font-family: "Ubuntu", sans-serif;
       color: #7f7f7f;
       position: relative; }
       @media only screen and (max-width: 767px) {
@@ -4372,7 +4372,7 @@ header.header.header-static {
   .forum-reply-wrap .forum-meta span.view {
     font-size: 16px;
     line-height: 28px;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     color: #7f7f7f; }
     @media only screen and (max-width: 767px) {
       .forum-reply-wrap .forum-meta span.view {
@@ -4404,7 +4404,7 @@ header.header.header-static {
       display: block;
       font-size: 14px;
       line-height: 24px;
-      font-family: "Qanto"; }
+        font-family: "Ubuntu", sans-serif; }
       .forum-reply-wrap .viewer-action ul li a i {
         margin-right: 5px; }
 
@@ -4413,7 +4413,7 @@ header.header.header-static {
   font-size: 14px;
   line-height: 18px;
   color: #7c7c7c;
-  font-family: "Qanto"; }
+    font-family: "Ubuntu", sans-serif; }
   .forum-reply-wrap .reply-btn a:hover {
     color: #ef0034; }
   .forum-reply-wrap .reply-btn a i {
@@ -4513,7 +4513,7 @@ header.header.header-static {
     background-color: #ef0034;
     border: none;
     color: #ffffff;
-    font-family: "Qanto"; }
+      font-family: "Ubuntu", sans-serif; }
     .gilbard-login form input[type="submit"]:hover {
       background-color: #f64140; }
   .gilbard-login form a {
@@ -4883,7 +4883,7 @@ header.header.header-static {
   color: #ffffff;
   font-size: 20px;
   line-height: 45px;
-  font-family: "Qanto";
+    font-family: "Ubuntu", sans-serif;
   border-radius: 50px; }
   .comment-form input[type="submit"]:hover, .comment-form button:hover, .comment-form .submit:hover {
     background-color: #f64140; }
@@ -4923,7 +4923,7 @@ header.header.header-static {
     display: block;
     font-size: 18px;
     line-height: 28px;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     color: #ffffff; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .single-sidebar-widget .single-featured-game .game-img a.game-title {
@@ -5006,7 +5006,7 @@ header.header.header-static {
     font-size: 16px;
     line-height: 28px;
     color: #ef0034;
-    font-family: "Qanto";
+      font-family: "Ubuntu", sans-serif;
     float: right; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .single-sidebar-widget .popular-game .game-content span {
@@ -5258,7 +5258,7 @@ header.header.header-static {
       line-height: 26px;
       color: #ffffff;
       display: block;
-      font-family: "Qanto"; }
+        font-family: "Ubuntu", sans-serif; }
       .footer-widget .footer-nav ul li a:hover {
         color: #f64140; }
 
@@ -5272,7 +5272,7 @@ header.header.header-static {
   font-size: 20px;
   line-height: 28px;
   color: #ffffff;
-  font-family: "Qanto";
+    font-family: "Ubuntu", sans-serif;
   margin-right: 30px; }
   @media only screen and (min-width: 1200px) and (max-width: 1499px) {
     .footer-social span {
@@ -5433,6 +5433,8 @@ header.header.header-static {
     left: 0; bottom: 0; top: 0;
   }
   a.nav-link{
-    font-family: "Qanto" !important;
+  font-family: "Ubuntu", sans-serif;
   }
 
+
+  
