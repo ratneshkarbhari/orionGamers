@@ -94,6 +94,7 @@
                         <h4>Refferals</h4>
                         <label>Refferal Link:</label>
                         <pre style="color: white; font-size: 18px;"><?php echo site_url('?parent_reff_code='.$_SESSION['reff_code']); ?></pre>
+                        <button type="button" id="copyReffLink" class="btn btn-secondary" data-clipboard-text="<?php echo 'Do visit origamers.com they provide the privilege to the gamers to enjoy premium packs of all your favorite games at affordable rates.  '.site_url('?parent_reff_code='.$_SESSION['reff_code']); ?>">Copy Link</button>
                         <p>People who sign up with your refferal code and purchase will appeare here:</p>                   
                         <span style='padding: 2%; background-color: red !important;'>Not Purchased</span>
                         <span style='padding: 2%; background-color: darkgreen !important;'> Purchased</span>

@@ -9,8 +9,8 @@
             
                 <div class="col-lg-6 col-md-12 col-sm-12">
 
-                <div class="  text-left" style="margin: 5% 0;">
-                        <h2><span class="color-blue" style="color: red;">SEND</span> A MESSAGE</h2>
+                <div class="text-left" style="margin: 5% 0;">
+                        <h2><span class="color-blue" style="color: red;">SEND US</span> A MESSAGE</h2>
                     </div>
                 
                     <form action="<?php echo site_url('contact-form-exe'); ?>" method="post">
@@ -45,7 +45,7 @@
 
 
                     <h2 class="text-light">Email:</h2>
-                    <p class="text-light" style="font-size: 150%;">hello@origamers.com</p>
+                    <p class="text-light" style="font-size: 150%;">origamers143@gmail.com</p>
                     <h2 class="text-light">Location:</h2>
                     <p class="text-light" style="font-size: 150%;">Nagpur, India</p>
 

@@ -38,10 +38,10 @@
                            <div class="footer-social">
                               <span>follow us:</span>
                                <ul>
-                                   <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                   <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                   <li><a href="#"><i class="icofont-instagram"></i></a></li>
-                                   <li><a href="#"><i class="icofont-youtube-play"></i></a></li>
+                                   <li><a href="https://www.facebook.com/Ori-Gamers-106979091173928" target="_blank"><i class="icofont-facebook"></i></a></li>
+                                   <li><a href="https://t.me/origamers" target="_blank"><i class="icofont-telegram"></i></a></li>
+                                   <li><a href="https://www.instagram.com/_origamers_/" target="_blank"><i class="icofont-instagram"></i></a></li>
+                                   <!-- <li><a href="#"><i class="icofont-youtube-play"></i></a></li> -->
                                </ul>
                            </div>
                        </div>

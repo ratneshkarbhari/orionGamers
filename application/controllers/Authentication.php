@@ -45,7 +45,7 @@
             Message:'.$this->input->post('message').'<br>
             ';
                 
-            $res = mail("genuineprofitmaker@gmail.com","New Enquiry from contact form",$body,$headers);
+            $res = mail("inquiryorigamers@gmail.com","New Enquiry from contact form",$body,$headers);
 
             if ($res) {
                 $data['title'] = 'Contact';
