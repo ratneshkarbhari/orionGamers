@@ -269,6 +269,7 @@
 				$data['title'] = 'Buy '.$gameProductData['title'];
 				$data['game_details'] = $gameProductData;
 
+				$data['gameProductData'] = $gameProductData;
 				
 
 				$secretKey = "acfee4a71bbf8d867cf458af2a2d6688980015fc";
