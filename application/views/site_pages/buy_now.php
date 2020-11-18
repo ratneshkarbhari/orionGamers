@@ -20,7 +20,7 @@
             <input type="hidden" name="orderNote" value=""/>
             <input type="hidden"  name="customerName" value="<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>"/>
             <input type="hidden" name="customerEmail" value="<?php echo $_SESSION['email']; ?>"/>
-            <input type="text" class="form-control" name="customerPhone" value="<?php echo $orderData['customerPhone']; ?>"/>
+            <input type="hidden" class="form-control" name="customerPhone" value="<?php echo $orderData['customerPhone']; ?>"/>
             <br>
             <input type="hidden" name="returnUrl" value="<?php echo $orderData['returnUrl']; ?>"/>
             <input type="hidden" name="signature" value="<?php echo $token; ?>"/>

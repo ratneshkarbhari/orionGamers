@@ -234,15 +234,10 @@
 		
 
 
-		public function buy_now()
-		
+		public function buy_now()		
 		{
 
-			if ($this->session->userdata('logged_in_as')!='customer') {
-				
-				redirect(site_url('customer-login'));
-				
-			}
+
 
 			if ($this->session->userdata('logged_in_as')!='customer') {
 				
@@ -281,7 +276,7 @@
 				"orderCurrency" => "INR",
 				"orderNote" => "",
 				"customerName" => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
-				"customerPhone" => '+91'.$this->session->userdata('mobile_number'),
+				"customerPhone" => '+9137976398',
 				"customerEmail" => $this->session->userdata('email'),
 				"returnUrl" => site_url('thank-you')
 			  );
