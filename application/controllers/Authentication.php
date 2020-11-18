@@ -631,7 +631,7 @@
                     $this->session->set_userdata( $array );
 
                     
-                    redirect(site_url('my-account'));
+                    redirect(site_url());
                     
                     
                 } else {

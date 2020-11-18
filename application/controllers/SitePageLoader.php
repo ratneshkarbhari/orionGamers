@@ -244,57 +244,78 @@
 				
 			}
 
-
-
-
-			$this->load->driver('cache');
-			$this->cache->file->save('sessiondata', $_SESSION, 300);
-
+			if ($this->session->userdata('logged_in_as')!='customer') {
+				
+				redirect(site_url('customer-login'));
+				
+			}
 
 			$this->load->model('GamesModel');			
 			$data['all_games'] = $this->GamesModel->fetch_all();
 			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
+		
+			$sessionData = openssl_encrypt (json_encode($_SESSION), 'BF-CBC', 'ratnesh47',0,94949494);
+			$postCheckoutObj = array(
+				'sessionData' => $sessionData,
+				'checkout_product' => $gameProductId
+			);
+			setcookie('postCheckoutRevival',json_encode($postCheckoutObj),time()+(24*3600));
+			
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
+			if ($gameProductData) {
+				
+				$data['title'] = 'Buy '.$gameProductData['title'];
+				$data['game_details'] = $gameProductData;
 
-			$this->cache->file->save('checkout_product', $gameProductId, 300);
+				
+
+				$secretKey = "acfee4a71bbf8d867cf458af2a2d6688980015fc";
+				$postData = array(
+				"appId" => "33090190a25fd481164ee1c1c09033",
+				"orderId" => rand(1000,9999),
+				// "orderAmount" => $gameProductData['sale_price'],
+				"orderAmount" => 1.00,
+				"orderCurrency" => "INR",
+				"orderNote" => "",
+				"customerName" => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
+				"customerPhone" => '+91'.$this->session->userdata('mobile_number'),
+				"customerEmail" => $this->session->userdata('email'),
+				"returnUrl" => site_url('thank-you')
+			  );
+			   // get secret key from your config
+			   ksort($postData);
+			   $signatureData = "";
+			   foreach ($postData as $key => $value){
+					$signatureData .= $key.$value;
+			   }
+			   $signature = hash_hmac('sha256', $signatureData, $secretKey,true);
+			   $signature = base64_encode($signature);
+			  
+
+				$returlUrl = site_url('cashfree-return');
+
+				$data['orderData'] = array(
+					'appId' => "33090190a25fd481164ee1c1c09033",
+					'id' => $postData['orderId'],
+					'customerName' => $postData['customerName'],
+					'customerEmail' => $postData['customerEmail'],
+					'customerPhone' => $postData['customerPhone'],
+					// 'amount' => $gameProduc6tData['sale_price'],
+					'amount' => 1.00,
+					'returnUrl' => $postData['returnUrl'],
+					'mode' => "LIVE"
+				);
+				$data['token'] = $signature;
 
 
-			$data['title'] = "Buy ".$gameProductData['title']."now";
-			$data['gameProductData'] = $gameProductData;
-
-			$curl = curl_init();
-
-			$secretKey = "acfee4a71bbf8d867cf458af2a2d6688980015fc";
-			$appId = "33090190a25fd481164ee1c1c09033";
-
-			// $testAppId = '10717636b552ee8cd7b6e73b671701';
-			// $testAppSecret = '32b8d8ef1490337651b74b4d68be03f825035d6c';
-
-			$orderId = rand(1000,9999);
-
-			curl_setopt_array($curl, array(
-			CURLOPT_URL => "https://api.cashfree.com/api/v1/order/create",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_ENCODING => "",
-			CURLOPT_MAXREDIRS => 10,
-			CURLOPT_TIMEOUT => 0,
-			CURLOPT_FOLLOWLOCATION => true,
-			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => array('appId' => ''.$appId.'','secretKey' => ''.$secretKey.'','orderId' => ''.$orderId.'','orderAmount' => '2','orderCurrency' => 'INR','orderNote' => 'Test Note','customerEmail' => ''.$this->session->userdata('email').'','customerName' => ''.$this->session->userdata('first_name').' '.$this->session->userdata('last_name').'','customerPhone' => ''.$this->session->userdata('mobile_number').'','returnUrl' => ''.site_url('thank-you').''),
-			));
-
-			$response = curl_exec($curl);
-
-			curl_close($curl);
-			$decodedResponse = json_decode($response,TRUE);
-			$data['paymentLink'] = $paymentUrl = $decodedResponse['paymentLink'];
-
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/buy_now', $data);
-			$this->load->view('templates/site_footer', $data);
+				$this->load->view('templates/site_header', $data);
+				$this->load->view('site_pages/buy_now', $data);
+				$this->load->view('templates/site_footer', $data);
+			} else {
+				redirect(site_url());
+			}
 
 		}
 
