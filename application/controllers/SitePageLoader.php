@@ -53,7 +53,7 @@
 
 		public function home()
 		{
-			$data['title'] = 'Tagline';
+			$data['title'] = 'More than just a Game';
 			$this->load->model('GamesModel');			
 			$data['all_games'] = $this->GamesModel->fetch_all();
 
