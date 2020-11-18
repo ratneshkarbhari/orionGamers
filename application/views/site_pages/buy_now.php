@@ -12,7 +12,21 @@
         <div class="card-body">
           <h3 class="card-title" style="background-color: white !important; color: black !important;"><?php echo $gameProductData['title']; ?></h3>
           <p class="card-text"><?php echo $gameProductData['description']; ?></p>
-          <a href="<?php echo $paymentLink; ?>" class="btn btn-block" style="background-color: red; color: white;">Buy Now</a>
+          <form id="redirectForm" method="post" action="https://www.cashfree.com/checkout/post/submit">
+            <input type="hidden" name="appId" value="33090190a25fd481164ee1c1c09033"/>
+            <input type="hidden" name="orderId" value="<?php echo $orderData['id']; ?>"/>
+            <input type="hidden" name="orderAmount" value="<?php echo $orderData['amount']; ?>"/>
+            <input type="hidden" name="orderCurrency" value="INR"/>
+            <input type="hidden" name="orderNote" value=""/>
+            <input type="hidden"  name="customerName" value="<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>"/>
+            <input type="hidden" name="customerEmail" value="<?php echo $_SESSION['email']; ?>"/>
+            <input type="text" name="customerPhone" value="<?php echo $orderData['customerPhone']; ?>"/>
+            <input type="hidden" name="returnUrl" value="<?php echo $orderData['returnUrl']; ?>"/>
+            <input type="hidden" name="signature" value="<?php echo $token; ?>"/>
+
+
+            <button type="submit" class="btn btn-large btn-block btn-danger">Pay Now</button>
+          </form>
         </div>
       </div>
       <div class="col-lg-4 col-md-12 col-sm-12"></div>
