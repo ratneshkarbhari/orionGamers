@@ -89,6 +89,7 @@
                                             <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
                                         </select>                                    
                                     </div>
+                                    <br><br>
                                         
 
                                         
