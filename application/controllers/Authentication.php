@@ -91,7 +91,8 @@
                 'city' => $city,
                 'country' => $country,
                 'pincode' => $pincode,
-                'state' => $state
+                'state' => $state,
+                'platform' => $this->input->post('platform')
             );
 
             $customerUpdated = $this->AuthModel->update_customer($objToUpdate);
@@ -548,13 +549,15 @@
                             'email' => $customerData['email'],
                             'reff_code' => $customerData['reff_code'],
                             'mobile_number' => $customerData['mobile_number'],
-                            'logged_in_as' => 'customer'
+                            'platform' => $customerData['platform'],
+                            'logged_in_as' => 'customer',
+                            'reff_code' => $customerData['reff_code']    
                         );
                         
                         $this->session->set_userdata( $array );
                         
                         
-                        redirect(site_url('my-account'));
+                        redirect(site_url());
                         
 
                     } else {
@@ -624,6 +627,7 @@
                         'last_name' => $accountExists['last_name'],
                         'email' => $accountExists['email'],
                         'mobile_number' => $accountExists['mobile_number'],
+                        'platform' => $customerData['platform'],
                         'logged_in_as' => 'customer',
                         'reff_code' => $accountExists['reff_code'],
                     );
@@ -708,7 +712,7 @@
                     $this->session->set_userdata( $customerDataDecryptedObj );
                     
                     
-                    redirect(site_url('my-account'));
+                    redirect(site_url());
                     
                     
                 }else{

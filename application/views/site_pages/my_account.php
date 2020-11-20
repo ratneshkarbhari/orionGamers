@@ -82,6 +82,15 @@
                                             } ?>" id="state">
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="plaform">Platform</label>
+                                            <select name="platform" id="platform" class="form-control">
+                                                <option value="android">Android</option>
+                                                <option value="ios">iOS</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="form-group col-lg-12 col-sm-12 col-md-12">
                                         <button class="btn btn-lg btn-block" type="submit" style="background-color: red;">Update Profile</button>
 
