@@ -82,12 +82,12 @@
                                             } ?>" id="state">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="plaform">Platform</label>
                                             <select name="platform" id="platform" class="form-control">
-                                                <option value="android">Android</option>
-                                                <option value="ios">iOS</option>
+                                                <option value="android" <?php if($_SESSION['platform']=='android'){echo 'selected';} ?>>Android</option>
+                                                <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
                                             </select>
                                         </div>
                                     </div>
