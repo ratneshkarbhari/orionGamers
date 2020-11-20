@@ -24,15 +24,36 @@
 			}
 		}
 
+
+		private function public_page_loader($view,$data){
+
+			$this->load->driver('cache', array('adapter' => 'file'));
+
+
+			if ( ! $games = $this->cache->get('games'))
+			{
+				
+				$this->load->model('GamesModel');			
+				$games = $this->GamesModel->fetch_all();
+				// Save into the cache for 5 minutes
+				$this->cache->save('games', $games, (24*3600));
+			}else {
+				$games = $this->cache->get('games');			
+			}
+
+			$data['all_games'] = $games;
+
+			$this->load->view('templates/site_header', $data);
+			$this->load->view('site_pages/'.$view, $data);
+			$this->load->view('templates/site_footer', $data);
+		}
+
 		public function how_it_works()
 		{
 			$data['title'] = 'How it Works';
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
 
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/how_it_works', $data);
-			$this->load->view('templates/site_footer', $data);
+
+			$this->public_page_loader('how_it_works',$data);
 
 		}
 		
@@ -54,21 +75,14 @@
 		public function home()
 		{
 			$data['title'] = 'More than just a Game';
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
 
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/home', $data);
-			$this->load->view('templates/site_footer', $data);
+			$this->public_page_loader('home',$data);
+
 		}
 
 		public function privacy_policy(){
 			$data['title'] = 'Privacy Policy';
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/privacy_policy', $data);
-			$this->load->view('templates/site_footer', $data);
+			$this->public_page_loader('privacy_policy',$data);
 		}
 
 		public function payment_response(){
@@ -121,17 +135,15 @@
 		{
 			$this->load->model('GameProductsModel');			
 
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
+			$this->load->model('GamesModel');
 
 			$data['game'] = $this->GamesModel->fetch_game_by_slug($slug);
 			$data['game_products'] = $this->GameProductsModel->fetch_all_for_game($data['game']['id']);
 
 			$data['title'] = $data['game']['title'];
 
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/game_details', $data);
-			$this->load->view('templates/site_footer', $data);
+
+			$this->public_page_loader('game_details',$data);
 
 		}
 
@@ -152,9 +164,7 @@
 			$this->session->set_userdata( $sessiondata );
 
 			
-			$this->load->model('GamesModel');			
 
-			$data['all_games'] = $this->GamesModel->fetch_all();
 
 			$this->session->set_userdata( $sessiondata );
 
@@ -216,10 +226,8 @@
 
 				$data['title'] = 'Thank you';
 
+				$this->public_page_loader('thank_you',$data);
 
-				$this->load->view('templates/site_header', $data);
-				$this->load->view('site_pages/thank_you', $data);
-				$this->load->view('templates/site_footer', $data);
 
 			}else {
 				
@@ -245,9 +253,6 @@
 				
 			}
 
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
-			$this->load->model('GameProductsModel');			
 			$gameProductId = $this->input->post('game-product');
 		
 			$sessionData = openssl_encrypt (json_encode($_SESSION), 'BF-CBC', 'ratnesh47',0,94949494);
@@ -306,9 +311,8 @@
 				$data['token'] = $signature;
 
 
-				$this->load->view('templates/site_header', $data);
-				$this->load->view('site_pages/buy_now', $data);
-				$this->load->view('templates/site_footer', $data);
+				$this->public_page_loader('buy_now',$data);
+
 			} else {
 				redirect(site_url());
 			}
@@ -377,8 +381,7 @@
 			$googleLoginUrl = $client->createAuthUrl();
 
 
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
+
 
 			$data['title'] = 'Customer Login';
 			$data['googleLoginUrl'] = $googleLoginUrl;
@@ -394,11 +397,8 @@
 
 		public function tnc(){
 			$data['title'] = 'Terms and Conditions';
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
-			$this->load->view('templates/site_header', $data);
-			$this->load->view('site_pages/tnc', $data);
-			$this->load->view('templates/site_footer', $data);
+			
+			$this->public_page_loader('tnc',$data);
 		}
 
 		public function my_account(){
@@ -406,9 +406,6 @@
 			if ($this->session->userdata('logged_in_as')!='customer') {
 				redirect(site_url('customer-login'));
 			}
-
-			$this->load->model('GamesModel');			
-			$data['all_games'] = $this->GamesModel->fetch_all();
 
 			$data['title'] = 'My Account';
 			$data['error'] = $data['success'] = '';
@@ -425,9 +422,8 @@
 
 			$data['reffered_customers'] = $this->RefferalModel->fetch_all_reffered();
 
-			$this->load->view('templates/site_header', $data);			
-			$this->load->view('site_pages/my_account', $data);
-			$this->load->view('templates/site_footer', $data);	
+			$this->public_page_loader('my_account',$data);
+
 		}
 
 		public function forgot_pwd(){
@@ -437,9 +433,8 @@
 			$data['title'] = 'Forgot Password';
 			$data['error'] = '';
 
-			$this->load->view('templates/site_header', $data);			
-			$this->load->view('site_pages/forgot_pwd', $data);
-			$this->load->view('templates/site_footer', $data);			
+			$this->public_page_loader('forgot_pwd',$data);
+
 
 		}
 	
