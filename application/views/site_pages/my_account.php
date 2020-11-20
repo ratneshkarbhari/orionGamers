@@ -82,27 +82,13 @@
                                             } ?>" id="state">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         
                                         <label for="plaform">Platform</label>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="platform" id="platform-android" value="android">
-                                            <label class="form-check-label" for="platform-android" <?php if($_SESSION['platform']=='android'){
-                                                echo 'checked="checked"';
-                                            } ?>>Android</label>
-                                        </div>  
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="platform" id="platform-ios" value="ios" <?php if($_SESSION['platform']=='ios'){
-                                                echo 'checked="checked"';
-                                            } ?>>
-                                            <label class="form-check-label" for="platform-ios">iOS</label>
-                                        </div>                                        
-
-                                        <!-- <select name="platform" id="platform" class="form-control">
+                                        <select name="platform" id="platform" class="form-control">
                                             <option value="android" <?php if($_SESSION['platform']=='android'){echo 'selected';} ?>>Android</option>
                                             <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
-                                        </select> -->
+                                        </select>
                                         
                                     </div>
                                     <div class="form-group col-lg-12 col-sm-12 col-md-12">
