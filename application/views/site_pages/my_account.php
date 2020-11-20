@@ -84,7 +84,7 @@
                                     </div>
                                         
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <select class="custom-select">
+                                        <select class="custom-select form-control" style="display: block !important;">
                                             <option name="platform" value="android" <?php if($_SESSION['platform']=='android'){echo 'selected';} ?>>Android</option>
                                             <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
                                         </select>                                    
@@ -167,5 +167,8 @@
 <style>
     .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
         background-color: red;
+    }
+    .nice-select{
+        display: none !important;
     }
 </style>
