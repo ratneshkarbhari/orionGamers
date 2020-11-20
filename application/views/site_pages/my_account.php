@@ -83,11 +83,14 @@
                                         </div>
                                     </div>
                                         
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <select class="custom-select">
+                                            <option name="platform" value="android" <?php if($_SESSION['platform']=='android'){echo 'selected';} ?>>Android</option>
+                                            <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
+                                        </select>                                    
+                                    </div>
                                         
-                                    <select class="custom-select col-lg-12 col-md-12 col-sm-12">
-                                        <option name="platform" value="android" <?php if($_SESSION['platform']=='android'){echo 'selected';} ?>>Android</option>
-                                        <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
-                                    </select>
+
                                         
 
                                     <div class="form-group col-lg-12 col-sm-12 col-md-12">
