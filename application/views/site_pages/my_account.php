@@ -84,7 +84,7 @@
                                     </div>
                                         
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <select class="custom-select form-control" style="display: block !important;">
+                                        <select class="custom-select form-control" id="platform-select" style="display: block !important;">
                                             <option name="platform" value="android" <?php if($_SESSION['platform']=='android'){echo 'selected';} ?>>Android</option>
                                             <option value="ios" <?php if($_SESSION['platform']=='ios'){echo 'selected';} ?>>iOS</option>
                                         </select>                                    
@@ -171,4 +171,10 @@
     .nice-select{
         display: none !important;
     }
+    select#platform-select{
+        display: block !important;
+    }
 </style>
+<script>
+    $("select#platform-select").css('display', 'block');
+</script>
