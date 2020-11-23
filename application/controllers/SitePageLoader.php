@@ -262,6 +262,7 @@
 			);
 			setcookie('postCheckoutRevival',json_encode($postCheckoutObj),time()+(24*3600));
 			
+			$this->load->model('GameProductsModel');
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 			if ($gameProductData) {
