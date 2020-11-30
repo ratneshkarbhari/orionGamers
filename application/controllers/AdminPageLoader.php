@@ -16,6 +16,22 @@
             }
         }
 
+        public function manage_yt_videos(){
+
+            $this->load->model('YtModel');
+            
+
+            $data['title'] = 'All Videos';
+            $data['videos'] = $this->YtModel->fetch_all();
+            $data['success'] = $data['error'] = '';
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/manage_yt_videos', $data);
+            $this->load->view('templates/admin_footer', $data);
+
+
+        }
+
         public function see_all_transactions(){
 
             $this->load->model('TransactionModel');

@@ -57,6 +57,7 @@ $route['all-sales'] = 'AdminPageLoader/see_all_transactions';
 $route['transaction-details/(:num)'] = 'AdminPageLoader/transaction_details/$1';
 $route['all-google-play-credit-request'] = 'AdminPageLoader/all_google_play_credit_request';
 $route['update-claim-status-to-settled'] = 'Checkout/mark_gplay_claim_settled';
+$route['manage-youtube-videos'] = 'AdminPageLoader/manage_yt_videos';
 
 // Checkout Endpoints
 $route['buy-now'] = 'SitePageLoader/buy_now';
@@ -69,7 +70,8 @@ $route['delete-game-exe'] = 'Games/delete';
 // $route['delete-slider-image'] = 'Games/delete_slider_image';
 $route['update-game-exe'] = 'Games/update';
 
-
+// Videos routes
+$route['add-new-video-exe'] = 'Videos/add';
 
 // Game Products Routs
 $route['add-new-game-product-exe'] = 'GameProducts/add_new';

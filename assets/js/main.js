@@ -306,6 +306,46 @@ $('.video-slider-active').slick({
 
 });
 
+$('.video-slider-active2').slick({
+    arrows: true,
+    autoplay: false,
+    dots: false,
+    autoplaySpeed: 800,
+    infinite: true,
+    centerMode: true,
+    centerPadding: '0',
+    slidesToShow: 3,
+    focusOnSelect: true,
+    prevArrow: '<button class="slick-prev"><i class="icofont-long-arrow-left"></i>Pre</button>',
+    nextArrow: '<button class="slick-next">Next<i class="icofont-long-arrow-right"></i></button>',
+    responsive: [
+        {
+            breakpoint: 1201,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 993,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 577,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 481,
+            settings: {
+                slidesToShow: 1,
+            }
+        },
+    ]
+
+});
 
     
     

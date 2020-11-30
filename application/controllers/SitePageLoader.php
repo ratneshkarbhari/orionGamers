@@ -74,8 +74,10 @@
 
 		public function home()
 		{
+			$this->load->model('YtModel');
+			
 			$data['title'] = 'More than just a Game';
-
+			$data['videos'] = $this->YtModel->fetch_all();
 			$this->public_page_loader('home',$data);
 
 		}

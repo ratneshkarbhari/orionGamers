@@ -223,61 +223,22 @@
             
             <div class="row no-gutters align-items-end">
                 <div class="col-12">
+                    
                     <div class="video-slider-active">
+                        
+
+                        <?php foreach($videos as $video): ?>
                         <div class="single-video">
                             <div class="video-img video-img-2">
-                                <img src="assets/images/video/video-front1.jpg" alt="">
+                                <img src="<?php echo site_url('assets/images/yt_video_thumbs/'.$video['thumb']); ?>" alt="">
                                 <div class="video-content content-center">
-                                <h3>The Magician 3</h3>
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=BjiaMBk6rHk"><i class="icofont-play-alt-2"></i> view demo</a>
+                                <!-- <h3>The Magician 3</h3> -->
+                                <a class="video-popup" href="<?php echo $video['link']; ?>"><i class="icofont-play-alt-2"></i> view demo</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="single-video">
-                            <div class="video-img video-img-2">
-                                <img src="assets/images/video/video-front3.jpg" alt="">
-                                <div class="video-content content-center">
-                                <h3>The Magician 3</h3>
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=BjiaMBk6rHk"><i class="icofont-play-alt-2"></i> view demo</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-video">
-                            <div class="video-img video-img-2">
-                                <img src="assets/images/video/video-front2.jpg" alt="">
-                                <div class="video-content content-center">
-                                <h3>The Magician 3</h3>
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=BjiaMBk6rHk"><i class="icofont-play-alt-2"></i> view demo</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-video">
-                            <div class="video-img video-img-2">
-                                <img src="assets/images/video/video-front4.jpg" alt="">
-                                <div class="video-content content-center">
-                                <h3>The Magician 3</h3>
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=BjiaMBk6rHk"><i class="icofont-play-alt-2"></i> view demo</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-video">
-                            <div class="video-img video-img-2">
-                                <img src="assets/images/video/video-front1.jpg" alt="">
-                                <div class="video-content content-center">
-                                <h3>The Magician 3</h3>
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=BjiaMBk6rHk"><i class="icofont-play-alt-2"></i> view demo</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-video">
-                            <div class="video-img video-img-2">
-                                <img src="assets/images/video/video-front4.jpg" alt="">
-                                <div class="video-content content-center">
-                                <h3>The Magician 3</h3>
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=BjiaMBk6rHk"><i class="icofont-play-alt-2"></i> view demo</a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                        
                     </div>
                 </div>
             </div>

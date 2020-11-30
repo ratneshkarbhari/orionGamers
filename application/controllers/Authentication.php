@@ -371,10 +371,13 @@
 
                 if ($entered_username!=''&&$entered_password!='') {
 
+                    echo $entered_username;
 
                     $adminData = $this->AuthModel->fetch_admin_data_by_username($entered_username);
 
+
                     if ($adminData) {
+
                         
                         $passwordCorrect = password_verify($entered_password,$adminData['password']);
 
