@@ -15,6 +15,11 @@
         public function fetch_all(){
             return $this->db->get('yt_videos')->result_array();
         }
+
+        public function delete($id){
+            $this->db->where('id', $id);
+            return $this->db->delete('yt_videos');
+        }
     
         public function add_video($link,$thumb){
             $data = array('link'=>$link,'thumb'=>$thumb);

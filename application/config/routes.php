@@ -58,6 +58,7 @@ $route['transaction-details/(:num)'] = 'AdminPageLoader/transaction_details/$1';
 $route['all-google-play-credit-request'] = 'AdminPageLoader/all_google_play_credit_request';
 $route['update-claim-status-to-settled'] = 'Checkout/mark_gplay_claim_settled';
 $route['manage-youtube-videos'] = 'AdminPageLoader/manage_yt_videos';
+$route['delete-video'] = 'Videos/delete';
 
 // Checkout Endpoints
 $route['buy-now'] = 'SitePageLoader/buy_now';

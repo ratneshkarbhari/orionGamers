@@ -44,6 +44,13 @@
             
 
         }
+
+        public function delete(){
+            $id = $this->input->post('id');
+            $this->load->model('YtModel');
+            $deleted = $this->YtModel->delete($id);
+            redirect(site_url('manage-youtube-videos'));
+        }
     
     }
     
