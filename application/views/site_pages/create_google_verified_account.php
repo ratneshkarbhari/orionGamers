@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="mobileNumber">Mobile Number</label>
-                        <input type="text" name="mobileNumber" class="form-control" id="mobileNumber">
+                        <input type="text" name="mobileNumber" class="form-control" id="mobileNumber" required>
                     </div>
 
                     <button type="submit" class="btn btn-block" style="background: red; color: white;">Get Started with OriGamers</button>

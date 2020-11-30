@@ -175,7 +175,7 @@
                                 let enteredPassword = $("input#register-customer-password").val();
                                 let enteredMobileNumber = $("input#register-customer-mobile-number").val();
                                 if (enteredFirstName==''||enteredLastName==''||enteredPassword==''||enteredMobileNumber=='') {
-                                    $("small#emptyError").html('Please enter first, Last name and password');
+                                    $("small#emptyError").html('Please enter first, Last name, Mobile number and password');
                                 }else{
                                     $("small#emptyError").html('');
                                     $.ajax({
