@@ -168,7 +168,8 @@
                 'purchased' => 'no',
                 'mobile_number' => $enterdMobileNumber,
                 'parent_code' => $parent,
-                'reff_code' => $reffCode
+                'reff_code' => $reffCode,
+                'platform' => 'android'
             );
 
             $newId = $this->AuthModel->create_customer($newCustomerObj);            
@@ -475,35 +476,6 @@
             }
         }
 
-        public function facebookLoginExe(){
-
-            $fb = new Facebook\Facebook([
-                'app_id' => '374382520391569',
-                'app_secret' => '0cab316d510044d0ccf0eed63a9608b9',
-                'default_graph_version' => 'v2.10',
-                ]);
-    
-            $helper = $fb->getRedirectLoginHelper();
-
-            $accessToken = $helper->getAccessToken();
-
-
-           
-
-            if (! isset($accessToken)) {
-                echo '<script>alert("Please allow facebook access for login"); </script>';
-            }
-
-            $response = $fb->get('/me', $accessToken);
-
-            // print_r($response);
-
-            $me = $response->getGraphUser();
-
-
-            echo $full_name = $me->getName(); 
-
-        }
        
         public function email_login_exe(){
 
@@ -630,7 +602,7 @@
                         'last_name' => $accountExists['last_name'],
                         'email' => $accountExists['email'],
                         'mobile_number' => $accountExists['mobile_number'],
-                        'platform' => $customerData['platform'],
+                        'platform' => $accountExists['platform'],
                         'logged_in_as' => 'customer',
                         'reff_code' => $accountExists['reff_code'],
                     );
@@ -655,6 +627,7 @@
                         'email' => $email,
                         'account_auth_by' => 'google_login',
                         'purchased' => 'no',
+                        'platform' => 'android',
                         'parent_code' => $parent,
                         'reff_code' => uniqid()
                     );
