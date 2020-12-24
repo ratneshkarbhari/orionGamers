@@ -2,6 +2,7 @@
 <script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="<?php echo site_url('assets/images/origamersTransparent.png'); ?>"></script>
 
   <div class="container">
+  
     <div id="top-header-my-account row card" style="padding: 5% 0; background-color: white;margin: 5% 0;">
       <h1 style="background-color: white !important; color: black !important;" class="text-center"><?php echo $title; ?></h1>
     </div>
@@ -68,6 +69,7 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
 	}
 </style>
 <body>
+<?php print_r($gameProductData); ?>
 <div class="main">
 	<form action="#" id="payment_form">
     <input type="hidden" id="udf5" name="udf5" value="BOLT_KIT_PHP7" />
