@@ -37,10 +37,7 @@ function getCallbackUrl()
 }
 
 ?>
-<script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="000000" bolt-logo="<?php echo site_url('assets/images/origamersTransparent.png'); ?>"></script>
 
-</head>
-<body>
 <?php print_r($gameProductData); ?>
 <div class="main">
 	<form action="#" id="payment_form">
