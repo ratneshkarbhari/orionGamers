@@ -20,6 +20,7 @@
 			  <input type="hidden" name="productinfo" value="<?php echo $gameProductData["description"]; ?>">
 			  <input type="hidden" name="firstname" value="<?php echo $_SESSION["first_name"]; ?>">
 			  <input type="hidden" name="email" value="<?php echo $_SESSION["email"]; ?>">
+			  <input type="hidden" name="phone" value="<?php echo $_SESSION["mobile_number"]; ?>">
 			  <input type="hidden" name="surl" value="<?php echo site_url('thank-you'); ?>">
 			  <input type="hidden" name="furl" value="<?php echo site_url(''); ?>">
 			  <input type="hidden" name="hash" value="<?php $hashSequence2 = 'lomegegA|'.$txnid.'|'.$gameProductData["sale_price"].'|'.$gameProductData["description"].'|'.$_SESSION["first_name"].'|'.$_SESSION["email"].'|||||||||||X971ICRWjz';echo $hash = strtolower(hash("sha512",$hashSequence2)); ?>">
