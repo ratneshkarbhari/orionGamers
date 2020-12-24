@@ -257,9 +257,9 @@
 			$data["gameProductData"] = $gameProductData;
 			$data["title"] = 'Buy a Game';
 
-			print_r($data);
-
-			$this->public_page_loader("buy_now",$data);
+			$this->load->view("site_header",$data);
+			$this->load->view("buy_now",$data);
+			$this->load->view("site_footer",$data);
 
 		}
 
