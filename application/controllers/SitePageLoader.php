@@ -239,11 +239,6 @@
 
 		}
 
-
-
-		
-
-
 		public function buy_now()		
 		{
 
@@ -259,7 +254,13 @@
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 
-			print_r($gameProductData);
+			$data["game_product_data"] = $gameProductData;
+
+			$paymentData = array();
+
+			$paymentData["amount"] = $gameProductData["sale_price"];
+
+			
 
 		}
 
