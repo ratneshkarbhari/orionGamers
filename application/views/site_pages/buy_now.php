@@ -11,7 +11,7 @@ if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0){
     	echo json_encode($json);
 	
 	}
-	exit(0);
+	
 }
  
 function getCallbackUrl()
