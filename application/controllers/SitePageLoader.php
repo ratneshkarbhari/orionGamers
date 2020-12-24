@@ -256,11 +256,7 @@
 
 			$data["game_product_data"] = $gameProductData;
 
-			$paymentData = array();
-
-			$paymentData["amount"] = $gameProductData["sale_price"];
-
-			
+			$this->public_page_loader("buy_now",$data);
 
 		}
 
