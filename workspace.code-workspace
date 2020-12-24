@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\payuTest"
+		},
+		{
+			"path": "..\\payuBolt"
+		}
+	],
+	"settings": {}
+}

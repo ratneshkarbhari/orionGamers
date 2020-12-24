@@ -604,11 +604,10 @@
                         'mobile_number' => $accountExists['mobile_number'],
                         'platform' => $accountExists['platform'],
                         'logged_in_as' => 'customer',
-                        'reff_code' => $accountExists['reff_code'],
+                        'reff_code' => $accountExists['reff_code']
                     );
                     
                     $this->session->set_userdata( $array );
-
                     
                     redirect(site_url());
                     

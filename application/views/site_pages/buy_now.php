@@ -1,4 +1,5 @@
 <main class="page-content" id="buy-now">
+<script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="<?php echo site_url('assets/images/origamersTransparent.png'); ?>"></script>
 
   <div class="container">
     <div id="top-header-my-account row card" style="padding: 5% 0; background-color: white;margin: 5% 0;">
@@ -13,8 +14,8 @@
           <h3 class="card-title" style="background-color: white !important; color: black !important;"><?php echo $gameProductData['title']; ?></h3>
           <p class="card-text"><?php echo $gameProductData['description']; ?></p>
           <form id="redirectForm" method="post" action="https://www.cashfree.com/checkout/post/submit">
-            <input type="hidden" name="appId" value="33090190a25fd481164ee1c1c09033"/>
-            <input type="hidden" name="orderId" value="<?php echo $orderData['id']; ?>"/>
+            <input type="hidden" name="key" value="33090190a25fd481164ee1c1c09033"/>
+            <input type="hidden" name="orderId" value="<?php echo uniqid(); ?>"/>
             <input type="hidden" name="orderAmount" value="<?php echo $orderData['amount']; ?>"/>
             <input type="hidden" name="orderCurrency" value="INR"/>
             <input type="hidden" name="orderNote" value=""/>

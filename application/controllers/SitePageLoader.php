@@ -247,8 +247,6 @@
 		public function buy_now()		
 		{
 
-
-
 			if ($this->session->userdata('logged_in_as')!='customer') {
 				
 				redirect(site_url('customer-login'));
@@ -256,69 +254,12 @@
 			}
 
 			$gameProductId = $this->input->post('game-product');
-		
-			$sessionData = openssl_encrypt (json_encode($_SESSION), 'BF-CBC', 'ratnesh47',0,94949494);
-			$postCheckoutObj = array(
-				'sessionData' => $sessionData,
-				'checkout_product' => $gameProductId
-			);
-			setcookie('postCheckoutRevival',json_encode($postCheckoutObj),time()+(24*3600));
-			
-			$this->load->model('GameProductsModel');
+
+			$this->load->model("GameProductsModel");
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
-			if ($gameProductData) {
-				
-				$data['title'] = 'Buy '.$gameProductData['title'];
-				$data['game_details'] = $gameProductData;
 
-				$data['gameProductData'] = $gameProductData;
-				
-
-				$secretKey = "acfee4a71bbf8d867cf458af2a2d6688980015fc";
-				$postData = array(
-				"appId" => "33090190a25fd481164ee1c1c09033",
-				"orderId" => rand(1000,9999),
-				// "orderAmount" => $gameProductData['sale_price'],
-				"orderAmount" => 1.00,
-				"orderCurrency" => "INR",
-				"orderNote" => "",
-				"customerName" => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
-				"customerPhone" => '+9137976398',
-				"customerEmail" => $this->session->userdata('email'),
-				"returnUrl" => site_url('thank-you')
-			  );
-			   // get secret key from your config
-			   ksort($postData);
-			   $signatureData = "";
-			   foreach ($postData as $key => $value){
-					$signatureData .= $key.$value;
-			   }
-			   $signature = hash_hmac('sha256', $signatureData, $secretKey,true);
-			   $signature = base64_encode($signature);
-			  
-
-				$returlUrl = site_url('cashfree-return');
-
-				$data['orderData'] = array(
-					'appId' => "33090190a25fd481164ee1c1c09033",
-					'id' => $postData['orderId'],
-					'customerName' => $postData['customerName'],
-					'customerEmail' => $postData['customerEmail'],
-					'customerPhone' => $postData['customerPhone'],
-					// 'amount' => $gameProduc6tData['sale_price'],
-					'amount' => 1.00,
-					'returnUrl' => $postData['returnUrl'],
-					'mode' => "LIVE"
-				);
-				$data['token'] = $signature;
-
-
-				$this->public_page_loader('buy_now',$data);
-
-			} else {
-				redirect(site_url());
-			}
+			print_r($gameProductData);
 
 		}
 
