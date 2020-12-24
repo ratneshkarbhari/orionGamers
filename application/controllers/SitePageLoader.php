@@ -254,6 +254,8 @@
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 
+			print_r($gameProductData);
+
 			$data["gameProductData"] = $gameProductData;
 			$data["title"] = 'Buy '.$gameProductData['title'];
 
