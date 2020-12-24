@@ -257,6 +257,8 @@
 			$data["gameProductData"] = $gameProductData;
 			$data["title"] = 'Buy a Game';
 
+			print_r($data);
+
 			$this->public_page_loader("buy_now",$data);
 
 		}
