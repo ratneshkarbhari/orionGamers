@@ -55,7 +55,7 @@ function getCallbackUrl()
 			
 			<div class="dv">
 			<span class="text"><label>Amount:</label></span>
-			<span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?php echo $gameProductData["sale-price"]; ?>" /></span>    
+			<span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?php echo $gameProductData["sale_price"]; ?>" /></span>    
 			</div>
 			
 			<div class="dv">
@@ -86,7 +86,7 @@ function getCallbackUrl()
 			</div>
 			
 			
-			<div><input type="submit" class="btn btn-block btn-danger" style='background-color: red !important; margin-top: 3%; color: white !important;' value="Pay" onclick="launchBOLT(); return false;" /></div>
+			<div><input type="submit" class="btn btn-block btn-danger" style='background-color: red !important; margin-top: 3%;  margin-bottom: 3%; color: white !important;' value="Pay" onclick="launchBOLT(); return false;" /></div>
 		</form>
         </div>
       </div>
@@ -170,3 +170,8 @@ function launchBOLT()
 });
 }
 </script>
+<style>
+label{
+	display: none !important;
+}
+</style>
