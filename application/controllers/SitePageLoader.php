@@ -254,7 +254,8 @@
 
 			$gameProductData = $this->GameProductsModel->fetch_by_id($gameProductId);
 
-			$data["game_product_data"] = $gameProductData;
+			$data["gameProductData"] = $gameProductData;
+			$data["title"] = "Buy ".$gameProductData['title'];
 
 			$this->public_page_loader("buy_now",$data);
 
