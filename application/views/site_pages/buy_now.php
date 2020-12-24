@@ -24,6 +24,7 @@
 			  <input type="hidden" name="furl" value="<?php echo site_url(''); ?>">
 			  <input type="hidden" name="hash" value="<?php $hashSequence2 = 'lomegegA|'.$txnid.'|'.$gameProductData["sale_price"].'|'.$gameProductData["description"].'|'.$_SESSION["first_name"].'|'.$_SESSION["email"].'|||||||||||X971ICRWjz';echo $hash = strtolower(hash("sha512",$hashSequence2)); ?>">
 			  <input type="hidden" name="service_provider" value="payu_paisa">
+			  <button class="btn btn-danger" style="background-color: red !important; color: white !important;" type="submit">Pay ₹ <?php echo $gameProductData["sale_price"]; ?></button>
 		  </form>
         </div>
       </div>
