@@ -40,51 +40,53 @@ function getCallbackUrl()
 			<input type="hidden" id="surl" name="surl" value="<?php echo getCallbackUrl(); ?>" />
 			<div class="dv">
 			<span class="text"><label>Merchant Key:</label></span>
-			<span><input type="text" id="key" name="key" placeholder="Merchant Key" value="" /></span>
+			<span><input type="hidden" id="key" name="key" placeholder="Merchant Key" value="lomegegA" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Merchant Salt:</label></span>
-			<span><input type="text" id="salt" name="salt" placeholder="Merchant Salt" value="" /></span>
+			<span><input type="hidden" id="salt" name="salt" placeholder="Merchant Salt" value="X971ICRWjz" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Transaction/Order ID:</label></span>
-			<span><input type="text" id="txnid" name="txnid" placeholder="Transaction ID" value="<?php echo  "Txn" . rand(10000,99999999)?>" /></span>
+			<span><input type="hidden" id="txnid" name="txnid" placeholder="Transaction ID" value="<?php echo  "Txn" . rand(10000,99999999)?>" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Amount:</label></span>
-			<span><input type="text" id="amount" name="amount" placeholder="Amount" value="6.00" /></span>    
+			<span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?php echo $gameProductData["sale-price"]; ?>" /></span>    
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Product Info:</label></span>
-			<span><input type="text" id="pinfo" name="pinfo" placeholder="Product Info" value="P01,P02" /></span>
+			<span><input type="hidden" id="pinfo" name="pinfo" placeholder="Product Info" value="<?php echo $gameProductData["description"]; ?>" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>First Name:</label></span>
-			<span><input type="text" id="fname" name="fname" placeholder="First Name" value="" /></span>
+			<span><input type="hidden" id="fname" name="fname" placeholder="First Name" value="<?php echo $_SESSION["first_name"]; ?>" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Email ID:</label></span>
-			<span><input type="text" id="email" name="email" placeholder="Email ID" value="" /></span>
+			<span><input type="hidden" id="email" name="email" placeholder="Email ID" value="<?php echo $_SESSION["email"]; ?>" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Mobile/Cell Number:</label></span>
-			<span><input type="text" id="mobile" name="mobile" placeholder="Mobile/Cell Number" value="" /></span>
+			<span><input type="hidden" id="mobile" name="mobile" placeholder="Mobile/Cell Number" value="<?php if(isset($_SESSION["mobile_number"])){echo $_SESSION["mobile_number"]; }else {
+				echo "";
+			} ?>" /></span>
 			</div>
 			
 			<div class="dv">
 			<span class="text"><label>Hash:</label></span>
-			<span><input type="text" id="hash" name="hash" placeholder="Hash" value="" /></span>
+			<span><input type="hidden" id="hash" name="hash" placeholder="Hash" value="" /></span>
 			</div>
 			
 			
-			<div><input type="submit" class="btn btn-danger" style='background-color: red;' value="Pay" onclick="launchBOLT(); return false;" /></div>
+			<div><input type="submit" class="btn btn-block btn-danger" style='background-color: red !important; margin-top: 3%; color: white !important;' value="Pay" onclick="launchBOLT(); return false;" /></div>
 		</form>
         </div>
       </div>
