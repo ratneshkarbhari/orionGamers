@@ -12,22 +12,7 @@
         <div class="card-body">
           <h3 class="card-title" style="background-color: white !important; color: black !important;"><?php echo $gameProductData['title']; ?></h3>
           <p class="card-text"><?php echo $gameProductData['description']; ?></p>
-          <form id="redirectForm" class="d-none" method="post" action="https://www.cashfree.com/checkout/post/submit">
-            <input type="hidden" name="appId" value="33090190a25fd481164ee1c1c09033"/>
-            <input type="hidden" name="orderId" value="<?php echo $orderData['id']; ?>"/>
-            <input type="hidden" name="orderAmount" value="<?php echo $orderData['amount']; ?>"/>
-            <input type="hidden" name="orderCurrency" value="INR"/>
-            <input type="hidden" name="orderNote" value=""/>
-            <input type="hidden"  name="customerName" value="<?php echo $_SESSION['first_name'].' '.$_SESSION['last_name']; ?>"/>
-            <input type="hidden" name="customerEmail" value="<?php echo $_SESSION['email']; ?>"/>
-            <input type="hidden" class="form-control" name="customerPhone" value="<?php echo $orderData['customerPhone']; ?>"/>
-            <br>
-            <input type="hidden" name="returnUrl" value="<?php echo $orderData['returnUrl']; ?>"/>
-            <input type="hidden" name="signature" value="<?php echo $token; ?>"/>
-
-
-            <button type="submit" class="btn btn-large btn-block btn-danger">Pay Now</button>
-		  </form>
+          
 		  <form action="https://secure.payu.in/_payment/" method="post">
 			  <input type="hidden" name="key" value="lomegegA">
 			  <input type="hidden" name="txnid" value="<?php echo $txnid = rand(1000,9999); ?>">
@@ -37,7 +22,7 @@
 			  <input type="hidden" name="email" value="<?php echo $_SESSION["email"]; ?>">
 			  <input type="hidden" name="surl" value="<?php echo site_url('thank-you'); ?>">
 			  <input type="hidden" name="furl" value="<?php echo site_url(''); ?>">
-			  <input type="hidden" name="hash" value="<?php $hashSequence2 = 'lomegegA|'.$txnid.'|'.$gameProductData["sale_price"].'|'.$gameProductData["description"].'|'.$_SESSION["first_name"].'|'.$_SESSION["email"].'|||||||||||X971ICRWjz'; echo $hash = strtolower(hash("sha512",$hashSequence2)); ?>">
+			  <input type="hidden" name="hash" value="<?php $hashSequence2 = 'lomegegA|'.$txnid.'|'.$gameProductData["sale_price"].'|'.$gameProductData["description"].'|'.$_SESSION["first_name"].'|'.$_SESSION["email"].'|||||||||||X971ICRWjz';echo $hash = strtolower(hash("sha512",$hashSequence2)); ?>">
 			  <input type="hidden" name="service_provider" value="payu_paisa">
 		  </form>
         </div>
