@@ -257,7 +257,7 @@
 			$data["gameProductData"] = $gameProductData;
 			$data["title"] = 'Buy a Game';
 
-			$this->load->view("temp[lates/site_header",$data);
+			$this->load->view("templates/site_header",$data);
 			$this->load->view("site_pages/buy_now",$data);
 			$this->load->view("templates/site_footer",$data);
 
