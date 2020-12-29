@@ -151,7 +151,83 @@
 
 		public function thank_you(){
 
+			$this->load->driver('cache');
+
+			$sessiondata = $this->cache->file->get('sessiondata');
+
+			$productID = $this->cache->file->get('checkout_product');
+
+
+		
+
+			$this->session->set_userdata( $sessiondata );
+
 			
+
+
+			$this->session->set_userdata( $sessiondata );
+
+			$this->load->model('AuthModel');			
+
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessiondata['email']);
+
+			if (isset($_POST)) {
+				$status=$_POST["status"];
+				$firstname=$_POST["firstname"];
+				$amount=$_POST["amount"];
+				$txnid=$_POST["txnid"];
+				$posted_hash=$_POST["hash"];
+				$key=$_POST["key"];
+				$productinfo=$_POST["productinfo"];
+				$email=$_POST["email"];
+				$salt="X971ICRWjz";
+				$retHashSeq = $salt.'|'.$status.'|||||||||||'.$email.'|'.$firstname.'|'.$productinfo.'|'.$amount.'|'.$txnid.'|'.$key;
+				
+				$hash = hash("sha512", $retHashSeq);
+				if ($hash != $posted_hash) {
+					echo "Invalid Transaction. Please try again";
+				} else {
+					$this->load->model('TransactionModel');
+            
+					$dataToSave = array(
+						'order_id' => $orderId,
+						'amount' => $orderAmount,
+						'product_id' => $productID,
+						'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
+						'payee_customer_email' => $this->session->userdata('email'),
+						'cashfree_signature' => $signature,
+						'date' => $txTime,
+					);
+					
+					$transactionSaved = $this->TransactionModel->save($dataToSave);
+		
+					$saveCurrentProduct = $this->TransactionModel->saveCurrentProduct($productID);
+					
+					$reffererData = $this->AuthModel->fetch_customer_by_reff_id($customerData['parent_code']);
+
+					if ($reffererData) {
+						
+						if ($reffererData['current_product']==$productID) {
+
+							$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$productID);					
+
+						}else {
+							
+							$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased_different($customerData['id'],$productID);			
+
+						}
+
+					} else {
+
+						$updatePurchasedOnCustomer = $this->TransactionModel->update_purchased($customerData['id'],$productID);	
+
+					}
+
+					$data['title'] = 'Thank you';
+
+					$this->public_page_loader('thank_you',$data);
+				}
+			}
 
 		}
 
