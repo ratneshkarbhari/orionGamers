@@ -169,7 +169,7 @@
 
 			$this->load->model('AuthModel');			
 
-			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessiondata['email']);
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($_SESSION['email']);
 
 			if (isset($_POST)) {
 				$status=$_POST["status"];
@@ -190,13 +190,13 @@
 					$this->load->model('TransactionModel');
             
 					$dataToSave = array(
-						'order_id' => $orderId,
+						'order_id' => $txnid,
 						'amount' => $orderAmount,
 						'product_id' => $productID,
 						'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
 						'payee_customer_email' => $this->session->userdata('email'),
-						'cashfree_signature' => $signature,
-						'date' => $txTime,
+						'cashfree_signature' => $hash,
+						'date' => date('d/m/Y'),
 					);
 					
 					$transactionSaved = $this->TransactionModel->save($dataToSave);
