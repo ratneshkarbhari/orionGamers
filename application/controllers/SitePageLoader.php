@@ -169,12 +169,13 @@
 
 			$this->load->model('AuthModel');			
 
-			$customerData = $this->AuthModel->fetch_customer_data_by_email($_SESSION['email']);
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessiondata['email']);
+
 
 			if (isset($_POST)) {
 				$status=$_POST["status"];
 				$firstname=$_POST["firstname"];
-				$amount=$_POST["amount"];
+				$orderAmount=$_POST["amount"];
 				$txnid=$_POST["txnid"];
 				$posted_hash=$_POST["hash"];
 				$key=$_POST["key"];
@@ -193,8 +194,8 @@
 						'order_id' => $txnid,
 						'amount' => $orderAmount,
 						'product_id' => $productID,
-						'payee_customer_name' => $this->session->userdata('first_name').' '.$this->session->userdata('last_name'),
-						'payee_customer_email' => $this->session->userdata('email'),
+						'payee_customer_name' => $customerData['first_name'].' '.$customerData['last_name'],
+						'payee_customer_email' => $customerData['email'],
 						'cashfree_signature' => $hash,
 						'date' => date('d/m/Y'),
 					);
@@ -322,6 +323,22 @@
 			$data['title'] = 'Customer Login';
 			$data['googleLoginUrl'] = $googleLoginUrl;
 			$data['error'] = '';
+
+			$this->load->driver('cache', array('adapter' => 'file'));
+
+
+			if ( ! $games = $this->cache->get('games'))
+			{
+				
+				$this->load->model('GamesModel');			
+				$games = $this->GamesModel->fetch_all();
+				// Save into the cache for 5 minutes
+				$this->cache->save('games', $games, (24*3600));
+			}else {
+				$games = $this->cache->get('games');			
+			}
+
+			$data['all_games'] = $games;
 
 
 			$this->load->view('templates/site_header', $data);			
