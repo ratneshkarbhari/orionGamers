@@ -100,7 +100,7 @@
 
 			$sessiondata = $this->cache->get('sessiondata');
 
-			session_set_userdata($sessiondata);
+			$this->session->set_userdata($sessiondata);
 
 			$orderId = $_POST["orderId"];
 			$orderAmount = $_POST["orderAmount"];
@@ -111,7 +111,7 @@
 			$txTime = $_POST["txTime"];
 			$signature = $_POST["signature"];
 			$data = $orderId.$orderAmount.$referenceId.$txStatus.$paymentMode.$txMsg.$txTime;
-			$hash_hmac = hash_hmac('sha256', $data, $secretkey, true) ;
+			$hash_hmac = hash_hmac('sha256', $data, 'lomegegA', true) ;
 			$computedSignature = base64_encode($hash_hmac);
 
 
@@ -169,7 +169,7 @@
 
 			$this->load->model('AuthModel');			
 
-			$customerData = $this->AuthModel->fetch_customer_data_by_email($sessiondata['email']);
+			$customerData = $this->AuthModel->fetch_customer_data_by_email($_SESSION['email']);
 
 
 			if (isset($_POST)) {
@@ -182,7 +182,7 @@
 				$productinfo=$_POST["productinfo"];
 				$email=$_POST["email"];
 				$salt="X971ICRWjz";
-				$retHashSeq = $salt.'|'.$status.'|||||||||||'.$email.'|'.$firstname.'|'.$productinfo.'|'.$amount.'|'.$txnid.'|'.$key;
+				$retHashSeq = $salt.'|'.$status.'|||||||||||'.$email.'|'.$firstname.'|'.$productinfo.'|'.$orderAmount.'|'.$txnid.'|'.$key;
 				
 				$hash = hash("sha512", $retHashSeq);
 				if ($hash != $posted_hash) {
