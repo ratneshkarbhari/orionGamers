@@ -153,19 +153,16 @@
 
 			$this->load->driver('cache');
 
-			$sessiondata = $this->cache->file->get('sessiondata');
-
-			$productID = $this->cache->file->get('checkout_product');
+			$session_product_data = $this->cache->file->get('session_product_data');
 
 
-		
+			$sessiondata = $session_product_data["sessionData"];
+			$productID = $session_product_data["checkout_product"];
 
 			$this->session->set_userdata( $sessiondata );
 
 			
 
-
-			$this->session->set_userdata( $sessiondata );
 
 			$this->load->model('AuthModel');			
 
@@ -241,7 +238,20 @@
 				
 			}
 
+			$this->load->driver('cache', array('adapter' => 'file'));
+
+
+			
+
+
 			$gameProductId = $this->input->post('game-product');
+
+			$postCheckoutObj = array(
+				'sessionData' => $_SESSION,
+				'checkout_product' => $gameProductId
+			);
+
+			$this->cache->save('session_product_data', $postCheckoutObj, (24*3600));
 
 			$this->load->model("GameProductsModel");
 
