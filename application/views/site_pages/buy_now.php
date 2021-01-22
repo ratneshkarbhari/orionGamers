@@ -36,7 +36,7 @@
         <script>
           $("input#tnc_cb").click(function (e) { 
             e.preventDefault();
-            if($(this).prop(":checked")){
+            if($("button#PayButton").hasClass("d-none")){
               $("button#PayButton").removeClass("d-none");
             }else{
               $("button#PayButton").addClass("d-none");
