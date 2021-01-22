@@ -71,174 +71,65 @@
     </table>
 </div>
 <p><br></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:13.999999999999998pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You are not eligible for any kind of refund after 15 days from &nbsp;</span></p>
-    </li>
-</ul>
-<p dir="ltr" style="line-height:1.2;margin-left: 18pt;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:13.999999999999998pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">&nbsp; your date of purchase.</span></p>
-<p><br></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:13.999999999999998pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You must fill the refund form provided by origamers within 15 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; days.</span></p>
-    </li>
-</ul>
-<p><br></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:13.999999999999998pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You must correctively fill all the asked information by the origamers in the refund form. If fail to do so origamers would not be responsible for your loss.</span></p>
-    </li>
-</ul>
-<p><br></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:13.999999999999998pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">The screen shot of refer section is must to verify your refund request. if any kind of fake, edited, tampered screen shot is submitted legal actions would be taken by origamers against you. In such cases no refund will be given back.</span></p>
-    </li>
-</ul>
-<p><br></p>
-<p><br></p>
-<p dir="ltr" style="line-height:1.2;margin-left: 22.5pt;margin-top:0pt;margin-bottom:13.5pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">NOTE: -</span><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">&nbsp;</span><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:underline;-webkit-text-decoration-skip:none;text-decoration-skip-ink:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">In order to refund your amount, you have to fill the refund form available in our website. The form contains name, email, phone number, bank details such as bank holder name, Account number, IFSC code, Bank branch. There is an option in the form to attach file, you need to attach the screenshot of how many people have joined and purchased (names shown in green colour) through your referral code.</span></p>
-<p dir="ltr" style="line-height:1.2;text-align: center;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">NOTE: - WE CAN INCREASE OR DECREASE THE PRICE OF THE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PRODUCTS ACCORDING TO THE FUTURE CONDITIONS.</span></p>
-<p><br></p>
+<p>You are not eligible for any kind of refund after 15 days from your date of purchase.</p>
+<p>You must fill the refund form provided by origamers within 15 Days</p>
+<p>You must correctively fill all the asked information by the origamers in the refund form. If fail to do so origamers would not be responsible for your loss.</p>
+<p>The screen shot of refer section is must to verify your refund request. if any kind of fake, edited, tampered screen shot is submitted legal actions would be taken by origamers against you. In such cases no refund will be given back.</p>
+<p>In order to refund your amount, you have to fill the refund form available in our website. The form contains name, email, phone number, bank details such as bank holder name, Account number, IFSC code, Bank branch. There is an option in the form to attach file, you need to attach the screenshot of how many people have joined and purchased (names shown in green colour) through your referral code.</p>
+<p>NOTE: - WE CAN INCREASE OR DECREASE THE PRICE OF THE PRODUCTS ACCORDING TO THE FUTURE CONDITIONS.</p>
+
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:20pt; color: red !important; background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Google Play Voucher</span></p>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">We use google play voucher as a medium to deliver our game products. We do not sell google play voucher. We are not the authorized seller by google we are not running any google play voucher scam. Origamers itself purchase google play voucher online and deliver the google play voucher code to our customers in their respective email after they have completed and fulfilled the above conditions. The google play voucher code we purchase and deliver to our customer remains untouched i.e. unused. The code is valid for only one product that you purchased.</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">After the request for google play voucher origamers will send your voucher at your register e-mail with us. If you have submitted the wrong or invalid e-mail to us Origamers will not be responsible for your loss.&nbsp;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Origamers will send you a screenshot of the google voucher as a proof of delivering the voucher.</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Once the Voucher and the screenshot e-mail is delivered by the origamers to the user. Origamers will not be responsible for any kind of loss.</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:18pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: -13.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Origamers will not be responsible if u share your voucher code with someone else.</span></p>
-    </li>
-</ul>
-<p><br></p>
-<p><br></p>
+
+<p>We use google play voucher as a medium to deliver our game products. We do not sell google play voucher. We are not the authorized seller by google we are not running any google play voucher scam. Origamers itself purchase google play voucher online and deliver the google play voucher code to our customers in their respective email after they have completed and fulfilled the above conditions. The google play voucher code we purchase and deliver to our customer remains untouched i.e. unused. The code is valid for only one product that you purchased.</p>
+<p>After the request for google play voucher origamers will send your voucher at your register e-mail with us. If you have submitted the wrong or invalid e-mail to us Origamers will not be responsible for your loss</p>
+<p>Origamers will send you a screenshot of the google voucher as a proof of delivering the voucher.</p>
+<p>Once the Voucher and the screenshot e-mail is delivered by the origamers to the user. Origamers will not be responsible for any kind of loss.</p>
+<p>Origamers will not be responsible if u share your voucher code with someone else.</p>
 <p dir="ltr" style="line-height:1.2;margin-left: 22.5pt;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:18pt; color: red !important; background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Violations</span></p>
-<p><br></p>
-<ol style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:decimal;font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: 4.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">If anyone tries to commit fraud or steal data or tries to fool the website in any manner. Strict actions will be taken against you and you will be prohibited from using our website.</span></p>
-    </li>
-</ol>
-<p><br></p>
-<ol start="2" style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:decimal;font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: 4.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Copying our website or using our website name in any way is strictly &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;prohibited. If do so legal actions will be taken against you.</span></p>
-    </li>
-</ol>
-<p><br></p>
-<ol start="3" style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:decimal;font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: 4.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">False accusation towards our website name would not be entertained and legal actions would be taken by us.</span></p>
-    </li>
-</ol>
-<p><br></p>
-<ol start="4" style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:decimal;font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;margin-left: 4.5pt;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">If anyone tries to violate our terms and conditions will not be entertained and will be prohibited from using our website.</span></p>
-    </li>
-</ol>
-<p><br></p>
+<p>If anyone tries to commit fraud or steal data or tries to fool the website in any manner. Strict actions will be taken against you and you will be prohibited from using our website.</p>
+<p>Copying our website or using our website name in any way is strictly prohibited. If do so legal actions will be taken against you.</p>
+<p>False accusation towards our website name would not be entertained and legal actions would be taken by us.</p>
+<p>If anyone tries to violate our terms and conditions will not be entertained and will be prohibited from using our website.</p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:18pt; color: red !important; background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">&nbsp;License</span></p>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Unless otherwise stated, Origamers and/or its licensors own the intellectual property rights for all material on Origamers. All intellectual property rights are reserved. You may access this from Origamers for your own personal use subjected to restrictions set in these terms and conditions.</span></p>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You must not: -</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Republish material from OriGamers.</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Sell, rent or sub-license material from OriGamers.</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Reproduce, duplicate or copy material from OriGamers.</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:14pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Redistribute content from OriGamers.</span></p>
-    </li>
+<p>Unless otherwise stated, Origamers and/or its licensors own the intellectual property rights for all material on Origamers. All intellectual property rights are reserved. You may access this from Origamers for your own personal use subjected to restrictions set in these terms and conditions.</p>
+<ul>
+    <li>Republish material from OriGamers.</li>
+    <li>Sell, rent or sub-license material from OriGamers.</li>
+    <li>Reproduce, duplicate or copy material from OriGamers.</li>
+    <li>Redistribute content from OriGamers.</li>
 </ul>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">This Agreement shall begin on the date hereof. Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. OriGamers does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of OriGamers, its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, OriGamers shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</span></p>
+<p>This Agreement shall begin on the date hereof. Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. OriGamers does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of OriGamers, its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, OriGamers shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">OriGamers reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You warrant and represent that:</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">The Comments do not contain any defamatory, libellous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:14pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</span></p>
-    </li>
-</ul>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">You hereby grant OriGamers a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</span></p>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:18pt; color: red !important; background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Hyperlinking to our Content</span></p>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">The following organizations may link to our Website without prior written approval:</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Government agencies;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Search engines;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">News organizations;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:14pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</span></p>
-    </li>
-</ul>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party&rsquo;s site.</span></p>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">We may consider and approve other link requests from the following types of organizations:</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Commonly-known consumer and/or business information sources;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Dot.com community sites;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Associations or other groups representing charities;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Online directory distributors;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Internet portals;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Accounting, law and consulting firms; and</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:14pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Educational institutions and trade associations.</span></p>
-    </li>
-</ul>
+<p>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</p>
+<p>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</p>
+<p>The Comments do not contain any defamatory, libellous, offensive, indecent or otherwise unlawful material which is an invasion of privacy.</p>
+<p>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</p>
+<p>You hereby grant OriGamers a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
+<p>Hyperlinking to our Content</p>
+<p>The following organizations may link to our Website without prior written approval:</p>
+<p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Government agencies;</span></p>
+<p>Search engines</p>
+<p>News organizations</p>
+<p>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses</p>
+<p>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</p>
+<p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party&rsquo;s site.</p>
+<p>We may consider and approve other link requests from the following types of organizations:</p>
+<p>Commonly-known consumer and/or business information sources;</p>
+<p>Dot.com community sites</p>
+<p>Associations or other groups representing charities;</p>
+<p>Online directory distributors;</p>
+<p>Internet portals;</p>
+<p>Accounting, law and consulting firms; and</p>
+<p>Educational institutions and trade associations.</p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavourably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of OriGamers; and (d) the link is in the context of general resource information.</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party&rsquo;s site.</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to OriGamers. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Approved organizations may hyperlink to our Website as follows:</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">By use of our corporate name; or</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">By use of the uniform resource locator being linked to; or</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:14pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party&rsquo;s site.</span></p>
-    </li>
-</ul>
-<p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">No use of OriGamers&apos;s logo or other artwork will be allowed for linking absent a trademark license agreement.</span></p>
+<p>By use of our corporate name; </p>
+<p>By use of the uniform resource locator being linked to; or</p>
+<p>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party&rsquo;s site.</p>
+<p>No use of OriGamers&apos;s logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:13.5pt;"><span style="font-size:18pt; color: red !important; background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">I-Frames</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</span></p>
 <p><br></p>
@@ -253,20 +144,10 @@
 <p><br></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:18pt; color: red !important; background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Disclaimer</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</span></p>
-<ul style="margin-top:0;margin-bottom:0;">
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:14pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Limit or exclude our or your liability for death or personal injury;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Limit or exclude our or your liability for fraud or fraudulent misrepresentation;</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Limit any of our or your liabilities in any way that is not permitted under applicable law; or</span></p>
-    </li>
-    <li dir="ltr" style="list-style-type:disc;font-size:10pt;font-family:'Ubuntu',sans-serif;color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:14pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Exclude any of our or your liabilities that may not be excluded under applicable law.</span></p>
-    </li>
-</ul>
+<p>Limit or exclude our or your liability for death or personal injury;</p>
+ <p>Limit or exclude our or your liability for fraud or fraudulent misrepresentation;</p>
+<p>Limit any of our or your liabilities in any way that is not permitted under applicable law; or</p>
+<p>Exclude any of our or your liabilities that may not be excluded under applicable law.</p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</span></p>
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:15pt;"><span style="font-size:12pt; color:#333333;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</span></p>
 <p><br></p>
@@ -275,6 +156,11 @@
     </div>
     </div>
 <style>
+    *{
+        list-style: none !important;
+        white-space: inherit;
+    }
+    li p{margin: 0 !important;}
     .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
         background-color: red;
     }
