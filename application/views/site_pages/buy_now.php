@@ -37,9 +37,9 @@
           $("input#tnc_cb").click(function (e) { 
             e.preventDefault();
             if($(this).prop(":checked")){
-              $("button#PayButton").css("display","block");
+              $("button#PayButton").removeClass("d-none");
             }else{
-              $("button#PayButton").css("display","none");
+              $("button#PayButton").addClass("d-none");
             }
           });
         </script>
