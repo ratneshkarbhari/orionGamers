@@ -44,7 +44,7 @@ echo $title; ?></h2>
                         <?php echo $refund_request['email']; ?>
                     </td>
                     <td>
-                        <?php $bankDetails = json_decode($refund_request['bank_details'],TRUE); 
+                        <?php $bankDetails = json_decode($refund_request['bank_details']); 
                             echo $bankDetails["account_number"].'<br>'.$bankDetails['ifsc'].'<br>'.$bankDetails["bank_name"].'<br>'.$bankDetails["branch_name"];
                         ?>
                     </td>
