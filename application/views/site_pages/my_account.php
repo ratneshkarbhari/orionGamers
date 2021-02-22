@@ -151,8 +151,8 @@
                     <?php if($purchased=="yes"): ?>
                     <div class="tab-pane fade" id="v-pills-refund" role="tabpanel" aria-labelledby="v-pills-refund-tab">
                         <h4>Request Refund</h4>
-                        <?php  ?>
-                        <form action="<?php echo site_url('create-refund-request-exe'); ?>" method="post">
+
+                        <!-- <form action="<?php echo site_url('create-refund-request-exe'); ?>" method="post"> -->
                             <div class="form-group">
                                 <label for="account_number">Account Number</label>
                                 <input class="form-control" type="text" name="account_number" id="account_number">
@@ -177,9 +177,38 @@
                                 <label for="email">Email</label>
                                 <input class="form-control" type="text" name="email" id="email">
                             </div>
-                            <button type="submit" class="btn btn-danger">Send Request</button>
-                        </form>                   
+                            <p class="text-success" id="success-message-rr"></p>
+                            <button type="button" id="submit_refund_request" class="btn btn-danger">Send Request</button>
+                        <!-- </form>                    -->
                     </div>
+                    <script>
+                        $("button#submit_refund_request").click(function (e) { 
+                            e.preventDefault();
+                            let account_number = $("input#account_number").val();
+                            let ifsc = $("input#ifsc").val();
+                            let bank_name = $("input#bank_name").val();
+                            let branch_name = $("input#branch_name").val();
+                            let mobile_number = $("input#mobile_number").val();
+                            let email = $("input#email").val();
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo site_url('create-refund-request-exe'); ?>",
+                                data: {
+                                    "account_number" : account_number,
+                                    "ifsc" : ifsc,
+                                    "bank_name" : bank_name,
+                                    "branch_name" : branch_name,
+                                    "mobile_number" : mobile_number,
+                                    "email" : email 
+                                },
+                                success: function (response) {
+                                    if(response=="done"){
+                                        $("p#success-message-rr").html("Refund Request sent");
+                                    }                                    
+                                }
+                            });
+                        });
+                    </script>
                     <?php endif; ?>
                 </div>
             </div>

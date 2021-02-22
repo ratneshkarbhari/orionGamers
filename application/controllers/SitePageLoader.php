@@ -292,6 +292,12 @@
 					"mobile_number" => $this->input->post("mobile_number"),
 					"customer_id" => $_SESSION["id"]
 				);
+				$inserted = $this->db->insert("refund_requests",$data_to_insert);
+				if ($inserted) {
+					return("done");
+				} else {
+					return("not done");
+				}
 			}
 			
 		}
