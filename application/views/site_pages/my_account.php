@@ -188,8 +188,8 @@
                             let ifsc = $("input#ifsc").val();
                             let bank_name = $("input#bank_name").val();
                             let branch_name = $("input#branch_name").val();
-                            let mobile_number = $("input#mobile_number").val();
-                            let email = $("input#email").val();
+                            let mobile_number = $("input#mobile_number_rr").val();
+                            let email = $("input#email_rr").val();
                             $.ajax({
                                 type: "POST",
                                 url: "<?php echo site_url('create-refund-request-exe'); ?>",
