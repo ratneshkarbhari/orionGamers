@@ -26,6 +26,9 @@ echo $title; ?></h2>
                     <td>
                         Bank Details
                     </td>
+                    <td>
+                        Actions
+                    </td>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +44,7 @@ echo $title; ?></h2>
                         <?php echo $refund_request['email']; ?>
                     </td>
                     <td>
-                        <?php $refund_request['bank_details']; ?>
+                        <?php echo $refund_request['bank_details']; ?>
                     </td>
                     <td>
                         <form action="<?php echo site_url('delete-refund-request'); ?>" method="post">
