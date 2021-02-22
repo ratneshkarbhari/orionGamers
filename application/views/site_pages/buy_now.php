@@ -13,8 +13,8 @@
           <h3 class="card-title" style="background-color: white !important; color: black !important;"><?php echo $gameProductData['title']; ?></h3>
           <p class="card-text"><?php echo $gameProductData['description']; ?></p>
           
-		  <!-- <form action="https://secure.payu.in/_payment/" method="post"> -->
-      <form action="https://sandboxsecure.payu.in/_payment" method="post"></form>
+		  <form action="https://secure.payu.in/_payment/" method="post">
+      <!-- <form action="https://sandboxsecure.payu.in/_payment" method="post"></form> -->
 			  <input type="hidden" name="key" value="lomegegA">
 			  <input type="hidden" name="txnid" value="<?php echo $txnid = rand(1000,9999); ?>">
 			  <input type="hidden" name="amount" value="<?php echo $gameProductData["sale_price"]; ?>">

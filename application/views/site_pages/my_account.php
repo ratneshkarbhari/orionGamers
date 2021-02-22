@@ -10,8 +10,9 @@
                 <?php if($purchased=='yes'||$purchased=='different'): ?>
                 <a class="nav-link" id="v-referred-people-tab" data-toggle="pill" href="#v-pills-referred-people" role="tab" aria-controls="v-pills-referred-people" aria-selected="false">Refferals</a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Request Google Play Voucher</a>
+                
                 <a class="nav-link" id="v-pills-refund-tab" data-toggle="pill" href="#v-pills-refund" role="tab" aria-controls="v-pills-refund" aria-selected="false">Request Refund</a>
-
+                
                 <?php endif; ?>
                 </div>
             </div>
@@ -147,19 +148,39 @@
                         </form>                   
                         <?php endif; ?>
                     </div>
+                    <?php if($purchased=="yes"): ?>
                     <div class="tab-pane fade" id="v-pills-refund" role="tabpanel" aria-labelledby="v-pills-refund-tab">
-                        <h4>Request Google Play Voucher</h4>
-                        <?php if($customerData['gpay_credit_claim_status']!='requested'||$customerData['gpay_credit_claim_status']!='settled'): ?>
-                        <p>Once 3 people have joined and purchased using your refferal code, the form below will unlock kindly submit your working gmail id to receive your google play voucher code. </p>
-                        <form action="<?php echo site_url('update-google-play-credit-email'); ?>" method="post">
+                        <h4>Request Refund</h4>
+                        <?php  ?>
+                        <form action="<?php echo site_url('create-refund-request-exe'); ?>" method="post">
                             <div class="form-group">
-                                <label for="google-play-credits-email">Gmail address to recieve Google Play credit discount</label>
-                                <input class="form-control" type="email" name="google-play-email" id="google-play-email" <?php if($purchased<3){echo 'disabled';} ?>>
+                                <label for="account_number">Account Number</label>
+                                <input class="form-control" type="text" name="account_number" id="account_number">
                             </div>
-                            <button type="submit" class="btn btn-danger" <?php if($purchased<3){echo 'disabled';} ?>>Save</button>
+                            <div class="form-group">
+                                <label for="ifsc">IFSC Code</label>
+                                <input class="form-control" type="text" name="ifsc" id="ifsc">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank_name">Bank Name</label>
+                                <input class="form-control" type="text" name="bank_name" id="bank_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="branch_name">Branch Name</label>
+                                <input class="form-control" type="text" name="branch_name" id="branch_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile_number">Mobile Number</label>
+                                <input class="form-control" type="text" name="mobile_number" id="mobile_number">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="text" name="email" id="email">
+                            </div>
+                            <button type="submit" class="btn btn-danger">Send Request</button>
                         </form>                   
-                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

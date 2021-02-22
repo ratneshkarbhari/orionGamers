@@ -267,6 +267,35 @@
 		}
 
 
+		public function create_refund_request(){
+
+			$this->load->database();
+
+			if(!isset($_SESSION["id"])){
+				return("unauthorized");
+			}
+
+			$request_exists = $this->db->get_where("refund_requests",array("customer_id"=>$_SESSION["id"],"status"=>"placed"))->row_array();
+
+			if ($request_exists) {
+				return("request_present");
+			} else {
+				$bank_details = array(
+					"account_number" => $this->input->post('account_number'),
+					"ifsc" => $this->input->post('ifsc'),
+					"bank_name" => $this->input->post('bank_name'),
+					"branch_name" => $this->input->post('branch_name')
+				);
+				$data_to_insert = array(
+					"bank_details" => json_encode($bank_details),
+					"email" => $this->input->post('email'),
+					"mobile_number" => $this->input->post("mobile_number"),
+					"customer_id" => $_SESSION["id"]
+				);
+			}
+			
+		}
+
 
 		public function admin_login(){
 

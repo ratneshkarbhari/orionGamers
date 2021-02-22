@@ -78,3 +78,6 @@ $route['add-new-video-exe'] = 'Videos/add';
 $route['add-new-game-product-exe'] = 'GameProducts/add_new';
 $route['delete-game-product-exe'] = 'GameProducts/delete';
 $route['update-game-product-exe'] = 'GameProducts/update';
+
+// Refund Routes
+$route["create-refund-request-exe"] = "SitePageLoader/create_refund_request";
