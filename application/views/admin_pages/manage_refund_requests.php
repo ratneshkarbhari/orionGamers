@@ -41,7 +41,7 @@ echo $title; ?></h2>
                         <?php echo $refund_request['email']; ?>
                     </td>
                     <td>
-                        <?php $bank_details = json_decode($refund_request['bank_details'],TRUE); echo $bank_details['account_number'].'<br>'.$bank_details['ifsc'].'<br>'.$bank_details['bank_name'].'<br>'.$bank_details['branch_name'].'<br>'; ?>
+                        <?php $refund_request['bank_details']; ?>
                     </td>
                     <td>
                         <form action="<?php echo site_url('delete-refund-request'); ?>" method="post">
