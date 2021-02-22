@@ -290,7 +290,8 @@
 					"bank_details" => json_encode($bank_details),
 					"email" => $this->input->post('email'),
 					"mobile_number" => $this->input->post("mobile_number"),
-					"customer_id" => $_SESSION["id"]
+					"customer_id" => $_SESSION["id"],
+					"status" => "placed"
 				);
 				$inserted = $this->db->insert("refund_requests",$data_to_insert);
 				if ($inserted) {

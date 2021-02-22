@@ -170,12 +170,12 @@
                                 <input class="form-control" type="text" name="branch_name" id="branch_name">
                             </div>
                             <div class="form-group">
-                                <label for="mobile_number">Mobile Number</label>
-                                <input class="form-control" type="text" name="mobile_number" id="mobile_number">
+                                <label for="mobile_number_rr">Mobile Number</label>
+                                <input class="form-control" type="text" name="mobile_number_rr" id="mobile_number_rr">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input class="form-control" type="text" name="email" id="email">
+                                <label for="email_rr">Email</label>
+                                <input class="form-control" type="text" name="email_rr" id="email_rr">
                             </div>
                             <p class="text-success" id="success-message-rr"></p>
                             <button type="button" id="submit_refund_request" class="btn btn-danger">Send Request</button>
