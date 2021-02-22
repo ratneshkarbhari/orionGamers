@@ -59,20 +59,4 @@ echo $title; ?></h2>
         <?php endif; ?>
     </div>
 
-    <div style="margin-top: 5%;" class="container" id="addVideoBox">
-    
-        <h4>Add New Video</h4>
-
-        <form enctype="multipart/form-data" action="<?php echo site_url('add-new-video-exe'); ?>" method="post">
-        
-            <input type="file" name="videothumb" accept="image/*">
-
-            <input type="text" name="link" id="link">
-        
-            <button type="submit" class="btn">Add Video</button>
-
-        </form>
-
-    </div>
-
 </main>
