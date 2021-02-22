@@ -202,6 +202,7 @@
                                     "email" : email 
                                 },
                                 success: function (response) {
+                                    console.log(response);
                                     if(response=="done"){
                                         $("p#success-message-rr").html("Refund Request sent");
                                     }                                    

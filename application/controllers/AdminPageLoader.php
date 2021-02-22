@@ -16,6 +16,21 @@
             }
         }
 
+        public function refund_requests(){
+
+            $this->load->database();
+
+            $allRefundRequests = $this->db->get("refund_requests")->result_array();
+            $data["title"] = "Refund Requests";
+            $data['refund_requests'] = $allRefundRequests;
+            $data["success"] = $data["error"] = "";
+
+            $this->load->view('templates/admin_header', $data);
+            $this->load->view('admin_pages/manage_refund_requests', $data);
+            $this->load->view('templates/admin_footer', $data);
+
+        }
+
         public function manage_yt_videos(){
 
             $this->load->model('YtModel');
