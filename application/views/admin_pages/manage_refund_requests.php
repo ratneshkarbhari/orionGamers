@@ -44,7 +44,7 @@ echo $title; ?></h2>
                         <?php echo $refund_request['email']; ?>
                     </td>
                     <td>
-                        <?php $bankDetails = var_dump($refund_request['bank_details']); 
+                        <?php echo $refund_request['bank_details']; 
                         ?>
                     </td>
                     <td>
