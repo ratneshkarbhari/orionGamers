@@ -29,7 +29,8 @@
                     <li><a href="<?php echo site_url('all-sales'); ?>">Sales</a></li>
                     <li><a href="<?php echo site_url('all-google-play-credit-request'); ?>">Google Play Credit Requests</a></li>
                     <li><a href="<?php echo site_url('manage-youtube-videos'); ?>">Youtube Videos</a></li>
-                    <li><a href="<?php echo site_url('manage-refund-requests'); ?>">Refund Requests</a></li>                    
+                    <li><a href="<?php echo site_url('manage-refund-requests'); ?>">Refund Requests</a></li>
+                    <li><a href="<?php echo site_url("clear-all-cache"); ?>">Clear Cache</a></li>                    
                 </ul>
                 
                 <a href="#" data-target="slide-out" class="sidenav-trigger" style="margin: none !important;"><i class="material-icons text-white">menu</i></a>        

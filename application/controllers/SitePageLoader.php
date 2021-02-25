@@ -303,6 +303,11 @@
 			
 		}
 
+		public function clear_cache(){
+			$this->cache->clean();
+			redirect(site_url("admin-dashboard"));
+		}
+
 
 		public function admin_login(){
 
