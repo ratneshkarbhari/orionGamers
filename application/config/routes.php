@@ -81,4 +81,4 @@ $route['update-game-product-exe'] = 'GameProducts/update';
 
 // Refund Routes
 $route["create-refund-request-exe"] = "SitePageLoader/create_refund_request";
-$route["refund-requests"] = "AdminPageLoader/refund_requests";
+$route["manage-refund-requests"] = "AdminPageLoader/refund_requests";
