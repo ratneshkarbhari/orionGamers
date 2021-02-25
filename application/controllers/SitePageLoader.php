@@ -304,6 +304,7 @@
 		}
 
 		public function clear_cache(){
+			$this->load->driver('cache', array('adapter' => 'file'));
 			$this->cache->clean();
 			redirect(site_url("admin-dashboard"));
 		}
