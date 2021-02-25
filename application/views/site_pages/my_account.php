@@ -10,9 +10,9 @@
                 <?php if($purchased=='yes'||$purchased=='different'): ?>
                 <a class="nav-link" id="v-referred-people-tab" data-toggle="pill" href="#v-pills-referred-people" role="tab" aria-controls="v-pills-referred-people" aria-selected="false">Refferals</a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Request Google Play Voucher</a>
-                
+                <?php if(($purchased=="yes")): ?>
                 <a class="nav-link" id="v-pills-refund-tab" data-toggle="pill" href="#v-pills-refund" role="tab" aria-controls="v-pills-refund" aria-selected="false">Request Refund</a>
-                
+                <?php endif; ?>
                 <?php endif; ?>
                 </div>
             </div>
@@ -148,7 +148,7 @@
                         </form>                   
                         <?php endif; ?>
                     </div>
-                    <?php if($purchased=="yes"): ?>
+                    <?php if(($purchased=="yes")&&($purchasedCount>0)): ?>
                     <div class="tab-pane fade" id="v-pills-refund" role="tabpanel" aria-labelledby="v-pills-refund-tab">
                         <h4>Request Refund</h4>
 
